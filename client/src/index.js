@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose} from "redux";
 import reduxThunk from "redux-thunk";
+// import { default as reduxThunk } from "redux-thunk";
 import './index.css';
+import { ReactReduxSocketMiddleware } from 'react-redux-socket/client'
+
 // import containers
 import App from './App';
 // import SignUp from "./containers/SignUp";
@@ -13,15 +16,19 @@ import App from './App';
 
 // import components
 // import Welcome from "./components/Welcome";
-import reducer from "./reducers";
+import reducers from "./reducers";
+
+// const socketAddress = process.env.production ? 'heroku' : 'ws://localhost:4000/app1'
+const io = require('socket.io-client')('ws://localhost:4000/app1');
 
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-    reducer,
+    reducers,
     {auth: { authenticated: localStorage.getItem("token")}},
     composeEnhancers(applyMiddleware(reduxThunk))
+    // composeEnhancers(applyMiddleware(ReactReduxSocketMiddleware(io), reduxThunk)),
 )
 
 ReactDOM.render(

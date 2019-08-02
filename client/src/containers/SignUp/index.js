@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { signup } from "../../actions/authActions";
+import { signup, testDispatch } from "../../actions/authActions";
 import validator from "validator";
 import "./style.css";
+
 
 class Signup extends Component {
 
@@ -38,8 +39,9 @@ class Signup extends Component {
 
     render() {
         console.log(this.props)
-        const { handleSubmit } = this.props;
+        const { handleSubmit, testDispatch } = this.props;
         return (
+            <React.Fragment>
             <form onSubmit={handleSubmit(this.onSubmit)}> 
                 <fieldset>
                     <Field 
@@ -61,6 +63,8 @@ class Signup extends Component {
                 </fieldset>
                 <button>Signup</button>
             </form>
+            <button onClick={testDispatch}></button>
+            </React.Fragment>
         )
     }
 }
@@ -90,7 +94,7 @@ const validate = formValues => {
 }
 
 export default compose(
-    connect(mapStateToProps, { signup }),
+    connect(mapStateToProps, { signup, testDispatch }),
     reduxForm({ 
         form: "signup",
         validate 

@@ -1,12 +1,21 @@
 
-import { AUTH_USER, AUTH_ERROR } from "./types";
+import { AUTH_USER, AUTH_ERROR, TEST_ACTION } from "./types";
 import axios from "axios";
+
+import { MakeSocketAction } from 'react-redux-socket/client'
+
+
+// const authenticateUser = payload => ({
+//     type: AUTH_USER, 
+//     payload: res.data.token,
+// })
 
 export const signup = (formProps, callback) => async dispatch => {
     try {
         const res = await axios.post("/api/auth/signup", formProps);
         console.log(res.data.token)
         dispatch({ type: AUTH_USER, payload: res.data.token });
+        // dispatch(authenticateUser(res.data.token));
         localStorage.setItem("token", res.data.token);
         callback();
     } catch (e) {
@@ -33,3 +42,12 @@ export const signout = () => {
         payload: ""
     }
 }
+
+export const testDispatch = () =>
+    dispatch => {
+        dispatch({ type: TEST_ACTION  })
+         dispatch( MakeSocketAction({
+            type: "TEST_SERVER_ACTION"
+          }) )
+}
+
