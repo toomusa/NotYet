@@ -1,0 +1,114 @@
+.page-header {
+  padding: 10px 15px;
+  background-color: #1f324c;
+  margin: 0;
+  border: 0; 
+}
+
+.page-header > ul {
+  float: right;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-header > span {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+#page {
+  padding-left: 60px; 
+}
+
+.page {
+  overflow: visible;
+  top: 60px;
+  left: 52px;
+  width: 100%;
+  height: calc(100% - 60px);
+  -webkit-transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
+  transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
+  transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease; 
+  border-radius: 10px;
+  border: .5px rgb(0, 0, 110) solid;
+  box-shadow: 6px 6px 6px #999;
+}
+
+.profile-body {
+  height: calc(100% - 40px);
+  padding: 30px 15px;
+  background-color: rgba(14, 31, 56, 0.5); 
+}
+
+.valign {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: 5%;
+}
+                   
+.groups-list {
+  background-color: #172c48;
+  border-radius: 6px;
+  padding: 5px;
+  min-height: 120px;
+  max-height: calc(50vh - 240px);
+  overflow: hidden; 
+  margin-bottom: 35px;
+  min-width: 250px;
+  margin-right: 5px;
+}
+
+.groups-list > .list {
+  list-style: none;
+  padding: 0;
+  margin: 0 5px;
+  max-height: 100%; 
+}
+
+.groups-list > .list > li > a {
+  display: block;
+  padding: 8px 15px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.875em;
+}
+
+.groups-list > .list > li > a > .avatar {
+  position: relative;
+  top: -1px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.groups-list > .list > li > a:hover {
+  background-color: rgba(255, 255, 255, 0.05); 
+}
+                    
+.groups-list > .list > li > a:active {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+                
+.groups-list > .list > li + li { 
+  margin-top: 4px;                    
+}                       
+                          
+.avatar .little_avatar {                      
+  height: 20px;                         
+}
+                         
+h6 {                     
+  font-family: sans-serif;                     
+  color: white;                    
+  font-size: 1em;                    
+}             

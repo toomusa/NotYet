@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose} from "redux";
 import reduxThunk from "redux-thunk";
-
+import './index.css';
 // import containers
 import App from './App';
-import SignUp from "./containers/SignUp";
-import SignIn from "./containers/SignIn";
-import SignOut from "./containers/SignOut";
+// import SignUp from "./containers/SignUp";
+// import SignIn from "./containers/SignIn";
+// import SignOut from "./containers/SignOut";
 
 // import components
-import Welcome from "./components/Welcome";
+// import Welcome from "./components/Welcome";
 import reducer from "./reducers";
 
 // configure redux devtools
@@ -26,14 +26,34 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        {/* <Router> */}
             <App>
-                <Route exact path="/" component={Welcome}/>
+                {/* <Route exact path="/" component={Welcome}/>
                 <Route exact path="/signup" component={SignUp}/>
                 <Route exact path="/signin" component={SignIn}/>
                 <Route exact path="/signout" component={SignOut}/>
+
+                commented out now just to show functionality of front end
+                need to properly link everything on the landing page
+                -
+                i.e register leads to signUp,
+                Sign in leads to dashboard. 
+                -
+                i modified app.js to 
+                appears on our page, just need to work on functionality
+                -
+                i left a dashboard.js in src folder
+                it works as dashboard if you place the content in the App.js
+                but still need to modify it so that it is in the page section instead
+                -
+                added 
+                -the wrapper container for the moving background
+                -content for signin container (didn't link the backend)
+                -brand component for our future logo top left
+                -dashboard component still needs to be linked 
+                */}
             </App>
-        </Router>
+        {/* </Router> */}
     </Provider>
     , document.getElementById('root')
 );
