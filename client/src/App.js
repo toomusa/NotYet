@@ -10,6 +10,14 @@ import Wrapper from "./components/Wrapper";
 import Grid from "./components/Grid";
 import "./App.css";
 
+import io from "socket.io-client"
+let socket = io.connect('http://localhost:4000');
+socket.on('server-send', function (data) {
+  console.log(data);
+  socket.emit('client-send', { my: 'wompalompa' });
+});
+
+
 class App extends Component {
   render() {
     return (

@@ -2,8 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
-
+// const socket = require("./socket.io/socket.io");
 const app = express();
 
 // Database setup
@@ -52,18 +51,26 @@ app.use(routes, (req, res) => {
 //             break;
 //     }
 // }
-        
-        
-// const http = require('http').Server(app);
-// const io = require('socket.io')(http).of('app1');
-// const ioActionHandler = require("react-redux-socket/server");
 
-const PORT = process.env.PORT || 3001
+let server = require('http').Server(app);
+let io = require('socket.io')(server);
 
-// console.log(ioActionHandler)
-// // ioActionHandler(io).handlers(myHandler) // or ioActionHandler(io, myHandler)
-// ioActionHandler(io, myHandler)
+server.listen(4000);
 
-// http.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
+
+io.on('connection', function (socket) {
+  socket.emit('server-send', { hello: 'world' });
+  socket.on('client-send', function (data) {
+    console.log(data);
+  });
+});
+
+
+
+const PORT = process.env.PORT || 3001;
+
 
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
