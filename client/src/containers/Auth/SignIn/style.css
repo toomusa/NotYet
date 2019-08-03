@@ -42,7 +42,7 @@
   height: 100%;
   text-align: center;
   align-content: center;
-  padding: 155px 15px 30px 27px;
+  padding: 170px 15px 30px 27px;
 }
 
 .modal-brand-caption > .logo {
@@ -61,12 +61,42 @@
   margin-top: -6px;
   display: block;
 }
-  
+
+#signupButton, #loginButton, #stylingButton {
+  position: absolute;
+  top: 0px;
+}
+
+#stylingButton{
+  right: 260px;
+  width: 500px;
+  height: 45px;
+}
+#signupButton {
+  right: 120px;
+  width: 150px;
+}
+
+#loginButton {
+  right: 0px;
+  width: 150px;
+}
+
+#signupButton, #loginButton{
+  border: 1px solid #324052;
+}
+
+#signupButton:hover, #signupButton:active, #loginButton:active, #loginButton:hover {
+  background-color: inherit;
+  color: white;
+}
+
 .modal-block:hover {
   opacity: 0.9;
 }
 
 .modal-block > .modal-block-content {
+  margin-top: 5%;
   background-color: inherit;
   padding: 50px 30px 50px 42px;
   -webkit-box-flex: 1;

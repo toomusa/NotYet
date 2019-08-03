@@ -55,6 +55,10 @@ class Signup extends Component {
         </div>
         <div className="modal-block-content">
           <h3>Register Today!</h3>
+          <button id="stylingButton" className="btn btn-primary"></button>
+          {/* this one is not rly a button ^ it's to fill empty space*/}
+          <button id="signupButton" type="submit" className="btn btn-primary">LOGIN</button>
+          <button id="loginButton" type="submit" className="btn btn-primary">REGISTER</button>
           <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
             <div className="form-group">
               <label for="email">EMAIL</label>
