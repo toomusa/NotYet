@@ -2,9 +2,6 @@
 import { AUTH_USER, AUTH_ERROR, TEST_ACTION } from "./types";
 import axios from "axios";
 
-import { MakeSocketAction } from 'react-redux-socket/client'
-
-
 // const authenticateUser = payload => ({
 //     type: AUTH_USER, 
 //     payload: res.data.token,
@@ -46,8 +43,5 @@ export const signout = () => {
 export const testDispatch = () =>
     dispatch => {
         dispatch({ type: TEST_ACTION  })
-         dispatch( MakeSocketAction({
-            type: "TEST_SERVER_ACTION"
-          }) )
 }
 
