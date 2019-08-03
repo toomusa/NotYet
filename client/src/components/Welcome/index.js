@@ -2,19 +2,18 @@
 import React from "react";
 import "./style.css";
 
-import Wrapper from "../Wrapper";
 import Brand from "../Brand";
 import Grid from "../Grid";
 import Auth from "../../containers/Auth";
 
 const Welcome = () => {
     return (
-    <Wrapper>
+    <div>
         <Brand title='VIDI' />
         <Grid>
             <Auth/>
         </Grid>
-    </Wrapper>
+    </div>
     );
 }
   
