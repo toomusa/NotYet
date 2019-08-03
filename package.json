@@ -1,7 +1,6 @@
 {
   "name": "Oauth-React-Boilerplate",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && yarn run start:prod || yarn run start:dev",
@@ -32,5 +31,13 @@
   "devDependencies": {
     "concurrently": "^4.1.1"
   },
-  "repository": "git@github.com:toomusa/Oauth-React-Boilerplate.git"
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/toomusa/Oauth-React-Boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toomusa/Oauth-React-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/toomusa/Oauth-React-Boilerplate#readme",
+  "description": ""
 }
