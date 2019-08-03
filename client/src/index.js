@@ -14,6 +14,7 @@ import SignIn from "./containers/Auth/SignIn";
 import SignOut from "./containers/SignOut";
 import Welcome from "./components/Welcome";
 import Dashboard from "./components/Dashboard";
+import Wrapper from './components/Wrapper';
 
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -28,13 +29,15 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <App>
-                <Route exact path="/signup" component={SignUp}/>
-                <Route exact path="/signin" component={SignIn}/>
-                <Route exact path="/signout" component={SignOut}/>
-                <Route exact path="/dashboard" component={Dashboard}/>
-                <Route exact path="/" component={Welcome}/>
-            </App>
+            <Wrapper>
+                <App>
+                    <Route exact path="/signup" component={SignUp}/>
+                    <Route exact path="/signin" component={SignIn}/>
+                    <Route exact path="/signout" component={SignOut}/>
+                    <Route exact path="/dashboard" component={Dashboard}/>
+                    <Route exact path="/" component={Welcome}/>
+                </App>
+            </Wrapper>
         </Router>
     </Provider>
     , document.getElementById('root')
