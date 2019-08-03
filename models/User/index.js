@@ -8,7 +8,7 @@ const validateEmail = email => {
     return validator.isEmail(email);
 }
 
-const UserSchema = new Schema ({
+const UserSchema = new Schema({
     email: {
         type: String,
         unique: true,
@@ -23,13 +23,50 @@ const UserSchema = new Schema ({
         type: String,
         required: true
     },
-    todos: [
-        {
-            ref: "Todo",
-            type: Schema.Types.ObjectId
-        }
-    ]
-})
+    username: {
+        type: String,
+        required: true
+    },
+    active_channels: {
+        muted: Boolean,
+        default: false,
+        type: Schema.Types.ObjectId,
+        ref: "Channel"
+    },
+    invited_channels: {
+        type: Schema.Types.ObjectId,
+        ref: "Channel"
+    },
+    // channels: {
+    //     admin: {
+    //         type: Boolean,
+    //         default: false
+    //     },
+    //     muted: {
+    //         type: Boolean,
+    //         default: false
+    //     },
+    //     active_channels: {
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Channel"
+    //     }
+    // }
+    favorite_shows: {
+        query_id: Number, //id to query TMDb with
+        rating: Number
+    },
+    starred_messages: {
+        type: Schema.Types.ObjectId,
+        ref: "Message"
+    },
+    friends: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    date: { type: Date, default: Date.now 
+    }
+});
+
 
 UserSchema.pre("save", async function(next) {
     const user = this;
@@ -61,3 +98,12 @@ UserSchema.methods.comparePassword = async function(candidatePassword, callback)
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
+
+//  _id, 
+// name String, 
+// active_channels: [ { muted: Boolean, channel_id: ref channel._id } ],
+// invited_channels: ref[ channel._id],
+// favorites_shows: [{}, {}],
+// starred_messages: ref[ message._id ],
+// friends: ref user._id
+// )

@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose} from "redux";
 import reduxThunk from "redux-thunk";
 // import { default as reduxThunk } from "redux-thunk";
 import './index.css';
-import { ReactReduxSocketMiddleware } from 'react-redux-socket/client'
+// import { ReactReduxSocketMiddleware } from 'react-redux-socket/client'
 
 // import containers
 import App from './App';
