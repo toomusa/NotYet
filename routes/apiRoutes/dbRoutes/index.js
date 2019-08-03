@@ -23,4 +23,9 @@ router.route("/sendMessage")
 // router.route("/deleteMessage")
 //     .post(dbController.deleteMessage);
 
+router.route("/addMovies")
+    .post(dbController.addMovies);
+router.route("/addShows")
+    .post(dbController.addShows);
+
 module.exports = router;
