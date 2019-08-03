@@ -1,8 +1,13 @@
 import React, { Component } from "react";
-import SignIn from "./containers/SignIn";
+// comment out ChatArea and comment in any one of these to check it out
+// just doing it like this for now until I figure out how to do it properly
+// import SignIn from "./containers/SignIn"; 
+// import SignUp from "./containers/SignUp";  
+// import Dashboard from "./components/Dashboard";
+import ChatArea from "./components/ChatArea";
 import Brand from "./components/Brand";
-import Wrapper from "./containers/Wrapper";
-import Container from "./Container";
+import Wrapper from "./components/Wrapper";
+import Grid from "./components/Grid";
 import "./App.css";
 
 class App extends Component {
@@ -10,9 +15,14 @@ class App extends Component {
     return (
       <Wrapper>
         <Brand title='VIDI' />
-        <Container>
-          <SignIn />
-        </Container>
+        <Grid>
+          {/* comment out ChatArea and comment in any one of these to check it out
+          just doing it like this for now until I figure out how to do it properly  */}
+          {/* <SignIn /> */}
+          {/* <SignUp />  */}
+          {/* <Dashboard/> */}
+          <ChatArea/>
+        </Grid>
       </Wrapper>
     );
   }
