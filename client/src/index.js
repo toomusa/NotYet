@@ -13,6 +13,7 @@ import SignUp from "./containers/Auth/SignUp";
 import SignIn from "./containers/Auth/SignIn";
 import SignOut from "./containers/SignOut";
 import Welcome from "./components/Welcome";
+import ChatArea from "./components/ChatArea";
 import Dashboard from "./components/Dashboard";
 import Wrapper from './components/Wrapper';
 
@@ -35,6 +36,7 @@ ReactDOM.render(
                     <Route exact path="/signin" component={SignIn}/>
                     <Route exact path="/signout" component={SignOut}/>
                     <Route exact path="/dashboard" component={Dashboard}/>
+                    <Route exact path="/chatarea" component={ChatArea}/>
                     <Route exact path="/" component={Welcome}/>
                 </App>
             </Wrapper>
