@@ -25,14 +25,14 @@ const UserSchema = new Schema({
     },
     username: {
         type: String,
-        required: true
+        required: false
     },
-    active_channels: {
-        muted: Boolean,
-        default: false,
-        type: Schema.Types.ObjectId,
-        ref: "Channel"
-    },
+    // active_channels: {
+    //     muted: Boolean,
+    //     default: false,
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Channel"
+    // },
     invited_channels: {
         type: Schema.Types.ObjectId,
         ref: "Channel"
@@ -51,10 +51,10 @@ const UserSchema = new Schema({
     //         ref: "Channel"
     //     }
     // }
-    favorite_shows: {
-        query_id: Number, //id to query TMDb with
-        rating: Number
-    },
+    // favorite_shows: {
+    //     query_id: Number, //id to query TMDb with
+    //     rating: Number
+    // },
     starred_messages: {
         type: Schema.Types.ObjectId,
         ref: "Message"
@@ -62,9 +62,9 @@ const UserSchema = new Schema({
     friends: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    },
-    date: { type: Date, default: Date.now 
     }
+    // date: { type: Date, default: Date.now 
+    // }
 });
 
 
@@ -107,3 +107,4 @@ module.exports = User;
 // starred_messages: ref[ message._id ],
 // friends: ref user._id
 // )
+

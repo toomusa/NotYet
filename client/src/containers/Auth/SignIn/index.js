@@ -14,12 +14,12 @@ class SignIn extends Component {
 
     onSubmit = formValues => {
         this.props.signin(formValues, () => {
-            this.props.history.push("/counter");
+            this.props.history.push("/dashboard");
         })
     }
 
     render () {
-        console.log("yeee");
+        // console.log(this.props);
         const { handleSubmit } = this.props;
         return (
           <div className="modal-block">
@@ -39,8 +39,9 @@ class SignIn extends Component {
                     {/* <input type="email" name="email" id="email" className="email form-control" /> */}
                     <Field 
                       name="email"
-                      type="email" 
+                      type="text" 
                       id="email"
+                      label="Email"
                       className="email form-control"
                       component={this.renderInput}
                   />

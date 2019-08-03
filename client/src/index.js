@@ -24,21 +24,22 @@ const store = createStore(
     composeEnhancers(applyMiddleware(reduxThunk))
 )
 
+//#region
 ReactDOM.render(
     <Provider store={store}>
         <Router>
             <App>
-                <Route exact path="/" component={Welcome}/>
                 <Route exact path="/signup" component={SignUp}/>
                 <Route exact path="/signin" component={SignIn}/>
                 <Route exact path="/signout" component={SignOut}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
+                <Route exact path="/" component={Welcome}/>
             </App>
         </Router>
     </Provider>
     , document.getElementById('root')
 );
-
+//#endregion
 
 // commented out now just to show functionality of front end
 // need to properly link everything on the landing page

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { signup, testDispatch } from "../../../actions/authActions";
+import { signup } from "../../../actions/authActions";
 import validator from "validator";
 import "./style.css";
 
@@ -20,7 +20,7 @@ class Signup extends Component {
     }
 
     renderInput = ({ input, label, meta }) => {
-        console.log(meta);
+        // console.log(meta);
         return (
             <div>
                 <label>{label}</label>
@@ -33,13 +33,15 @@ class Signup extends Component {
     onSubmit = formProps => {
         console.log(formProps)
         this.props.signup(formProps, () => {
-            this.props.history.push("/counter");
+            console.log("BAck in signup")
+            console.log(this.props)
+            this.props.history.push("/dashboard");
         })
     }
 
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const { handleSubmit } = this.props;
         return(
           <div className="modal-block">
@@ -56,6 +58,7 @@ class Signup extends Component {
               <div className="form-group">
                 <label for="email">EMAIL</label>
                 {/* <input type="email" name="email" id="email" className="email form-control" /> */}
+                <fieldset>
                 <Field 
                   name="email"
                   type="email" 
@@ -63,16 +66,19 @@ class Signup extends Component {
                   className="email form-control"
                   component={this.renderInput}
                 />
+                </fieldset>
               </div>
               <div className="form-group">
                 <label for="password">PASSWORD</label>
                 {/* <input type="password" name="password" id="password" className="form-control" /> */}
+                <fieldset>
                 <Field 
                   name="password"
                   type="password" 
                   className="form-control"
                   component={this.renderInput}
                 />
+                </fieldset>
               </div>
               <div className="form-group">
                 {/* <p className="help-block"><a href="/" className="link-underline">FORGOT YOUR PASSWORD?</a></p> */}
@@ -93,7 +99,7 @@ function mapStateToProps(state) {
 
 const validate = formValues => {
     const error = {};
-    console.log("validator", formValues);
+    // console.log("validator", formValues);
 
     if (!formValues.email) {
         error.email = "You must enter an email";
@@ -112,7 +118,7 @@ const validate = formValues => {
 }
 
 export default compose(
-    connect(mapStateToProps, { signup, testDispatch }),
+    connect(mapStateToProps, { signup }),
     reduxForm({ 
         form: "signup",
         validate 
