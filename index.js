@@ -2,8 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
-
+// const socket = require("./socket.io/socket.io");
 const app = express();
 
 // Database setup
@@ -34,36 +33,43 @@ app.use(routes, (req, res) => {
 })
 
 
-const myHandler = function(action, { dispatch, broadcast }){
-    switch(action.type) {
-        case 'MY_ACTION_FROM_CLIENT_TO_SERVER':
-            dispatch({ type: 'MY_ANSWER_FROM_SERVER_TO_CLIENT' })
-            break;
+// const myHandler = function(action, { dispatch, broadcast }){
+//     switch(action.type) {
+//         case 'MY_ACTION_FROM_CLIENT_TO_SERVER':
+//             dispatch({ type: 'MY_ANSWER_FROM_SERVER_TO_CLIENT' })
+//             break;
 
-        case 'TEST_SERVER_ACTION': 
-            console.log('Test Action Success!');
-            break;
+//         case 'TEST_SERVER_ACTION': 
+//             console.log('Test Action Success!');
+//             break;
 
-        case 'MY_OTHER_ACTION_FROM_CLIENT':
-            broadcast({ type: 'CHANNEL_NAME_MESSAGE' })
-            break;
-        default:
-            console.log('No actions matched in server reducer.')
-            break;
-    }
-}
-        
-        
-const http = require('http').Server(app);
-const io = require('socket.io')(http).of('app1');
-const ioActionHandler = require("react-redux-socket/server");
+//         case 'MY_OTHER_ACTION_FROM_CLIENT':
+//             broadcast({ type: 'CHANNEL_NAME_MESSAGE' })
+//             break;
+//         default:
+//             console.log('No actions matched in server reducer.')
+//             break;
+//     }
+// }
 
-const PORT = process.env.PORT || 4000;
+let server = require('http').Server(app);
+let io = require('socket.io')(server);
 
-console.log(ioActionHandler)
-// ioActionHandler(io).handlers(myHandler) // or ioActionHandler(io, myHandler)
-ioActionHandler(io, myHandler)
+server.listen(4000);
 
-http.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
-// app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+io.on('connection', function (socket) {
+  socket.emit('server-send', { hello: 'world' });
+  socket.on('client-send', function (data) {
+    console.log(data);
+  });
+});
+
+
+
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))

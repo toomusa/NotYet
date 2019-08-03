@@ -6,7 +6,6 @@ import { createStore, applyMiddleware, compose} from "redux";
 import reduxThunk from "redux-thunk";
 // import { default as reduxThunk } from "redux-thunk";
 import './index.css';
-import { ReactReduxSocketMiddleware } from 'react-redux-socket/client'
 
 // import containers
 import App from './App';
@@ -19,7 +18,7 @@ import App from './App';
 import reducers from "./reducers";
 
 // const socketAddress = process.env.production ? 'heroku' : 'ws://localhost:4000/app1'
-const io = require('socket.io-client')('ws://localhost:4000/app1');
+// const io = require('socket.io-client')('ws://localhost:4000/app1');
 
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
