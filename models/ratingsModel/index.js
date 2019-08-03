@@ -23,9 +23,8 @@ const RatingsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Channel"
   },
-  timeStamp: {
-    date: new Date(Date.now())
-  }
+  date: { type: Date, default: Date.now 
+  },
 });
 
 const Ratings = mongoose.model("ratings", RatingsSchema);

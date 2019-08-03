@@ -15,9 +15,8 @@ const ChannelsSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  timeStamp: {
-    date: new Date(Date.now())
-  }
+  date: { type: Date, default: Date.now 
+  },
 });
 
   // - channel ( 

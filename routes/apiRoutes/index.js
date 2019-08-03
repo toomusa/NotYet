@@ -3,7 +3,6 @@ const authRoutes = require("./authRoutes");
 const dbRoutes = require("./dbRoutes");
 const movieRoutes = require("./movieRoutes");
 const showRoutes = require("./showRoutes");
-
 const passportService = require("../../services/passport")
 const authMiddlewares = require("../../middlewares/authMiddlewares");
 

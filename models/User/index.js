@@ -23,33 +23,47 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    name: {
+    username: {
         type: String,
         required: true
     },
-    active_channels: [{
-        muted: false,
+    active_channels: {
+        muted: Boolean,
+        default: false,
         type: Schema.Types.ObjectId,
         ref: "Channel"
-    }],
-    invited_channels: [{
+    },
+    invited_channels: {
         type: Schema.Types.ObjectId,
         ref: "Channel"
-    }],
-    favorite_shows: [{
+    },
+    // channels: {
+    //     admin: {
+    //         type: Boolean,
+    //         default: false
+    //     },
+    //     muted: {
+    //         type: Boolean,
+    //         default: false
+    //     },
+    //     active_channels: {
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Channel"
+    //     }
+    // }
+    favorite_shows: {
         query_id: Number, //id to query TMDb with
         rating: Number
-    }],
-    starred_messages: [{
+    },
+    starred_messages: {
         type: Schema.Types.ObjectId,
         ref: "Message"
-    }],
-    friends: [{
+    },
+    friends: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }],
-    timeStamp: {
-        date: new Date(Date.now())
+    },
+    date: { type: Date, default: Date.now 
     }
 });
 
