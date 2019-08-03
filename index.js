@@ -34,36 +34,36 @@ app.use(routes, (req, res) => {
 })
 
 
-const myHandler = function(action, { dispatch, broadcast }){
-    switch(action.type) {
-        case 'MY_ACTION_FROM_CLIENT_TO_SERVER':
-            dispatch({ type: 'MY_ANSWER_FROM_SERVER_TO_CLIENT' })
-            break;
+// const myHandler = function(action, { dispatch, broadcast }){
+//     switch(action.type) {
+//         case 'MY_ACTION_FROM_CLIENT_TO_SERVER':
+//             dispatch({ type: 'MY_ANSWER_FROM_SERVER_TO_CLIENT' })
+//             break;
 
-        case 'TEST_SERVER_ACTION': 
-            console.log('Test Action Success!');
-            break;
+//         case 'TEST_SERVER_ACTION': 
+//             console.log('Test Action Success!');
+//             break;
 
-        case 'MY_OTHER_ACTION_FROM_CLIENT':
-            broadcast({ type: 'CHANNEL_NAME_MESSAGE' })
-            break;
-        default:
-            console.log('No actions matched in server reducer.')
-            break;
-    }
-}
+//         case 'MY_OTHER_ACTION_FROM_CLIENT':
+//             broadcast({ type: 'CHANNEL_NAME_MESSAGE' })
+//             break;
+//         default:
+//             console.log('No actions matched in server reducer.')
+//             break;
+//     }
+// }
         
         
-const http = require('http').Server(app);
-const io = require('socket.io')(http).of('app1');
-const ioActionHandler = require("react-redux-socket/server");
+// const http = require('http').Server(app);
+// const io = require('socket.io')(http).of('app1');
+// const ioActionHandler = require("react-redux-socket/server");
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3001
 
-console.log(ioActionHandler)
-// ioActionHandler(io).handlers(myHandler) // or ioActionHandler(io, myHandler)
-ioActionHandler(io, myHandler)
+// console.log(ioActionHandler)
+// // ioActionHandler(io).handlers(myHandler) // or ioActionHandler(io, myHandler)
+// ioActionHandler(io, myHandler)
 
-http.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+// http.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
 
-// app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
