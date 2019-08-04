@@ -52,21 +52,21 @@ app.use(routes, (req, res) => {
 //     }
 // }
 
-// let server = require('http').Server(app);
-// let io = require('socket.io')(server);
+let server = require('http').Server(app);
+let io = require('socket.io')(server);
 
-// server.listen(4000);
+server.listen(4000);
 
-// app.get('/', function (req, res) {
-//   res.sendFile(__dirname + '/index.html');
-// });
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
-// io.on('connection', function (socket) {
-//   socket.emit('server-send', { hello: 'world' });
-//   socket.on('client-send', function (data) {
-//     console.log(data);
-//   });
-// });
+io.on('connection', function (socket) {
+  socket.emit('server-send', { hello: 'world' });
+  socket.on('client-send', function (data) {
+    console.log(data);
+  });
+});
 
 
 
