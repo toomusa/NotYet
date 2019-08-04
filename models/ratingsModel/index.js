@@ -3,39 +3,37 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const RatingsSchema = new Schema({
-  author: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    required: true
+  date: { type: Date, default: new Date(Date.now()) },
+  score: {
+    type: Number,
+    min: 1,
+    max: 10,
+    required: false
   },
-  media_title: { //called showOrMovie
+  review: {
     type: String,
-    required: true
+    required: false 
   },
-  comment: { //previously called summary
-    type: String,
-  },
-  rating: { //1-10
-    required: true,
-    type: Number
-  },
-  channel: {
+  user: {
     type: Schema.Types.ObjectId,
-    ref: "Channel"
+    ref: "User"
   },
-  date: { type: Date, default: Date.now 
-  },
+  media: [{
+    current: {
+      type: Boolean,
+      default: false
+    },
+    ref_movie: {
+      type: Schema.Types.ObjectId,
+      ref: "Movie"
+    },
+    ref_show: {
+        type: Schema.Types.ObjectId,
+        ref: "Show"
+    },
+  }]
 });
 
-const Ratings = mongoose.model("ratings", RatingsSchema);
+const Rating = mongoose.model("Rating", RatingsSchema);
 
-module.exports = Ratings;
-
-// - review ( 
-//   _id, 
-//   author: ref user._id, 
-//   showOrMovie, 
-//   summary, 
-//   rating, 
-//   channel._id 
-//   )
+module.exports = Rating;
