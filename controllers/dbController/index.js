@@ -32,13 +32,47 @@ const sendMessage = async (req, res) => {
       console.log(error)
     } 
   }
-
+  const addShows = async (req, res) => {
+    console.log(req.body);
+    let {showId, name, next_episode_to_air, episode_number, overview, season_number} = req.body;
+    let newShow = {};
+        newShow.showId = showId;
+        newShow.name = name;
+        newShow.next_episode_to_air = next_episode_to_air;
+        newShow.episode_number = episode_number;
+        newShow.overview = overview;
+        newShow.season_number = season_number;
+    let resp = await Shows.create(newShow);
+        try {
+            console.log(resp +"added");
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+const addMovies = async (req, res) => {
+    console.log(req.body);
+    let{movieId, title, poster_path, release_date, vote_average, overview, runtime, revenue} = req.body;
+    let newMovie = {};
+        newMovie.movieId = movieId;
+        newMovie.title = title;
+        newMovie.poster_path = poster_path;
+        newMovie.release_date = release_date;
+        newMovie.vote_average = vote_average;
+        newMovie.overview = overview;
+        newMovie.runtime = runtime;
+        newMovie.revenue = revenue;
+    let resp = await Movies.create(newMovie);
+        try {
+            console.log(resp +"added");
+        } catch (error) {
+            console.log(error)
+        }
+    }
+console.log("hi")
+module.exports = {addMovies, addShows, sendMessage}
   // let newNote = await Note.create(note);
   //          let articleWithNote = await Article.findByIdAndUpdate(_id, {$push: {note: newNote._id}}, {new: true})
-
-const deleteMessage = async (req, res) => {}
-
-module.exports = {sendMessage}
 
 // a user can:
 // - sign up
