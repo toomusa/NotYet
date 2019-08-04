@@ -2,55 +2,73 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//test schema
 const MessagesSchema = new Schema({
-  user: {
+  date: { type: Date, default: new Date(Date.now()) },
+  text: {
     type: String,
-    required: true
+    required: true,
   },
-  channel: { 
-    type: String,
-    required: true
+  starred: {
+    type: Number,
+    default: 0
   },
-  content: {            //maybe call it comment, but need to change on review.js if so
-    type: String
+  sender: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
   },
-  likes: {
-    type: Number
-  },
-  date: { type: Date, default: Date.now 
-  }
+  channel: [{
+    admin: {
+        type: Boolean,
+        default: false
+    },
+    muted: {
+        type: Boolean,
+        default: false
+    },
+    public: {
+      type: Boolean,
+      default: false
+    },
+    ref_channel: {
+        type: Schema.Types.ObjectId,
+        ref: "Channel"
+    }
+  }],
+  media: [{
+    current: {
+      type: Boolean,
+      default: false
+    },
+    ref_movie: {
+      type: Schema.Types.ObjectId,
+      ref: "Movie",
+      required: false
+    },
+    ref_show: {
+        type: Schema.Types.ObjectId,
+        ref: "Show",
+        required: false
+    },
+  }]
 });
 
-//real schema
-// const MessagesSchema = new Schema({
-//   user: {
-//     type: Schema.Types.ObjectId,
-//     ref: "User",
-//     required: true
-//   },
-//   channel: { 
-//     type: Schema.Types.ObjectId,
-//     ref: "Channel",
-//     required: true
-//   },
-//   content: {            //maybe call it comment, but need to change on review.js if so
-//     type: String
-//   },
-//   likes: {
-//     type: Number
-//   },
-//   date: { type: Date, default: Date.now 
+// some guesswork on how to validate authentication on db queries
+// MessagesSchema.methods.verifyUser = async function(candidateToken, callback){
+//   const user = this;
+//   try {
+//       // compare sender token to existing token
+//       const isMatch = (candidateToken) => {
+//         let loggedInUser = localStorage.getItem("token");
+//         (candidateToken === loggedInUser) ? true : false;
+//       }
+//       isMatch(candidateToken);
+//       // first parameter is error, second is response object (user or false)
+//       callback(null, isMatch);
+//   } catch(e) {
+//       callback(e);
 //   }
-// });
+// }
 
-const Messages = mongoose.model("messages", MessagesSchema);
+const Message = mongoose.model("Message", MessagesSchema);
 
-module.exports = Messages;
-
-// - message ( 
-//   _id, author: ref user._id, 
-//   channel: ref channel._id, 
-//   content: String, 
-//   likes: Integer 
-//   )
+module.exports = Message;

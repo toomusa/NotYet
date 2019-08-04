@@ -282,6 +282,13 @@ RESOURCES
 
 IDEA BANK
 
+- creating a channel for a show or movie should automatically add it to 
+  favorite_show or favorite_movie for the user... 
+  maybe also joining a channel does the same?
+
+- channel creator topic placeholder: Optional, will default to Movie or Show name
+  and code that in
+
 - get list of channels user is active in: user.active_channels
 
 - get all channel messages: message where channel._id === targetChannel
@@ -323,4 +330,26 @@ COOKIES
     expiresIn: new Date(Date.now() + 90000)
   }
 
+
+// Notes
+// Mixed types and dates that are modified using JavaScript Date methods 
+// are not hooked into mongoose change tracking logic. 
+// To save changes, let mongoose know about them using markModified('path') 
+// before calling save.
+
+Allowed schema paths
+• String - Any string, UTF-8 encoded
+• Number - default support is enough for most cases
+• Date - Typically returned from MongoDB as an ISODate
+object
+• Boolean - True or false
+• Buffer - For binary information such as images
+• Mixed - Any data type
+• Array - Can either be an array of the same data type, or
+an array of nested sub-documents
+• ObjectId - For a unique ID in a path other than _id;
+typically used to reference _id paths in other documents 
+
+
+If you have Board embedded in Surf, you can update using something like Surf.update({ 'board._id': board._id }, { $set: { board: board.toObject() } }, { multi: true }, callback);
 

@@ -3,29 +3,53 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ChannelsSchema = new Schema({
+  date: { type: Date, default: new Date(Date.now()) },
   topic: {
     type: String,
     required: false
   },
-  admin_id: {
-    type: Schema.Types.ObjectId,
-    ref: "User"
+  description: {
+    type: String,
+    required: false,
   },
-  open_invite: {
+  public: {
     type: Boolean,
-    default: false,
+    default: false
   },
-  date: { type: Date, default: Date.now 
+  starred: {
+    type: Number,
+    default: 0
   },
+  members: [{
+    date: { type: Date, default: new Date(Date.now()) },
+    admin: {
+      type: Boolean,
+      default: false
+    },
+    ref_user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
+  }],
+  media: [{
+    date: { type: Date, default: new Date(Date.now()) },
+    current: {
+      type: Boolean,
+      default: false
+    },
+    ref_movie: {
+      type: Schema.Types.ObjectId,
+      ref: "Movie",
+      required: false
+    },
+    ref_show: {
+        type: Schema.Types.ObjectId,
+        ref: "Show",
+        required: false
+    },
+  }]
 });
 
-  // - channel ( 
-  //   _id,
-  //   topic: String, 
-  //   admin_id: ref[ user._id ] 
-  //   open_invite: Boolean,
-  //   )
+const Channel = mongoose.model("Channel", ChannelsSchema);
 
-const Channels = mongoose.model("channels", ChannelsSchema);
-
-module.exports = Channels;
+module.exports = Channel;
