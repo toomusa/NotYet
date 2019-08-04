@@ -16,6 +16,7 @@ import Welcome from "./components/Welcome";
 import ChatArea from "./components/ChatArea";
 import Dashboard from "./components/Dashboard";
 import Wrapper from './components/Wrapper';
+import Channels from './containers/Channels';
 
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -38,6 +39,7 @@ ReactDOM.render(
                     <Route exact path="/dashboard" component={Dashboard}/>
                     <Route exact path="/chatarea" component={ChatArea}/>
                     <Route exact path="/" component={Welcome}/>
+                    <Route exact path="Channels" component={Channels}/>
                 </App>
             </Wrapper>
         </Router>
@@ -45,22 +47,3 @@ ReactDOM.render(
     , document.getElementById('root')
 );
 //#endregion
-
-// commented out now just to show functionality of front end
-// need to properly link everything on the landing page
-// -
-// i.e register leads to signUp,
-// Sign in leads to dashboard. 
-// -
-// i modified app.js to 
-// appears on our page, just need to work on functionality
-// -
-// i left a dashboard.js in src folder
-// it works as dashboard if you place the content in the App.js
-// but still need to modify it so that it is in the page section instead
-// -
-// added 
-// -the wrapper container for the moving background
-// -content for signin container (didn't link the backend)
-// -brand component for our future logo top left
-// -dashboard component still needs to be linked 

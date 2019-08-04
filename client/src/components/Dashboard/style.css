@@ -21,13 +21,13 @@
 }
 
 #page {
-  padding-left: 60px; 
-  padding-right: 10px;
+  margin-top: 30px;
+  padding-left: 55px; 
+  padding-right: 5px;
 }
 
 .page {
-  overflow: visible;
-  top: 60px;
+  top: 20px;
   left: 52px;
   width: 100%;
   height: calc(100% - 60px);
