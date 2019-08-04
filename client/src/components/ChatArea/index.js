@@ -9,7 +9,7 @@ const ChatArea = props => (
         </div>
         <div id="chat" className="page">
             <div className="page-header clearfix">
-                <span>Channel Name Goes Here</span>
+                <span>Stranger Things</span>
                 <ul>
                 </ul>
             </div>

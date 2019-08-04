@@ -1,7 +1,8 @@
 .brand {
-  /* font-size: 2rem; */
   color: white;
-  margin: 20px 10px;
+  position: relative;
+  top: 28px;
+  left: 10px;
   height: auto;
   font-family: "uni_sansheavy_caps", sans-serif;
 }

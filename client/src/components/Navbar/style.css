@@ -1,8 +1,29 @@
-#appname {
-    font-size: 32px;
-    font-family: "uni_sansheavy_caps", sans-serif    
+nav{
+    overflow: hidden;
+    position: fixed;
+    top: -50px;
+    float: right;
+    width: auto;
 }
 
-.navbar-brand {
-    color: #687a92
+.navbar ul{
+    display:flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
+
+.navbar li{ 
+    margin: 0 2%;
+ }
+
+.navbar li a {
+    text-decoration: none;
+    color: #687a92;
+    display: block;
+    font-size: 15px;
+}
+
+.navbar a:hover {
+    color: white;
+} 
