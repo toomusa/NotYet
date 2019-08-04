@@ -29,3 +29,8 @@ export const populateUsersList = users => ({
   users
 })
 
+
+// App.js connects to socket 
+// socket listens to data and calls action
+// action dispatches payload to reducer
+
