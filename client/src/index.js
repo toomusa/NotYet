@@ -18,6 +18,7 @@ import ChatAreaPg from "./pages/ChatAreaPg";
 import DashboardPg from "./pages/DashboardPg";
 import SignInPg from "./pages/SignInPg";
 import SignUpPg from "./pages/SignUpPg";
+import ProfilePg from "./pages/ProfilePg";
 import Wrapper from './components/Wrapper';
 import Channels from './containers/Channels';
 
@@ -44,6 +45,8 @@ ReactDOM.render(
                 <App>    
                     <Route exact path="/dashboard" component={DashboardPg}/>
                     <Route exact path="/chatarea" component={ChatAreaPg}/>
+                    <Route exact path="/profile" component={ProfilePg}/>
+                    {/* <Route exact path="/explorer" component={ExplorerPg}/> */}
                     {/* <Route exact path="Channels" component={Channels}/> */}
                 </App>
             </Wrapper>
