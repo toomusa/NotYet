@@ -9,10 +9,11 @@ import './index.css';
 
 // import components
 import App from './App';
+import Auth from "./Auth";
 // import SignUp from "./containers/Auth/SignUp";
 // import SignIn from "./containers/Auth/SignIn";
 import SignOut from "./containers/SignOut";
-import Welcome from "./components/Welcome";
+import HomePage from "./pages/HomePage";
 import ChatAreaPg from "./pages/ChatAreaPg";
 import DashboardPg from "./pages/DashboardPg";
 import SignInPg from "./pages/SignInPg";
@@ -38,7 +39,7 @@ ReactDOM.render(
                     <Route exact path="/signup" component={SignUpPg}/>
                     <Route exact path="/signin" component={SignInPg}/>
                     <Route exact path="/signout" component={SignOut}/>
-                    <Route exact path="/" component={Welcome}/>
+                    <Route exact path="/" component={HomePage}/>
                 </Auth>
                 <App>    
                     <Route exact path="/dashboard" component={DashboardPg}/>

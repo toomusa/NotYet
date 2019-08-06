@@ -5,12 +5,14 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import "./style.css";
 
-class Home extends Component {
+import Auth from "../../containers/Auth"
+
+class HomePage extends Component {
 
     render() {
         return (
           <div>
-            <Field>Home</Field>
+            <Auth/>
           </div>
         )
     }
@@ -23,7 +25,7 @@ function mapStateToProps(state) {
 export default compose(
     connect(mapStateToProps, {}),
     reduxForm({})
-)(Home);
+)(HomePage);
 
 // This is where you're welcomed with the sign in
 //
