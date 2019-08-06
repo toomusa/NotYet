@@ -29,8 +29,13 @@ export const populateUsersList = users => ({
   users
 })
 
+// socket middleware is saved to state in createStore, which also creates connection
+// component initiates action via event handlers
+// data is captured via reduxForms and calls an action
+// action dispatches payload to reducer
+// reducer updates state, passing through socket middleware
+// socket listens to message type and calls action
+
 
 // App.js connects to socket 
-// socket listens to data and calls action
-// action dispatches payload to reducer
 

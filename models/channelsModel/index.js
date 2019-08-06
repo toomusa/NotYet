@@ -20,6 +20,13 @@ const ChannelsSchema = new Schema({
     type: Number,
     default: 0
   },
+  deleted: [{
+    date: { type: Date, default: new Date(Date.now()) },
+    status: {
+      type: Boolean,
+      default: false
+    }
+  }],
   members: [{
     date: { type: Date, default: new Date(Date.now()) },
     admin: {
