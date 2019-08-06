@@ -8,7 +8,7 @@ import "./style.css";
 import Brand from "../../components/Brand";
 import Grid from "../../components/Grid";
 import Auth from "../../containers/Auth"
-
+import MessageText from "../../components/MessageText"
 class HomePage extends Component {
 
     render() {
@@ -16,6 +16,7 @@ class HomePage extends Component {
           <div>
             <Brand title='VIDI'/>
             <Grid>
+              <MessageText/>
               <Auth/>
             </Grid>
           </div>
