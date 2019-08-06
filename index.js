@@ -55,7 +55,7 @@ app.use(routes, (req, res) => {
 let server = require('http').Server(app);
 let io = require('socket.io')(server);
 
-server.listen(4000);
+// server.listen(4000);
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -73,4 +73,4 @@ io.on('connection', function (socket) {
 const PORT = process.env.PORT || 3001;
 
 
-app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+server.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
