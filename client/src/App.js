@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
 
-import io from "socket.io-client"
+// import io from "socket.io-client"
 // let socket = io.connect('http://localhost:4000');
 
-let socket = io.connect();
-socket.on('server-send', function (data) {
-  console.log(data);
-  socket.emit('client-send', { my: 'wompalompa' });
-})
+// // let socket = io();
+// socket.on('server-send', function (data) {
+//   console.log(data);
+//   socket.emit('client-send', { my: 'wompalompa' });
+// })
 
 const App = ({ children }) => {
     return (

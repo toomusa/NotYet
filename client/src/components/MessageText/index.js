@@ -20,8 +20,9 @@ export class MessageText extends Component {
     this.handleSendTextMessage = this.handleSendTextMessage.bind(this);
   }
 
-  componentWillMount() {
-    // this.props.connectSocket()
+  sendMessage(content) {
+    console.log(content)
+    this.props.socket.emit("sendMessage", {content})
   }
 
   handleFormKeyDown(e) {
@@ -38,9 +39,8 @@ export class MessageText extends Component {
 
   handleSendTextMessage(e) {
     e.preventDefault();
-    console.log(this.state)
     if (this.state.formContent !== '') {
-      this.props.sendMessage(this.props.chat._id, this.state.formContent, 'plain');
+      this.sendMessage(this.state.formContent);
       this.setState({formContent: ''});
     }
   }
@@ -67,7 +67,6 @@ export class MessageText extends Component {
 
 const mapStateToProps = function mapStateToProps(state) {
   return {
-    // chat: {_id: "565421"},
     formContent: ""
   }
 };

@@ -20,7 +20,7 @@ import SignInPg from "./pages/SignInPg";
 import SignUpPg from "./pages/SignUpPg";
 import ProfilePg from "./pages/ProfilePg";
 import Wrapper from './components/Wrapper';
-import Channels from './containers/Channels';
+// import Channels from './containers/Channels';
 
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -30,6 +30,8 @@ const store = createStore(
     {auth: { authenticated: localStorage.getItem("token")}},
     composeEnhancers(applyMiddleware(reduxThunk))
 )
+
+
 
 //#region
 ReactDOM.render(
