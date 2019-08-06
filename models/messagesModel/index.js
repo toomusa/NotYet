@@ -16,6 +16,20 @@ const MessagesSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
+  edited: [{
+    date: { type: Date, default: new Date(Date.now()) },
+    status: {
+      type: Boolean,
+      default: false
+    }
+  }],
+  deleted: [{
+    date: { type: Date, default: new Date(Date.now()) },
+    status: {
+      type: Boolean,
+      default: false
+    }
+  }],
   channel: [{
     admin: {
         type: Boolean,
