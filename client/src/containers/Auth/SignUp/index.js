@@ -34,7 +34,7 @@ class SignUp extends Component {
 
   onSubmit = formProps => {
     console.log(formProps)
-    this.props.SignUp(formProps, () => {
+    this.props.signup(formProps, () => {
       console.log("BAck in SignUp")
       console.log(this.props)
       this.props.history.push("/dashboard");

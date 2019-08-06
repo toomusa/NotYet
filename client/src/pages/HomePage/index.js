@@ -46,7 +46,7 @@ function mapStateToProps(state) {
 
 export default compose(
     connect(mapStateToProps, { socket }),
-    reduxForm({})
+    // reduxForm({})
 )(HomePage);
 
 // export default HomePage;

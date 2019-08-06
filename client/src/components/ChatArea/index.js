@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import MessageText from "../../components/MessageText"
 
 const ChatArea = props => (
     <div id="page">
@@ -38,6 +39,7 @@ const ChatArea = props => (
             <div className="chat-footer relative">
                 <form id="message-form" action="">
                     <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." />
+                    <MessageText className="messageArea post-input"/>
                     <button type="submit" className="post-button messageSubmit"><span className="caret-right"></span></button>
                 </form>
             </div>
