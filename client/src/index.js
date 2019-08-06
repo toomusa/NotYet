@@ -34,14 +34,16 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Wrapper>
-                <App>
+                <Auth>
                     <Route exact path="/signup" component={SignUpPg}/>
                     <Route exact path="/signin" component={SignInPg}/>
                     <Route exact path="/signout" component={SignOut}/>
+                    <Route exact path="/" component={Welcome}/>
+                </Auth>
+                <App>    
                     <Route exact path="/dashboard" component={DashboardPg}/>
                     <Route exact path="/chatarea" component={ChatAreaPg}/>
-                    <Route exact path="/" component={Welcome}/>
-                    <Route exact path="Channels" component={Channels}/>
+                    {/* <Route exact path="Channels" component={Channels}/> */}
                 </App>
             </Wrapper>
         </Router>
