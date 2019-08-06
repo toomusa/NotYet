@@ -35,8 +35,8 @@ class SignIn extends Component {
           <h3>Welcome Back!</h3>
           <button id="stylingButton" className="btn btn-primary"></button>
           {/* this one is not rly a button ^ it's to fill empty space*/}
-          <button id="signupButton" type="submit" className="btn btn-primary">LOGIN</button>
-          <button id="loginButton" type="submit" className="btn btn-primary">REGISTER</button>
+          <button id="loginButtonT" type="submit" className="btn btn-primary"><a className="login" href="/signin">LOGIN</a></button>
+          <button id="signupButton" type="submit" className="btn btn-primary"><a className="register" href="/signup">REGISTER</a></button>
 
           <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
             <fieldset>
@@ -47,7 +47,7 @@ class SignIn extends Component {
                   name="email"
                   type="text"
                   id="email"
-                  className="email form-control"
+                  className="email form-control loginEmail"
                   component={InputField}
                 // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
                 // go check it out, should work the same
@@ -60,7 +60,7 @@ class SignIn extends Component {
                   name="password"
                   type="password"
                   id="password"
-                  className="form-control"
+                  className="form-control loginPassword"
                   component={InputField}
                 // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
                 // go check it out, should work the same
@@ -70,7 +70,7 @@ class SignIn extends Component {
             <div className="form-group">
               {/* <p className="help-block"><a href="/" className="link-underline">FORGOT YOUR PASSWORD?</a></p>
                     <p className="help-block2 mb-25">Need an account? Register <a href="/users/register" className="clr-primary link-underline">here</a>.</p> */}
-              <button type="submit" className="btn btn-block btn-radius btn-primary">LOGIN</button>
+              <button type="submit" className="btn btn-block btn-radius btn-primary loginSubmit">LOGIN</button>
             </div>
           </form>
         </div>

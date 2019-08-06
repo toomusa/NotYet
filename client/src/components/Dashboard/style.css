@@ -21,13 +21,13 @@
 }
 
 #page {
-  margin-top: 30px;
+  margin-top: 0px;
   padding-left: 55px; 
   padding-right: 5px;
 }
 
 .page {
-  top: 20px;
+  top: -10px;
   left: 52px;
   width: 100%;
   height: calc(100% - 60px);

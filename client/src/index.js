@@ -9,12 +9,14 @@ import './index.css';
 
 // import components
 import App from './App';
-import SignUp from "./containers/Auth/SignUp";
-import SignIn from "./containers/Auth/SignIn";
+// import SignUp from "./containers/Auth/SignUp";
+// import SignIn from "./containers/Auth/SignIn";
 import SignOut from "./containers/SignOut";
 import Welcome from "./components/Welcome";
-import ChatArea from "./components/ChatArea";
-import Dashboard from "./components/Dashboard";
+import ChatAreaPg from "./pages/ChatAreaPg";
+import DashboardPg from "./pages/DashboardPg";
+import SignInPg from "./pages/SignInPg";
+import SignUpPg from "./pages/SignUpPg";
 import Wrapper from './components/Wrapper';
 import Channels from './containers/Channels';
 
@@ -33,11 +35,11 @@ ReactDOM.render(
         <Router>
             <Wrapper>
                 <App>
-                    <Route exact path="/signup" component={SignUp}/>
-                    <Route exact path="/signin" component={SignIn}/>
+                    <Route exact path="/signup" component={SignUpPg}/>
+                    <Route exact path="/signin" component={SignInPg}/>
                     <Route exact path="/signout" component={SignOut}/>
-                    <Route exact path="/dashboard" component={Dashboard}/>
-                    <Route exact path="/chatarea" component={ChatArea}/>
+                    <Route exact path="/dashboard" component={DashboardPg}/>
+                    <Route exact path="/chatarea" component={ChatAreaPg}/>
                     <Route exact path="/" component={Welcome}/>
                     <Route exact path="Channels" component={Channels}/>
                 </App>

@@ -8,7 +8,7 @@ import validator from "validator";
 import "./style.css";
 
 
-class Signup extends Component {
+class SignUp extends Component {
 
   renderErrors = ({ error, touched }) => {
     if (touched && error) {
@@ -33,8 +33,8 @@ class Signup extends Component {
 
   onSubmit = formProps => {
     console.log(formProps)
-    this.props.signup(formProps, () => {
-      console.log("BAck in signup")
+    this.props.SignUp(formProps, () => {
+      console.log("BAck in SignUp")
       console.log(this.props)
       this.props.history.push("/dashboard");
     })
@@ -57,8 +57,8 @@ class Signup extends Component {
           <h3>Register Today!</h3>
           <button id="stylingButton" className="btn btn-primary"></button>
           {/* this one is not rly a button ^ it's to fill empty space*/}
-          <button id="signupButton" type="submit" className="btn btn-primary">LOGIN</button>
-          <button id="loginButton" type="submit" className="btn btn-primary">REGISTER</button>
+          <button id="loginButton" type="submit" className="btn btn-primary"><a href="/signin">LOGIN</a></button>
+          <button id="signupButtonT" type="submit" className="btn btn-primary"><a href="/signup">REGISTER</a></button>
           <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
             <div className="form-group">
               <label for="email">EMAIL</label>
@@ -68,7 +68,7 @@ class Signup extends Component {
                   name="email"
                   type="email"
                   id="email"
-                  className="email form-control"
+                  className="email form-control registerEmail"
                   component={InputField}
                 // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
                 // go check it out, should work the same
@@ -83,7 +83,7 @@ class Signup extends Component {
                   name="password"
                   type="password"
                   id="password"
-                  className="form-control"
+                  className="form-control registerPassword"
                   component={InputField}
                 // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
                 // go check it out, should work the same
@@ -93,7 +93,7 @@ class Signup extends Component {
             <div className="form-group">
               {/* <p className="help-block"><a href="/" className="link-underline">FORGOT YOUR PASSWORD?</a></p> */}
               {/* <p className="help-block2 mb-25">Already registered? Login <a href="/" className="clr-primary link-underline">here</a>.</p> */}
-              <button type="submit" className="btn btn-block btn-radius btn-primary">REGISTER</button>
+              <button type="submit" className="btn btn-block btn-radius btn-primary registerSubmit">REGISTER</button>
             </div>
           </form>
         </div>
@@ -133,7 +133,7 @@ export default compose(
     form: "signup",
     validate
   })
-)(Signup);
+)(SignUp);
 
 
 
@@ -159,7 +159,7 @@ export default compose(
 //               autoComplete="none"    
 //           />
 //       </fieldset>
-//       <button>Signup</button>
+//       <button>SignUp</button>
 //   </form>
 // )
 

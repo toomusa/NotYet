@@ -62,7 +62,7 @@
   display: block;
 }
 
-#signupButton, #loginButton, #stylingButton {
+#signupButton, #signupButtonT, #loginButton, #loginButtonT, #stylingButton {
   position: absolute;
   top: 0px;
 }
@@ -72,24 +72,28 @@
   width: 500px;
   height: 45px;
 }
-#signupButton {
+#signupButton, #signupButtonT {
   right: 120px;
   width: 150px;
 }
 
-#loginButton {
+#loginButton, #loginButtonT {
   right: 0px;
   width: 150px;
 }
 
-#signupButton, #loginButton{
+#loginButtonT {
+  background-color: inherit;
+}
+
+#signupButton, #signupButtonT, #loginButton, #loginButtonT{
   border: 1px solid #324052;
 }
 
-#signupButton:hover, #signupButton:active, #loginButton:active, #loginButton:hover {
+/* #signupButton:hover, #signupButton:active, #loginButton:active, #loginButton:hover {
   background-color: inherit;
   color: white;
-}
+} */
 
 .modal-block:hover {
   opacity: 0.9;
@@ -203,5 +207,14 @@ p {
   background-color: #578b84;
   border: 0;
   color: #fff; 
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  background-color: inherit;
+  color: white;
 }
 /*=============== END Button Styles ===============*/
