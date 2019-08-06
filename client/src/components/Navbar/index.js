@@ -1,23 +1,27 @@
-
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./style.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <ul>
+      <li>
+          <Link className="navbar-brand" to="/profile">
+            Profile
+        </Link></li>
         <li>
-          <a className="navbar-brand" href="/Dashboard">
+          <Link className="navbar-brand" to="/dashboard">
             Dashboard
-        </a></li>
+        </Link></li>
         <li>
-          <a className="navbar-brand" href="/Explorer">
+          <Link className="navbar-brand" to="/explorer">
             Explorer
-        </a></li>
+        </Link></li>
         <li>
-          <a className="navbar-brand logoutSubmit" href="/SignOut">
+          <Link className="navbar-brand logoutSubmit" to="/signout">
             Logout
-        </a></li>
+        </Link></li>
       </ul>
     </nav>
   )
