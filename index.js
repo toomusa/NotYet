@@ -52,10 +52,10 @@ app.use(routes, (req, res) => {
 //     }
 // }
 
-let server = require('http').Server(app);
+let server = require('http').createServer(app);
 let io = require('socket.io')(server);
 
-// server.listen(4000);
+server.listen(4000);
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -64,7 +64,13 @@ app.get('/', function (req, res) {
 io.on('connection', function (socket) {
   socket.emit('server-send', { hello: 'world' });
   socket.on('client-send', function (data) {
-    console.log(data);
+    console.log("inside client-send", data);
+  });
+  socket.on("connect", function (data) {
+    console.log("connect got hit on the server", data);
+  });
+  socket.on("sendMessage", function (data) {
+    console.log("sendMessage got hit on the server", data);
   });
 });
 
@@ -73,4 +79,5 @@ io.on('connection', function (socket) {
 const PORT = process.env.PORT || 3001;
 
 
-server.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+// server.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
