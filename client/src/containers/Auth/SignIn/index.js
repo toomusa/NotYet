@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { signin } from "../../../actions/authActions";
 import { InputField } from "../../../components/InputField"
 import "./style.css";
+import { Link } from 'react-router-dom';
 
 class SignIn extends Component {
 
@@ -35,8 +36,8 @@ class SignIn extends Component {
           <h3>Welcome Back!</h3>
           <button id="stylingButton" className="btn btn-primary"></button>
           {/* this one is not rly a button ^ it's to fill empty space*/}
-          <button id="loginButtonT" type="submit" className="btn btn-primary"><a className="login" href="/signin">LOGIN</a></button>
-          <button id="signupButton" type="submit" className="btn btn-primary"><a className="register" href="/signup">REGISTER</a></button>
+          <Link className="login btn btn-primary" to="/signin"><button id="loginButtonT" type="submit" className="">LOGIN</button></Link>
+          <Link className="register btn btn-primary" to="/signup"><button id="signupButton" type="submit" className="">REGISTER</button></Link>
 
           <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
             <fieldset>

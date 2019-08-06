@@ -6,6 +6,7 @@ import { signup } from "../../../actions/authActions";
 import { InputField } from "../../../components/InputField"
 import validator from "validator";
 import "./style.css";
+import { Link } from 'react-router-dom';
 
 
 class SignUp extends Component {
@@ -57,8 +58,8 @@ class SignUp extends Component {
           <h3>Register Today!</h3>
           <button id="stylingButton" className="btn btn-primary"></button>
           {/* this one is not rly a button ^ it's to fill empty space*/}
-          <button id="loginButton" type="submit" className="btn btn-primary"><a href="/signin">LOGIN</a></button>
-          <button id="signupButtonT" type="submit" className="btn btn-primary"><a href="/signup">REGISTER</a></button>
+          <Link to="/signin"><button id="loginButton" type="submit" className="btn btn-primary">LOGIN</button></Link>
+          <Link to="/signup"><button id="signupButtonT" type="submit" className="btn btn-primary">REGISTER</button></Link>
           <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
             <div className="form-group">
               <label for="email">EMAIL</label>
