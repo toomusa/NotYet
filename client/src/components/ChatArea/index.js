@@ -8,7 +8,7 @@ const ChatArea = props => (
             </ul>
         </div>
         <div id="chat" className="page">
-            <div className="page-header clearfix">
+            <div className="page-header clearfix topicName">
                 <span>Stranger Things</span>
                 <ul>
                 </ul>
@@ -37,8 +37,8 @@ const ChatArea = props => (
             </div>
             <div className="chat-footer relative">
                 <form id="message-form" action="">
-                    <input name="message" type="text" className="post-input" placeholder="Type your msg here..." />
-                    <button type="submit" className="post-button"><span className="caret-right"></span></button>
+                    <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." />
+                    <button type="submit" className="post-button messageSubmit"><span className="caret-right"></span></button>
                 </form>
             </div>
         </div>

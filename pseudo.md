@@ -1,15 +1,15 @@
 React App:
 
 a user can:
-    - sign up
-    - login
-    - logout
-    - create channels
+    - sign up (classes: inputs:registerEmail, registerPassword button:registerSubmit)
+    - login (classes: inputs:loginEmail, loginPassword, button:loginSubmit)
+    - logout (class: logoutSubmit)
+    - create channels (class: createChannel)
     - view one chat (channel) at a time
     - be invited to a channel
     - invite others to any channel they are active(?) in
-    - write messages
-    - search a list of movies and show  
+    - write messages (classes: input:messageArea, button:messageSubmit )
+    - search a list of movies and show (class mediaSearch)
     - can save a show or movie as a favorites
     - can create a channel based on search results 
     - write a review
@@ -20,10 +20,10 @@ a user can:
     - leave a chat and see old history in archive
 
 a channel can:
-    - display its messages 
-    - display its topic
-    - send messages
-    - get all messages in its history
+    - display its messages (classes: container:chat-body, msgcontainer:chat-message)
+    - display its topic (class: topicName)
+    - send messages (classes: input:messageArea, button:messageSubmit )
+    - get all messages in its history (classes: container:chat-body, msgcontainer:chat-message)
     - notifications?
     - mute its notifications
 
