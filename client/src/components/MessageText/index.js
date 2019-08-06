@@ -72,7 +72,7 @@ const mapStateToProps = function mapStateToProps(state) {
   }
 };
 
-export default connect(mapStateToProps, { })(MessageText);
+export default connect(mapStateToProps, {})(MessageText);
 
 
 
