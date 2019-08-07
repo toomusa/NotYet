@@ -37,11 +37,12 @@ const ChatArea = props => (
                 </div>
             </div>
             <div className="chat-footer relative">
-                <form id="message-form" action="">
-                    <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." />
-                    <MessageText className="messageArea post-input"/>
+                <div id="message-form">
+                    {/* NOTE FOR BIRNA: styling messed up a little, uncomment line below to see difference -BL*/}
+                    {/* <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." /> */}
+                    <MessageText className="messageArea post-input" socket={props.socket}/>
                     <button type="submit" className="post-button messageSubmit"><span className="caret-right"></span></button>
-                </form>
+                </div>
             </div>
         </div>
     </div>

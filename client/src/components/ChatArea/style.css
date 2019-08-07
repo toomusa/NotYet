@@ -93,8 +93,6 @@
 .chat-footer {
     padding: 30px;
     background-color: #10243E; 
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
 }
 
 .chat-footer input {

@@ -35,7 +35,7 @@ import Dashboard from "./pages/DashboardPg";
 import Profile from "./pages/ProfilePg";
 
 import socket from "./socket"
-// import Welcome from "./components/Welcome"
+import Welcome from "./components/Welcome"
 
 class App extends Component {
 
@@ -44,15 +44,19 @@ class App extends Component {
   // }
 
     render() {
-
+        // {props.children}
         if (window.location.href === "http://localhost:3000/dashboard") {
             return (
                 <Dashboard socket={socket} />
             )
         }
-        if (window.location.href === "http://localhost:3000/profile") {
+        else if (window.location.href === "http://localhost:3000/profile") {
             return (
                 <Profile socket={socket} />
+            )
+        } else {
+            return (
+                <Welcome/>
             )
         }
         // if (window.location.href === "http://localhost:3000/explorer") {

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Textarea from 'react-textarea-autosize';
 // import { connect as connectSocket } from '../../modules/socket';
-
+import "./style.css";
 
 // import { send as sendMessage } from "../../modules/message";
 
@@ -48,17 +48,21 @@ export class MessageText extends Component {
   render() {
 
     return (
-      <form className="placeholder"
-            onKeyDown={this.handleFormKeyDown}
-            onSubmit={this.handleSendTextMessage}>
-        <Textarea
-          type="text"
-          placeholder="Type a message"
-          required
-          value={this.state.formContent}
-          onChange={this.handleFormContentChange}
-        />
-      </form>
+      <div className="chat-footer">
+        <form className="placeholder"
+              onKeyDown={this.handleFormKeyDown}
+              onSubmit={this.handleSendTextMessage}>
+          <Textarea
+            type="text"
+            placeholder="Type your msg here..."
+            required
+            value={this.state.formContent}
+            onChange={this.handleFormContentChange}
+            name="message" 
+            className="post-input messageArea" 
+          />
+        </form>
+      </div>
     );
   }
 }
