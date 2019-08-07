@@ -6,6 +6,7 @@ html, body, #root {
   padding: 0;
   margin: 0;
   height: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -20,3 +21,344 @@ span {
   font-family: sans-serif;                                          
   color: white;               
 }
+
+/*=============== START SignIn/SignUp Modals Styles ===============*/
+.modal-block {
+  border: 0;
+  transition: all .2s ease-in-out;
+  font-family: impact;
+  color: black;
+  overflow: hidden;
+  border-radius: 20px;
+  -webkit-transform: translateX(-50%) translateY(-50%) scale(0.7);
+  transform: translateX(-50%) translateY(-50%) scale(0.7);
+  margin-top: 250px;
+  margin-left: 220px;
+  width: 100%;
+  max-width: 770px;
+  background-color: #1c2f48;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 101; 
+  font-family: sans-serif;
+  color: white;
+  box-shadow: 8px 8px 20px #999;
+  height: 480px;
+}  
+
+.modal-brand {
+  position: relative;
+  min-width: 150px;
+  background-color: #578b84; 
+  border-top-right-radius: 150px;
+}
+
+.modal-brand-caption {
+  height: 100%;
+  text-align: center;
+  align-content: center;
+  padding: 170px 15px 30px 27px;
+}
+
+.modal-brand-caption > .logo {
+  height: 100%;
+  font-size: 1.25em;
+  line-height: 1;
+  color: white;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
+.modal-brand-caption > .logo  > span {
+  margin-top: -6px;
+  display: block;
+}
+
+.modal-block:hover {
+  opacity: 0.9;
+}
+
+.modal-block > .modal-block-content {
+  background-color: inherit;
+  padding: 50px 30px 50px 42px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+} 
+/*=============== END SignIn/SignUp Modals Styles ===============*/
+/*=============== START Button Toggles Styles ===============*/
+#signupButton, #signupButtonT, #loginButton, #loginButtonT, #stylingButton {
+  position: absolute;
+  top: 0px;
+}
+
+#stylingButton{
+  right: 300px;
+  width: 500px;
+  height: 45px;
+}
+#signupButton, #signupButtonT {
+  right: 150px;
+  width: 150px;
+}
+
+#loginButton, #loginButtonT {
+  right: 0px;
+  width: 150px;
+}
+
+
+#signupButtonT {
+  background-color: inherit;
+}
+
+#loginButtonT {
+    background-color: inherit;
+}
+
+
+#signupButton, #signupButtonT, #loginButton, #loginButtonT{
+  border: 1px solid #324052;
+}
+
+#signupButton:hover, #signupButton:active, #loginButton:active, #loginButton:hover {
+  background-color: inherit;
+  color: white;
+}
+/*=============== END Button Toggles Styles ===============*/
+/*=============== START Form Styles ===============*/
+.form-horizontal{ 
+  margin-top: 30px;
+}
+  
+.form-horizontal > .form-group { 
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}
+  
+.form-horizontal > .form-group> label, .label{
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 1em;
+  letter-spacing: 0.075em;
+  color: #687A92;
+  padding: 0; 
+  }
+  
+p {
+  font-size: .75em;
+  color: #687A92;
+}
+
+.form-control {
+  border: 0;
+  background: transparent;
+  border-radius: 15px;
+  border: 2px solid #324052;
+  font-size: 1.2em;
+  color: #fff;
+  height: 46px;
+  padding: 10px 0;
+  text-align: center;
+  -webkit-transition: background-color .3s ease, color .3s ease;
+  transition: background-color .3s ease, color .3s ease;
+  margin-bottom: 5%;
+}
+  
+.form-control {
+  -webkit-transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275);
+  transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275); 
+}
+  
+.form-control:hover {
+  border-radius: 60px; 
+}
+  
+.form-control:focus {
+  border: 0;
+}
+   
+.email {
+  background: white;
+  color: black;
+}
+  
+.help-block {
+  font-family: sans-serif;
+  font-size: .85em;
+  letter-spacing: 0.05em;
+  margin-bottom: 7.5px; 
+}
+  
+.help-block a {
+  color: #ffffff;
+}
+  
+.help-block2 {
+  color: #687A92;
+  font-size: 1em;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+/*===============END Form Styles ===============*/
+/*=============== START Button Styles ===============*/
+.btn {
+  font-family: sans-serif;
+  font-weight: 700;
+  padding: 10px 24px;
+  -webkit-transition: background-color .3s ease, color .3s ease;
+  transition: background-color .3s ease, color .3s ease; 
+  margin-bottom: 25px;
+}
+     
+.btn-radius {
+  -webkit-transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275);
+  transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275); 
+}
+  
+.btn-radius:hover {
+  border-radius: 60px; 
+}
+  
+.btn-primary, .btn-primary:focus, .btn-primary:hover, .btn-primary:active:focus {
+  background-color: #578b84; 
+  border: 0;
+  color: #fff; 
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  background-color: inherit;
+  color: white;
+}
+/*=============== END Button Styles ===============*/
+/*=============== START Page Styles ===============*/
+.page-header {
+  padding: 10px 15px;
+  background-color: #1f324c;
+  margin: 0;
+  border: 0; 
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.page-header > ul {
+  float: right;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-header > span {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+#page {
+  margin-top: 0px;
+  padding-left: 55px; 
+  padding-right: 5px;
+}
+
+.page {
+  top: 0px;
+  left: 52px;
+  width: 100%;
+  height: calc(100% - 60px);
+  -webkit-transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
+  transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
+  transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease; 
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: 0;
+  box-shadow: 8px 8px 20px #999;
+}
+
+.profile-body {
+  height: calc(100% - 40px);
+  padding: 30px 15px;
+  background-color: rgba(14, 31, 56, 0.5); 
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.valign {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 5%;
+}
+                   
+.groups-list {
+  background-color: #172c48;
+  border-radius: 6px;
+  padding: 5px;
+  min-height: 120px;
+  max-height: calc(50vh - 240px);
+  overflow: hidden; 
+  margin-bottom: 35px;
+  min-width: 250px;
+  margin-right: 5px;
+}
+
+.groups-list > .list {
+  list-style: none;
+  padding: 0;
+  margin: 0 5px;
+  max-height: 100%; 
+}
+
+.groups-list > .list > li > a {
+  display: block;
+  padding: 8px 15px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.875em;
+}
+
+.groups-list > .list > li > a > .avatar {
+  position: relative;
+  top: -1px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.groups-list > .list > li > a:hover {
+  background-color: rgba(255, 255, 255, 0.05); 
+}
+                    
+.groups-list > .list > li > a:active {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+                
+.groups-list > .list > li + li { 
+  margin-top: 4px;                    
+}                       
+                          
+.avatar .little_avatar {                      
+  height: 20px;                         
+}
+                         
+h6 {                     
+  font-family: sans-serif;                     
+  color: white;                    
+  font-size: 1em;                    
+}    
+/*=============== END Page Styles ===============*/         

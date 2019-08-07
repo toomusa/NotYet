@@ -1,0 +1,25 @@
+h4 {
+    color: white;
+    position: relative;
+    display: block;
+    width: 65%;
+    margin: auto;
+}
+
+.whatMsg {
+    top: -170px;
+}
+
+.howMsg {
+    top: 125px;
+}
+
+.doMsg {
+    top: 420px;
+    margin-bottom: 100px;
+    padding-bottom: 200px;
+}
+
+.doMsg a {
+    color: #578b84; 
+}
