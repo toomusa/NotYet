@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { reduxForm, Field } from "redux-form";
+// import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import "./style.css";
@@ -10,15 +10,7 @@ import Grid from "../../components/Grid";
 import Auth from "../../containers/Auth"
 import MessageText from "../../components/MessageText"
 
-import io from "socket.io-client"
-let socket = io.connect('http://localhost:4000');
-
-
-// let socket = io();
-socket.on('server-send', function (data) {
-  console.log(data);
-  socket.emit('client-send', { my: 'wompalompa' });
-})
+// import socket from "../../socket"
 
 class HomePage extends Component {
 
@@ -35,7 +27,7 @@ class HomePage extends Component {
            
             <Grid>
               <Auth/>
-              <div><MessageText socket={socket}/></div>
+              <div><MessageText /></div>
             </Grid>
             <container>
             <jumbrton>alsdkjfsd</jumbrton>
@@ -51,7 +43,7 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-    connect(mapStateToProps, { socket }),
+    connect(mapStateToProps, {}),
     // reduxForm({})
 )(HomePage);
 

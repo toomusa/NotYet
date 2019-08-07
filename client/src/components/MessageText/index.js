@@ -46,7 +46,6 @@ export class MessageText extends Component {
   }
 
   render() {
-    // const styles = require('./MessageForm.scss');
 
     return (
       <form className="placeholder"

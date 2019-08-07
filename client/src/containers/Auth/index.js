@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Signin from "./SignIn";
-import Signup from "./SignUp";
+// import Signup from "./SignUp";
 
 // let loggedInUser = localStorage.getItem("token");
 

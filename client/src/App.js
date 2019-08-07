@@ -1,21 +1,76 @@
-import React from "react";
-import "./App.css";
+// import React from "react";
+// import "./App.css";
 
-// import io from "socket.io-client"
-// let socket = io.connect('http://localhost:4000');
+// // import io from "socket.io-client"
+// // let socket = io.connect('http://localhost:4000');
 
-// // let socket = io();
-// socket.on('server-send', function (data) {
-//   console.log(data);
-//   socket.emit('client-send', { my: 'wompalompa' });
-// })
+// // // let socket = io();
+// // socket.on('server-send', function (data) {
+// //   console.log(data);
+// //   socket.emit('client-send', { my: 'wompalompa' });
+// // })
 
-const App = ({ children }) => {
-    return (
-        <div>
-            {children}
-        </div>
-    )
+// const App = ({ children }) => {
+//     return (
+//         <div>
+//             {children}
+//         </div>
+//     )
+// }
+
+// export default App;
+
+
+import React, { Component } from "react";
+// import { reduxForm, Field } from "redux-form";
+import { compose } from "redux";
+import { connect } from "react-redux";
+// import "./style.css";
+
+// import Brand from "../../components/Brand";
+// import Grid from "../../components/Grid";
+// import Auth from "../../containers/Auth"
+// import MessageText from "../../components/MessageText"
+import Dashboard from "./pages/DashboardPg";
+import Profile from "./pages/ProfilePg";
+
+import socket from "./socket"
+// import Welcome from "./components/Welcome"
+
+class App extends Component {
+
+  // componentDidMount() {
+  //   this.props.socket.connect();
+  // }
+
+    render() {
+
+        if (window.location.href === "http://localhost:3000/dashboard") {
+            return (
+                <Dashboard socket={socket} />
+            )
+        }
+        if (window.location.href === "http://localhost:3000/profile") {
+            return (
+                <Profile socket={socket} />
+            )
+        }
+        // if (window.location.href === "http://localhost:3000/explorer") {
+        //     return (
+        //         <Explorer />
+        //     )
+        // }        
+    }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {state};
+}
+
+export default compose(
+    connect(mapStateToProps, { socket }),
+    // reduxForm({})
+)(App);
+
+// export default App;
+

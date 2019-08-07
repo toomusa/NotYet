@@ -1,5 +1,7 @@
 const axios = require("axios");
+
 https://api.themoviedb.org/3/discover/movie?api_key=dadbb348c7503427d5277348f42629dc&query=lord%20of%20the%20rings
+
 
 // API key v3 auth 
 let movieName = "Lord of the Rings"
@@ -14,7 +16,9 @@ axios.get(movieURL).then(
   })
  
 // request sent: https://api.themoviedb.org/3/search/movie?api_key=dadbb348c7503427d5277348f42629dc&query=lord%20of%20the%20rings
+
 //https://api.themoviedb.org/3/movie/120?api_key=dadbb348c7503427d5277348f42629dc
+
 //Data object
 let data =
 {
@@ -290,7 +294,6 @@ let data =
     ]
   }
 
-
   //https://api.themoviedb.org/3/movie/120?api_key=dadbb348c7503427d5277348f42629dc
 {
 "adult": false,
@@ -370,7 +373,6 @@ let data =
 "vote_average": 8.3,
 "vote_count": 14870
 }
-
 
   //TV endpoint SEARCH https://api.themoviedb.org/3/search/tv?api_key=dadbb348c7503427d5277348f42629dc&query=how%20i%20met%20your%20mother;
   //TV endpoint DETAILS https://api.themoviedb.org/3/tv/1100?api_key=dadbb348c7503427d5277348f42629dc&language=en-US;
