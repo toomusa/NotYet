@@ -13,6 +13,7 @@ import MessageText from "../../components/MessageText"
 import io from "socket.io-client"
 let socket = io.connect('http://localhost:4000');
 
+
 // let socket = io();
 socket.on('server-send', function (data) {
   console.log(data);
@@ -28,13 +29,18 @@ class HomePage extends Component {
     render() {
         return (
           <div>
-            <Brand title='VIDI'/>
+            
+              <Brand title='VIDI'/>         
+                
            
             <Grid>
               <Auth/>
               <div><MessageText socket={socket}/></div>
             </Grid>
-            
+            <container>
+            <jumbrton>alsdkjfsd</jumbrton>
+            <jumbrton>alsdkjfsd</jumbrton>
+            </container>
           </div>
         )
     }
