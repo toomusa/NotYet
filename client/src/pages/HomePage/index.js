@@ -10,7 +10,7 @@ import Grid from "../../components/Grid";
 import Auth from "../../containers/Auth"
 import MessageText from "../../components/MessageText"
 
-import socket from "../../socket"
+// import socket from "../../socket"
 
 class HomePage extends Component {
 
@@ -25,7 +25,7 @@ class HomePage extends Component {
            
             <Grid>
               <Auth/>
-              <div><MessageText socket={socket}/></div>
+              <div><MessageText /></div>
             </Grid>
             
           </div>
@@ -38,7 +38,7 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-    connect(mapStateToProps, { socket }),
+    connect(mapStateToProps, {}),
     // reduxForm({})
 )(HomePage);
 

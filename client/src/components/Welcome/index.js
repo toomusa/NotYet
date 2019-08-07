@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 
-import Brand from "../Brand";
-import Grid from "../Grid";
+// import Brand from "../Brand";
+// import Grid from "../Grid";
 
 // birna 8/3/19 : i'll work on redirect tm, but for now you can see the seperate pages by
 // 1. commenting out Channels, Dashboard, Navbar, and ChatArea, to see Auth
@@ -11,21 +11,13 @@ import Grid from "../Grid";
 // import Channels from "../../containers/Channels";
 // import Dashboard from "../../components/Dashboard";
 // import Navbar from "../../components/Navbar";
-import Auth from "../../containers/Auth";
+// import Auth from "../../containers/Auth";
 // import ChatArea from "../../components/ChatArea";
 
-const Welcome = () => {
+const Welcome = ({children}) => {
     return (
         <div>
-            <Brand title='VIDI' />
-            <Grid>
-                <Auth/>
-                {/* <Navbar />
-                <Channels />
-                <Dashboard /> */}
-                {/* <ChatArea/> */}
-
-            </Grid>
+            {children}
         </div>
     );
 }

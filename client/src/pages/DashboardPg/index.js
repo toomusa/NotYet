@@ -63,14 +63,17 @@ import MediaSearch from "../../components/MediaSearch";
 import Channels from "../../containers/Channels";
 import Navbar from "../../components/Navbar";
 import ChatArea from "../../components/ChatArea";
+import MessageText from "../../components/MessageText"
 
-const DashboardPg = () => {
+
+const DashboardPg = (props) => {
     return (
         <div>
             <Brand title='VIDI' />
             <Grid>
                 <MediaSearch />
                 <Navbar />
+                <MessageText socket={props.socket} />
                 <Channels />
                 <ChatArea/>
             </Grid>
