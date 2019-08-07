@@ -4,8 +4,8 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { signin } from "../../../actions/authActions";
 import { InputField } from "../../../components/InputField"
-import "./style.css";
 import { Link } from 'react-router-dom';
+import "./style.css";
 
 class SignIn extends Component {
 

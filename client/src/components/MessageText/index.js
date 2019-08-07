@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Textarea from 'react-textarea-autosize';
+// import Textarea from 'react-textarea-autosize';
 // import { connect as connectSocket } from '../../modules/socket';
 import "./style.css";
 

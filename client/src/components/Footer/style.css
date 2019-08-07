@@ -1,0 +1,18 @@
+footer {
+  position: relative;
+  bottom: -280px;
+  height: 60px;
+  color: white;
+  border-top: 1px solid rgb(42, 46, 99);
+  box-shadow: 8px 8px 20px #999;
+  text-align: center;
+  font-size: 26px;
+  width: 100%;
+}
+
+footer p {
+  margin: 20px auto;
+}
+
+  
+  

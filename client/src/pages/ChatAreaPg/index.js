@@ -57,9 +57,9 @@
 import React from "react";
 import "./style.css";
 
-import Brand from "../../components/Brand";
+// import Brand from "../../components/Brand";
 import Grid from "../../components/Grid";
-
+import Header from "../../components/Header";
 // birna 8/3/19 : i'll work on redirect tm, but for now you can see the seperate pages by
 // 1. commenting out Channels, Dashboard, Navbar, and ChatArea, to see Auth
 // 2. commenting out Auth and ChatArea, to see dashboard together with channels & nav
@@ -69,15 +69,17 @@ import Channels from "../../containers/Channels";
 import Navbar from "../../components/Navbar";
 // import Auth from "../../containers/Auth";
 import ChatArea from "../../components/ChatArea";
-import MediaSearch from "../../components/MediaSearch";
+// import MediaSearch from "../../components/MediaSearch";
 
 const ChatAreaPg = () => {
     return (
         <div>
-            <Brand title='VIDI' />
+            {/* <Brand title='VIDI' /> */}
             <Grid>
                 {/* <Auth/> */}
-                <MediaSearch />
+
+        <Header/>
+                {/* <MediaSearch /> */}
                 <Navbar />
                 <Channels />
                 {/* <Dashboard /> */}

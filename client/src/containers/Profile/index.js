@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-const Dashboard = props => (
+const Profile = props => (
 
     <div id="page">
         <div id="chat-list">
@@ -87,4 +87,4 @@ const Dashboard = props => (
     </div>
 );
 
-export default Dashboard; 
+export default Profile; 

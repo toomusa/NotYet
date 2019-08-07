@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { signup } from "../../../actions/authActions";
 import { InputField } from "../../../components/InputField"
 import validator from "validator";
-import "./style.css";
 import { Link } from 'react-router-dom';
+import "./style.css";
 
 
 class SignUp extends Component {

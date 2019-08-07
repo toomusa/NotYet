@@ -57,22 +57,29 @@
 import React from "react";
 import "./style.css";
 
-import Brand from "../../components/Brand";
+// import Brand from "../../components/Brand";
 import Grid from "../../components/Grid";
-import MediaSearch from "../../components/MediaSearch";
+import Header from "../../components/Header";
+// import MediaSearch from "../../components/MediaSearch";
 import Channels from "../../containers/Channels";
 import Navbar from "../../components/Navbar";
 import ChatArea from "../../components/ChatArea";
+import Footer from "../../components/Footer";
 
 const DashboardPg = (props) => {
     return (
         <div>
-            <Brand title='VIDI' />
+            {/* <Brand title='VIDI' /> */}
             <Grid>
-                <MediaSearch />
+                <Header/>
+                {/* <MediaSearch /> */}
                 <Navbar />
                 <Channels />
+
                 <ChatArea socket={props.socket}/>
+               
+                <Footer/>
+
             </Grid>
         </div>
     );

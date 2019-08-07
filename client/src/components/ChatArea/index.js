@@ -21,7 +21,7 @@ const ChatArea = props => (
                         <a href="/" className="chat-message-author">user1</a>
                         <span className="chat-message-date">Jul 31, 2019 10:25 PM</span>
                         <div className="chat-message-message">
-                            hello
+                            Wow season 3 was amazing ._.
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ const ChatArea = props => (
                         <a href="/" className="chat-message-author">user2</a>
                         <span className="chat-message-date">Aug 2, 2019 10:25 PM</span>
                         <div className="chat-message-message">
-                            hello
+                            I knowww!!! LOL Dustin cracks me up
                         </div>
                     </div>
                 </div>
