@@ -25,12 +25,13 @@ import Wrapper from './components/Wrapper';
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const initial_state = {auth: { authenticated: localStorage.getItem("token")}}
+
 const store = createStore(
     reducers,
-    {auth: { authenticated: localStorage.getItem("token")}},
+    initial_state,
     composeEnhancers(applyMiddleware(reduxThunk))
 )
-
 
 
 //#region

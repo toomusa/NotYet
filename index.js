@@ -2,8 +2,13 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
-// const socket = require("./socket.io/socket.io");
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
+const routes = require("./routes");
+const dbController = require("./controllers/dbController")
+// const socketFunctions = require("./socket.io/socket.io")
 
 // Database setup
 mongoose.connect("mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true})
@@ -20,11 +25,10 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client-build"));
 }
 
-// Routes setup
-const routes = require("./routes");
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
-// Error Handling Goes Here
-// app.use(routes);
 app.use(routes, (req, res) => {
     // No matching route for URL Found
     res.status(404).json({
@@ -32,52 +36,31 @@ app.use(routes, (req, res) => {
     })
 })
 
-
-// const myHandler = function(action, { dispatch, broadcast }){
-//     switch(action.type) {
-//         case 'MY_ACTION_FROM_CLIENT_TO_SERVER':
-//             dispatch({ type: 'MY_ANSWER_FROM_SERVER_TO_CLIENT' })
-//             break;
-
-//         case 'TEST_SERVER_ACTION': 
-//             console.log('Test Action Success!');
-//             break;
-
-//         case 'MY_OTHER_ACTION_FROM_CLIENT':
-//             broadcast({ type: 'CHANNEL_NAME_MESSAGE' })
-//             break;
-//         default:
-//             console.log('No actions matched in server reducer.')
-//             break;
-//     }
-// }
-
-let server = require('http').createServer(app);
-let io = require('socket.io')(server);
-
-server.listen(4000);
-
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
-
+// Socket.io listeners and emitters 
 io.on('connection', function (socket) {
+
   socket.emit('server-send', { hello: 'world' });
+
+  socket.emit("connection", {now: "you're connected"})
+
   socket.on('client-send', function (data) {
     console.log("inside client-send", data);
   });
+
   socket.on("connect", function (data) {
     console.log("connect got hit on the server", data);
   });
+
   socket.on("sendMessage", function (data) {
     console.log("sendMessage got hit on the server", data);
+    let response = dbController.sendMessage(data)
+    console.log(response)
+    io.emit("messageResponse", {response})
   });
-});
 
+});
 
 
 const PORT = process.env.PORT || 3001;
 
-
-app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
-// server.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+server.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
