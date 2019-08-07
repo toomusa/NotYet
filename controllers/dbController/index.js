@@ -82,6 +82,11 @@ module.exports = {sendMessage};
 //   // let newNote = await Note.create(note);
 //   //          let articleWithNote = await Article.findByIdAndUpdate(_id, {$push: {note: newNote._id}}, {new: true})
 
+
+  // let newNote = await Note.create(note);
+  //          let articleWithNote = await Article.findByIdAndUpdate(_id, {$push: {note: newNote._id}}, {new: true})
+
+
 // // a user can:
 // // - sign up
 // // - login

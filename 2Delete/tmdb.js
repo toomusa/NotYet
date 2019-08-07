@@ -1,5 +1,8 @@
 const axios = require("axios");
 
+https://api.themoviedb.org/3/discover/movie?api_key=dadbb348c7503427d5277348f42629dc&query=lord%20of%20the%20rings
+
+
 // API key v3 auth 
 let movieName = "Lord of the Rings"
 const apikey="?api_key=dadbb348c7503427d5277348f42629dc";
@@ -13,6 +16,9 @@ axios.get(movieURL).then(
   })
  
 // request sent: https://api.themoviedb.org/3/search/movie?api_key=dadbb348c7503427d5277348f42629dc&query=lord%20of%20the%20rings
+
+//https://api.themoviedb.org/3/movie/120?api_key=dadbb348c7503427d5277348f42629dc
+
 //Data object
 let data =
 {
@@ -287,6 +293,86 @@ let data =
       }
     ]
   }
+
+  //https://api.themoviedb.org/3/movie/120?api_key=dadbb348c7503427d5277348f42629dc
+{
+"adult": false,
+"backdrop_path": "/pIUvQ9Ed35wlWhY2oU6OmwEsmzG.jpg",
+"belongs_to_collection": {
+"id": 119,
+"name": "The Lord of the Rings Collection",
+"poster_path": "/p4UokEk2XnjjRTdXGe6DLYXlbI1.jpg",
+"backdrop_path": "/bccR2CGTWVVSZAG0yqmy3DIvhTX.jpg"
+},
+"budget": 93000000,
+"genres": [
+{
+"id": 12,
+"name": "Adventure"
+},
+{
+"id": 14,
+"name": "Fantasy"
+},
+{
+"id": 28,
+"name": "Action"
+}
+],
+"homepage": "http://www.lordoftherings.net/",
+"id": 120,
+"imdb_id": "tt0120737",
+"original_language": "en",
+"original_title": "The Lord of the Rings: The Fellowship of the Ring",
+"overview": "Young hobbit Frodo Baggins, after inheriting a mysterious ring from his uncle Bilbo, must leave his home in order to keep it from falling into the hands of its evil creator. Along the way, a fellowship is formed to protect the ringbearer and make sure that the ring arrives at its final destination: Mt. Doom, the only place where it can be destroyed.",
+"popularity": 44.671,
+"poster_path": "/56zTpe2xvaA4alU51sRWPoKPYZy.jpg",
+"production_companies": [
+{
+"id": 12,
+"logo_path": "/iaYpEp3LQmb8AfAtmTvpqd4149c.png",
+"name": "New Line Cinema",
+"origin_country": "US"
+},
+{
+"id": 11,
+"logo_path": "/6FAuASQHybRkZUk08p9PzSs9ezM.png",
+"name": "WingNut Films",
+"origin_country": "NZ"
+},
+{
+"id": 5237,
+"logo_path": null,
+"name": "The Saul Zaentz Company",
+"origin_country": "US"
+}
+],
+"production_countries": [
+{
+"iso_3166_1": "NZ",
+"name": "New Zealand"
+},
+{
+"iso_3166_1": "US",
+"name": "United States of America"
+}
+],
+"release_date": "2001-12-18",
+"revenue": 871368364,
+"runtime": 178,
+"spoken_languages": [
+{
+"iso_639_1": "en",
+"name": "English"
+}
+],
+"status": "Released",
+"tagline": "One ring to rule them all",
+"title": "The Lord of the Rings: The Fellowship of the Ring",
+"video": false,
+"vote_average": 8.3,
+"vote_count": 14870
+}
 
   //TV endpoint SEARCH https://api.themoviedb.org/3/search/tv?api_key=dadbb348c7503427d5277348f42629dc&query=how%20i%20met%20your%20mother;
   //TV endpoint DETAILS https://api.themoviedb.org/3/tv/1100?api_key=dadbb348c7503427d5277348f42629dc&language=en-US;

@@ -21,13 +21,18 @@ class HomePage extends Component {
     render() {
         return (
           <div>
-            <Brand title='VIDI'/>
+            
+              <Brand title='VIDI'/>         
+                
            
             <Grid>
               <Auth/>
               <div><MessageText /></div>
             </Grid>
-            
+            <container>
+            <jumbrton>alsdkjfsd</jumbrton>
+            <jumbrton>alsdkjfsd</jumbrton>
+            </container>
           </div>
         )
     }
