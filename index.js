@@ -71,6 +71,7 @@ io.on('connection', function (socket) {
   });
   socket.on("sendMessage", function (data) {
     console.log("sendMessage got hit on the server", data);
+
   });
 });
 
