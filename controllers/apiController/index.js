@@ -103,6 +103,7 @@ const showCompiler = async () => {
       })
       console.log(mongooseArray);
       db.Show.create(mongooseArray);
+
     }
 }
 

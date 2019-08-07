@@ -3,24 +3,50 @@ const Schema = mongoose.Schema;
 
 
 const ShowsSchema = new Schema({
-    showId: {
+    show_id: {
         type: Number
     },
-    name: {
+    original_name: {
         type: String
     },
     next_episode_to_air: {
         type: String
     },
-    episode_number: {
-        type: Number
+    last_air_date: {
+        type: String
     },
     overview: {
         type: String
     },
-    season_number: {
+    poster_path: {
+        type: String
+    },
+    backdrop_path: {
+        type: String
+    },
+    popularity: {
         type: Number
+    },
+    genre: [{
+        id: Number,
+        name: String
+    }],
+    number_of_episodes: {
+        type: Number
+    },
+    number_of_seasons: {
+        type: Number
+    },
+    status: {
+        type: String
+    },
+    average_votes: {
+        type: Number
+    },
+    homepage: {
+        type: String
     }
+
 
 });
 

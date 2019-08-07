@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const moviesSchema = new Schema({
-    movieId: {
+    movie_id: {
         type: Number,
         required: true
     },
@@ -11,6 +11,9 @@ const moviesSchema = new Schema({
         required: true
     },
     poster_path: {
+        type: String
+    },
+    backdrop_path: {
         type: String
     },
     release_date: {
@@ -27,8 +30,17 @@ const moviesSchema = new Schema({
     },
     revenue: {
         type: Number
+    },
+    tagline: {
+        type: String
+    },
+    genre: [{
+        id: Number,
+        name: String
+    }],
+    homepage: {
+        type: String
     }
-
 });
 
 const Movies = mongoose.model("movies", moviesSchema);
