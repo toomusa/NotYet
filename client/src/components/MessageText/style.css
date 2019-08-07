@@ -16,7 +16,8 @@
     color: #ffffff;
     font-weight: 700;
 }
-                                  
+
+
 #page {
     padding-left: 60px; 
 }
@@ -36,12 +37,24 @@
     box-shadow: 6px 6px 6px #999;
 }    
 
+.post-input:focus + .post-button {
+    opacity: 1;
+    -webkit-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1); 
+}
+
+.post-input:hover, .post-input:active {
+    border-radius: 60px; 
+}
+
 .chat-footer {
     padding: 30px;
     background-color: #10243E; 
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
-.chat-footer input {
+.chat-footer TextArea {
     background: rgba(255, 255, 255, 0.05);
     border: 0;
     width: 100%;
@@ -49,12 +62,12 @@
     border-radius: 6px;
     padding: 6px 20px; 
 }
-        
-.chat-footer input:focus {
+
+.chat-footer TextArea:focus {
     background: rgba(255, 255, 255, 0.06);
 }
         
-.chat-footer input::-webkit-input-placeholder {
+.chat-footer TextArea::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.4); 
 }
 

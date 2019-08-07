@@ -63,8 +63,6 @@ import MediaSearch from "../../components/MediaSearch";
 import Channels from "../../containers/Channels";
 import Navbar from "../../components/Navbar";
 import ChatArea from "../../components/ChatArea";
-import MessageText from "../../components/MessageText"
-
 
 const DashboardPg = (props) => {
     return (
@@ -73,9 +71,8 @@ const DashboardPg = (props) => {
             <Grid>
                 <MediaSearch />
                 <Navbar />
-                <MessageText socket={props.socket} />
                 <Channels />
-                <ChatArea/>
+                <ChatArea socket={props.socket}/>
             </Grid>
         </div>
     );

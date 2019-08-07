@@ -7,8 +7,7 @@ import "./style.css";
 
 import Brand from "../../components/Brand";
 import Grid from "../../components/Grid";
-import Auth from "../../containers/Auth"
-import MessageText from "../../components/MessageText"
+import Auth from "../../containers/Auth";
 
 // import socket from "../../socket"
 
@@ -22,17 +21,12 @@ class HomePage extends Component {
         return (
           <div>
             
-              <Brand title='VIDI'/>         
+            <Brand title='VIDI'/>         
                 
-           
             <Grid>
               <Auth/>
-              <div><MessageText /></div>
             </Grid>
-            <container>
-            <jumbrton>alsdkjfsd</jumbrton>
-            <jumbrton>alsdkjfsd</jumbrton>
-            </container>
+            
           </div>
         )
     }
