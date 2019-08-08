@@ -12,7 +12,7 @@ import Navbar from "../../components/Navbar";
 import Header2 from "../../components/Header2";
 import Footer from "../../components/Footer";
 
-class Explorer extends Component {
+class ExplorerPg extends Component {
 
     render() {
         return (
@@ -26,7 +26,7 @@ class Explorer extends Component {
                 <Channels />
                 {/* <Header /> */}
                 <Movies />
-                {/* <ChatArea/> */}
+    
                 <Footer />
 
             </Grid>
@@ -45,4 +45,4 @@ class Explorer extends Component {
 //     reduxForm({})
 // )(Explorer);
 
-export default Explorer;
+export default ExplorerPg;

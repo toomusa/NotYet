@@ -1,0 +1,19 @@
+.modal-block2 {
+    border: 0;
+    transition: all .2s ease-in-out;
+    font-family: impact;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 175px;
+    width: 100%;
+    max-width: 680px;
+    font-family: sans-serif;
+    box-shadow: 8px 8px 20px #999;
+    height: 750px;
+    position: relative;
+    opacity: 1;
+}  
+  
+.modal-block2:hover {
+    opacity: 0.9;
+}

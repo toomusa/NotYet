@@ -1,42 +1,70 @@
 import React, { Component } from "react";
+// import { reduxForm, Field } from "redux-form";
+import { compose } from "redux";
 import { connect } from "react-redux";
-import { signout } from "../../actions/authActions";
 import "./style.css";
 
-import Brand from "../../components/Brand";
+import Header from "../../components/Header";
 import Grid from "../../components/Grid";
+import SignIn from "../../containers/Auth/SignIn";
+import MessageText from "../../components/MessageText"
+import Preview from "../../components/Preview";
+import Preview2 from "../../components/Preview2";
+import Footer from "../../components/Footer";
 
 
+import io from "socket.io-client"
+let socket = io.connect('http://localhost:4000');
 
-// birna 8/3/19 : i'll work on redirect tm, but for now you can see the seperate pages by
-// 1. commenting out Channels, Dashboard, Navbar, and ChatArea, to see Auth
-// 2. commenting out Auth and ChatArea, to see dashboard together with channels & nav
-// 3. commenting out Auth and Dashboard, to see chat together with channels & nav
-// import Channels from "../../containers/Channels";
-// import Dashboard from "../../components/Dashboard";
-// import Navbar from "../../components/Navbar";
-import Auth from "../../containers/Auth";
-// import ChatArea from "../../components/ChatArea";
+// let socket = io();
+socket.on('server-send', function (data) {
+    console.log(data);
+    socket.emit('client-send', { my: 'wompalompa' });
+})
 
-class Signout extends Component {
+class SignOut extends Component {
 
-    componentDidMount() {
-        this.props.signout();
-    }
+    // componentDidMount() {
+    //   this.props.socket.connect();
+    // }
 
     render() {
-        return <div>
-            <Brand title='VIDI' />
-            <Grid>
-                <Auth/>
-                {/* <Navbar />
-                <Channels />
-                <Dashboard /> */}
-                {/* <ChatArea/> */}
+        return (
+            <div>
+                {/* <Brand title='VIDI'/> */}
+                <Header />
+                <Grid>
+                    <SignIn />
+                    <div><MessageText socket={socket} /></div>
+                    <h4 className="whatMsg">VIDI is a chat program for movies and TV shows.
+                    What makes our app special is that we prevent spoilers by hiding chat channels
+                    until the user verifies they've viewed.
+              </h4>
+                    <Preview />
+                    <h4 className="howMsg">You're able to chat among others who enjoy your favorite shows,
+                    discover new films to watch, rate a specific episode or movie, search for users or media,
+                    and much more.
+              </h4>
+                    <Preview2 />
+                    <h4 className="doMsg">Above is a sneakpeek of what this app has to offer.
+                    A sleek messenger that's got a multitude of ways to keep you entertained.
+              Click <a href="/signup">here</a> to sign up today.
+              </h4>
+                    <Footer />
+                </Grid>
 
-            </Grid>
-        </div>
+            </div>
+        )
     }
 }
 
-export default connect(null, {signout})(Signout);
+function mapStateToProps(state) {
+    return { state };
+}
+
+export default compose(
+    connect(mapStateToProps, { socket }),
+    // reduxForm({})
+)(SignOut);
+
+// export default HomePage;

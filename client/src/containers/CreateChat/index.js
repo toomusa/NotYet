@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { createChannel } from "../../actions/dbActions";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import InputField from "../../components/InputField";
+import "./style.css";
 
 class CreateChat extends Component {
 
@@ -30,17 +31,19 @@ class CreateChat extends Component {
     })
   }
 
+
   // @Birna check this link for the types of effects you can add, i.e. onBlur, onFocus, onDrop...
   // https://redux-form.com/7.4.0/docs/api/field.md/
-  
+
   render() {
-    const {handleSubmit} = this.props
+    console.log(this.props.modal)
+    const { handleSubmit } = this.props
     return (
-      <div>
-        <Modal isOpen={this.props.modal} onClick={this.toggle}> 
+      <div> 
+        <Modal isOpen={this.props.modal} onClick={this.toggle} className="modal-block2">
           <ModalHeader>Create New Channel</ModalHeader>
           <ModalBody>
-            <form onSubmit={handleSubmit(this.onSubmit)}>
+            <form onSubmit={handleSubmit(this.onSubmit)} className="form-horizontal">
               <div>
                 <fieldset>
                   <label>Topic</label>
@@ -48,51 +51,57 @@ class CreateChat extends Component {
                     name="topic"
                     label="topic"
                     component={InputField}
+                    className="form-control"
                   />
                 </fieldset>
               </div>
               <div>
                 <fieldset>
-                <label>Description</label>
+                  <label>Description</label>
                   <Field
                     name="description"
                     label="description"
                     component={InputField}
+                    className="form-control"
                   />
                 </fieldset>
               </div>
               <div>
                 <fieldset>
-                <label>Friends</label>
+                  <label>Friends</label>
                   <Field
                     name="friends"
                     label="friends"
                     component={InputField}
+                    className="form-control"
                   />
                 </fieldset>
               </div>
               <div>
                 <fieldset>
-                <label>Media</label>
+                  <label>Media</label>
                   <Field
                     name="media"
                     label="media"
                     component={InputField}
+                    className="form-control"
                   />
                 </fieldset>
               </div>
               <div>
                 <fieldset>
-                <label>Public</label>
+                  <label>Public</label>
                   <Field
                     name="public"
                     label="public"
                     component={InputField}
+                    className="form-control"
                   />
                 </fieldset>
               </div>
               <div>
-              <Button color="primary" type="submit" onClick={() => this.setState({modal: false})}>Create</Button>
+                <br></br>
+                <Button color="primary" type="submit" className="btn btn-block btn-radius btn-primary" onClick={this.toggle}>Create</Button>
               </div>
             </form>
           </ModalBody>
@@ -110,7 +119,7 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-  connect(mapStateToProps, { createChannel , InputField}),
+  connect(mapStateToProps, { createChannel, InputField }),
   reduxForm({
     form: "newChannel"
   })
