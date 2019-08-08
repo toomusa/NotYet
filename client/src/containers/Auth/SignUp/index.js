@@ -40,7 +40,7 @@ class SignUp extends Component {
     console.log(formProps)
     this.props.signup(formProps, (userData) => {
       this.props.loadUser(userData, () => {
-        console.log("Send to dbActions from ComponentDidMount")
+        console.log("Send to dbActions from onSubmit")
       })
       history.push("/dashboard");
     })

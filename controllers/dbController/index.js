@@ -2,12 +2,40 @@
 const mongoose = require("mongoose");
 const db = require("../../models");
 
-const sendMessage = (data) => {
-  console.log("I'm inside the controller", data)
-  return {controller: "says hi"}
+const sendMessage = async data => {
+  console.log("I'm inside the controller sendMessage", data)
+
+  let res = await db.Channel.findById(chatId).populate("Message")
+  console.log("Channel data from db")
+  console.log(res)
+  
+  let chatData = {...res.messages}
+  console.log("Chat data from res messages")
+  console.log(chatData)
+  // res.json({chatData})
+  return chatData
 }
 
-module.exports = { sendMessage };
+const createChannel = async data => {
+  console.log("I'm inside the controller createChannel", data)
+
+  let newChannel = await new db.Channel({ data }).populate("Message")
+  console.log("newChannel data from Channel db")
+  console.log(newChannel)
+
+  let channel = await db.User.findByIdAndUpdate(userId, {$push: {channels: newChannel.id }}, {new: true})
+  console.log("Channel data from User db")
+  console.log(channel)
+  
+  let channelResponse = {...channel.channels}
+  console.log("Chat data from res messages")
+  console.log(channelResponse)
+
+  // res.json({channelResponse})
+  return channelResponse
+}
+
+module.exports = { createChannel };
 
 
 

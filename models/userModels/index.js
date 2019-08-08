@@ -60,6 +60,9 @@ const UserSchema = new Schema({
         active_channels: {
             type: Schema.Types.ObjectId,
             ref: "Channel"
+        },
+        poster_path: {
+            type: String
         }
     }],
     movie_channels: [{
@@ -87,6 +90,9 @@ const UserSchema = new Schema({
         active_channels: {
             type: Schema.Types.ObjectId,
             ref: "Channel"
+        },
+        poster_path: {
+            type: String
         }
     }],
     inactive_channels: [{
