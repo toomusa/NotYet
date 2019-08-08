@@ -13,7 +13,7 @@ class CreateChat extends Component {
   }
 
   onSubmit = formProps => {
-    debugger;
+    this.setState({modal: false})
     console.log(formProps)
     this.props.socket.emit("createChannel", formProps, function(channelData) {
       console.log(channelData)
