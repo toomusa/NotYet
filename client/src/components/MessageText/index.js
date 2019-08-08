@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Textarea from 'react-textarea-autosize';
+import { receivedMessage } from "../../actions/dbActions"
 // import { connect as connectSocket } from '../../modules/socket';
 // import "./style.css";
 
@@ -23,9 +24,15 @@ export class MessageText extends Component {
   sendMessage(content) {
     console.log(content)
     this.props.socket.emit("sendMessage", content, function(chatData) {
-      this.props.receivedMessage(chatData, () => {
-        console.log("Sent to dbActions from MessageText")
-      })
+      console.log(chatData)
+    })
+  }
+
+  componentDidMount = () => {
+    this.props.socket.on("messageResponse", (chatData) => {
+      console.log("messageResponse frontend hit")
+      console.log(chatData)
+      this.props.receivedMessage(chatData)
     })
   }
 
@@ -78,7 +85,7 @@ const mapStateToProps = function mapStateToProps(state) {
   }
 };
 
-export default connect(mapStateToProps, {})(MessageText);
+export default connect(mapStateToProps, { receivedMessage })(MessageText);
 
 
 

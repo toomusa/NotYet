@@ -16,26 +16,100 @@ const sendMessage = async data => {
   return chatData
 }
 
-const createChannel = async data => {
-  console.log("I'm inside the controller createChannel", data)
+const createChannel = async (data, callback) => {
+  console.log("I'm inside the controller createChannel")
+  console.log(data)
+  let userId = data.userId
+  console.log(userId)
 
-  let newChannel = await new db.Channel({ data }).populate("Message")
-  console.log("newChannel data from Channel db")
-  console.log(newChannel)
+    return new Promise( async (resolve, reject) => {
 
-  let channel = await db.User.findByIdAndUpdate(userId, {$push: {channels: newChannel.id }}, {new: true})
-  console.log("Channel data from User db")
-  console.log(channel)
-  
-  let channelResponse = {...channel.channels}
-  console.log("Chat data from res messages")
-  console.log(channelResponse)
+    let newChannel;
+    let updatedUser;
+    let channelResponse;
 
-  // res.json({channelResponse})
-  return channelResponse
+    try {
+      newChannel = await new db.Channel(data)
+      await newChannel.save()
+      console.log("newChannel data from Channel db")
+      console.log(newChannel)
+    } catch (e) {
+      console.log("Oooops", e)
+    }
+
+    try {
+      updatedUser = await db.User.findByIdAndUpdate(userId, {$push: {channels: newChannel.id }}, {new: true}).populate("Channel")
+      console.log("Channel data from User db")
+      console.log(updatedUser)
+      console.log(newChannel.id)
+    } catch (e) {
+      console.log("Oooops", e)
+    }
+    
+    try {
+      channelResponse = await db.Channel.findById(newChannel.id)
+      console.log("Chat data from res messages")
+      console.log(channelResponse)
+    } catch (e) {
+      console.log("Oooops", e)
+    }
+
+    if (channelResponse && updatedUser) {
+      let channelData = {Channels: channelResponse, Users: updatedUser};
+      resolve();
+      callback(channelData)
+    }
+  })
 }
 
-module.exports = { createChannel, sendMessage };
+
+const loadDashboard = async (data, callback) => {
+  console.log("I'm inside the controller loadDashboard")
+  console.log(data)
+  let userId = data
+  console.log(userId)
+
+  return new Promise( async (resolve, reject) => {
+    let userData;
+    let channelIds = [];
+    let channelData;
+    
+    try {
+      userData = await db.User.findById(userId).populate("Channel")
+      console.log("userData")
+      console.log(userData)
+    } catch (e) {
+      console.log("Oooops", e)
+    }
+
+    try {
+      userData.channels.map(channel => { channelIds.push(channel.id) })
+      console.log("channelIds")
+      console.log(channelIds)
+    } catch (e) {
+      console.log("Oooops", e)
+    }
+
+    try {
+      channelData = await db.Channel.find({_id: channelIds}).populate("Message")
+      console.log("channelData")
+      console.log(channelData)
+    } catch (e) {
+      console.log("Oooops", e)
+    }
+    
+    if (userData && channelData) {
+      let dashboardData = {Users: userData, Channels: channelData};
+      console.log("dashboardData")
+      console.log(dashbaordData)
+      resolve();
+      callback(dashboardData)
+    }
+  })
+}
+
+
+module.exports = { createChannel, sendMessage, loadDashboard };
 
 
 

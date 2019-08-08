@@ -19,7 +19,7 @@ class Explorer extends Component {
           <div>
             {/* <Brand title='VIDI' /> */}
             <Grid>
-            ><Header2 />
+            <Header2 />
                 {/* <Auth/> */}
                 {/* <MediaSearch /> */}
                 <Navbar />

@@ -59,13 +59,22 @@ io.on('connection', function (socket) {
     io.emit("messageResponse", {chatData})
   });
 
-  socket.on("createChannel", function (data) {
+  socket.on("createChannel", async (data) => {
     console.log("createChannel got hit on the server", data);
-    let channelData = dbController.createChannel(data)
-    console.log("Back to socket on server")
-    console.log(channelData)
-    return channelData
-    // io.emit("channelResponse", {channelData})
+    dbController.createChannel(data, response => {
+      console.log("Back to socket on server")
+      console.log(response)
+      socket.emit("channelResponse", response)
+    })
+  })
+  
+  socket.on("loadDashboard", async (data) => {
+    console.log("loadDashboard got hit on the server", data);
+    dbController.loadDashboard(data, response => {
+      console.log("Back to socket on server")
+      console.log(response)
+      socket.emit("dashboardLoaded", response)
+    })
   })
 
   io.emit("UserLoaded", {hi: "frontend"})

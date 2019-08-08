@@ -13,26 +13,31 @@ class CreateChat extends Component {
   }
 
   onSubmit = formProps => {
-    this.setState({modal: false})
-    console.log(formProps)
-    this.props.socket.emit("createChannel", formProps, function(channelData) {
+    let userId = this.props.state.db.Users.id
+    let formData = {...formProps, userId}
+    this.props.socket.emit("createChannel", formData, function(channelData) {
       console.log(channelData)
-        this.props.createChannel(channelData => {
-          console.log("Sent to dbActions from createChat")
-        })
     })
+    this.setState({modal: false})
   }
   
+  componentDidMount = () => {
+    this.props.socket.on("channelResponse", (data) => {
+      console.log("channelresponse frontend hit")
+      console.log(data)
+      this.props.createChannel(data)
+      
+    })
+  }
 
   // @Birna check this link for the types of effects you can add, i.e. onBlur, onFocus, onDrop...
   // https://redux-form.com/7.4.0/docs/api/field.md/
   
   render() {
-    console.log(this.props.modal)
     const {handleSubmit} = this.props
     return (
       <div>
-        <Modal isOpen={this.props.modal} onClick={this.toggle}>
+        <Modal isOpen={this.props.modal} onClick={this.toggle}> 
           <ModalHeader>Create New Channel</ModalHeader>
           <ModalBody>
             <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -87,7 +92,7 @@ class CreateChat extends Component {
                 </fieldset>
               </div>
               <div>
-              <Button color="primary" type="submit" onClick={this.toggle}>Create</Button>
+              <Button color="primary" type="submit" onClick={() => this.setState({modal: false})}>Create</Button>
               </div>
             </form>
           </ModalBody>
