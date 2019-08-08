@@ -59,7 +59,7 @@ import "./style.css";
 
 // import Brand from "../../components/Brand";
 import Grid from "../../components/Grid";
-import Header from "../../components/Header";
+import Header2 from "../../components/Header2";
 // import MediaSearch from "../../components/MediaSearch";
 import Channels from "../../containers/Channels";
 import Navbar from "../../components/Navbar";
@@ -76,7 +76,7 @@ const DashboardPg = (props) => {
         <div>
             
             <Grid>
-                <Header/>
+            <Header2 />
                 
                 <Navbar />
                 <Channels socket={props.socket} />

@@ -51,7 +51,7 @@ class ChatArea extends Component {
           </ul>
         </div>
         {/* CHANNEL NAME GOES INTO THIS SPAN */}
-        <div id="chat" className="page">
+        <div id="chat" className="pageChat">
           <div className="page-header clearfix topicName">
             <span>{this.state.currentChannelName} </span>
           </div>

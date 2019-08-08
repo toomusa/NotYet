@@ -30,12 +30,12 @@ span {
   color: black;
   overflow: hidden;
   border-radius: 20px;
-  -webkit-transform: translateX(-50%) translateY(-50%) scale(0.7);
-  transform: translateX(-50%) translateY(-50%) scale(0.7);
-  margin-top: 250px;
-  margin-left: 220px;
+  /* -webkit-transform: translateX(-50%) translateY(-50%) scale(0.7);
+  transform: translateX(-50%) translateY(-50%) scale(0.7); */
+  margin-top: 100px;
+  /* margin-left: 220px; */
   width: 100%;
-  max-width: 770px;
+  max-width: 680px;
   background-color: #1c2f48;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -44,12 +44,16 @@ span {
   font-family: sans-serif;
   color: white;
   box-shadow: 8px 8px 20px #999;
-  height: 480px;
+  height: 475px;
+  position: relative;
+  float: left;
+  margin-right: 5%;
+  margin-bottom: 150px;
 }  
 
 .modal-brand {
   position: relative;
-  min-width: 150px;
+  min-width: 100px;
   background-color: #578b84; 
   border-top-right-radius: 150px;
 }
@@ -268,11 +272,11 @@ a:hover {
   padding-right: 5px;
 }
 .pageMovies {
-  top: -45px;
+  top: -69px;
 }
 
 .pageChat, .pageProfile{
-  top: -13px;
+  top: -33px;
 }
 
 .pageMovies, .pageProfile, .pageChat {

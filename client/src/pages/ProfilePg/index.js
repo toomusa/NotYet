@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // import { connect } from "react-redux";
 // import requireAuth from "../hoc/requireAuth";
 import "./style.css";
-import Header from "../../components/Header";
+import Header2 from "../../components/Header2";
 import Profile from "./../../containers/Profile"
 import Grid from "../../components/Grid";
 // import MediaSearch from "../../components/MediaSearch";
@@ -20,7 +20,7 @@ class ProfilePg extends Component {
           <div>
             <Grid>
                 {/* <MediaSearch /> */}
-                <Header/>
+                <Header2 />
                 <Navbar />
                 <Channels />
                 <Profile/>
