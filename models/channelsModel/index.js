@@ -12,12 +12,20 @@ const ChannelsSchema = new Schema({
     type: String,
     required: false,
   },
+  friends: {
+    type: String,
+    required: false,
+  },
+  media: {
+    type: String,
+    required: false,
+  },
   poster_path: {
     type: String
   },
   public: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: "false"
   },
   starred: {
     type: Number,
@@ -56,7 +64,7 @@ const ChannelsSchema = new Schema({
         ref: "User"
     }
   }],
-  media: [{
+  media_ref: [{
     date: { type: Date, default: new Date(Date.now()) },
     current: {
       type: Boolean,

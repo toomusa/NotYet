@@ -1,3 +1,5 @@
+
+import React, { Component } from 'react'
 import React from "react";
 import "./style.css";
 
@@ -8,24 +10,46 @@ import Channels from "../../containers/Channels";
 import Navbar from "../../components/Navbar";
 import ChatArea from "../../components/ChatArea";
 import Footer from "../../components/Footer";
+import { connect } from 'react-redux';
+import { loadDashboard } from "../../actions/dbActions"
 
 
+class DashboardPg extends Component {
 
+    componentDidMount() {
+        // console.log(this.props.store)
+        let userId = localStorage.getItem("userId");
+        console.log(userId)
+        this.props.socket.emit("loadDashboard", userId, (data) => {
+            console.log("Dashboard is fetching userData")
+            this.props.socket.on("dashboardLoaded", function(userData) {
+                this.props.loadDashboard(userData)
+            })
+        })
+    }
 
-
-const DashboardPg = (props) => {
-
-    return (
-        <div>
-            <Grid>
+    render() {
+        return (
+            <div>
+                
+                <Grid>
                 <Header2 />
-                <Navbar />
-                <Channels socket={props.socket} />
-                <ChatArea socket={props.socket} />
-                <Footer />
-            </Grid>
-        </div>
-    );
+                    
+                    <Navbar />
+                    <Channels socket={this.props.socket} />
+    
+                    <ChatArea socket={this.props.socket}/>
+    
+                    <Footer/>
+    
+                </Grid>
+            </div>
+        );
+    }
+
 }
 
-export default DashboardPg; 
+
+const mapStateToProps = function mapStateToProps(state) {return { store: state }};
+  
+export default connect(mapStateToProps, { loadDashboard })(DashboardPg);
