@@ -85,10 +85,12 @@ class ChatArea extends Component {
     )
   }
 };
+
 function mapStateToProps(state) {
   //grab messages from state
   return { state }
 }
+
 export default compose(
   connect(mapStateToProps, {}),
 )(ChatArea);

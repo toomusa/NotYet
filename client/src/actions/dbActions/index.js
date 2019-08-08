@@ -1,5 +1,5 @@
 
-import { LOAD_USER } from "../../actions/dbActions/types";
+import { LOAD_USER, RECEIVED_MESSAGE } from "../../actions/dbActions/types";
 
 
 export const loadUser = (data, callback) => async dispatch => {
@@ -9,7 +9,18 @@ export const loadUser = (data, callback) => async dispatch => {
       dispatch({ type: LOAD_USER, payload: data });
       callback();
   } catch (e) {
-      dispatch({ type: LOAD_USER, payload: "Error in retriving user info, see src -> sockets" });
+      dispatch({ type: LOAD_USER, payload: "Error: retriving user info" });
+  }
+}
+
+export const receivedMessage = (data, callback) => async dispatch => {
+  console.log("We're inside dbActions")
+  console.log(data)
+  try {
+      dispatch({ type: RECEIVED_MESSAGE, payload: data });
+      callback();
+  } catch (e) {
+      dispatch({ type: RECEIVED_MESSAGE, payload: "Error: saving new message to store" });
   }
 }
 
