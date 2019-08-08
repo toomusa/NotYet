@@ -69,10 +69,10 @@ import Footer from "../../components/Footer";
 const DashboardPg = (props) => {
     return (
         <div>
-            {/* <Brand title='VIDI' /> */}
+            
             <Grid>
                 <Header/>
-                {/* <MediaSearch /> */}
+                
                 <Navbar />
                 <Channels />
 
