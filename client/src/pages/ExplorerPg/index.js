@@ -32,6 +32,7 @@ class Explorer extends Component {
             </Grid>
         </div>
         )
+
     }
 }
 

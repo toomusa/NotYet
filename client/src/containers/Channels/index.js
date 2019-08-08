@@ -1,9 +1,12 @@
 import React, {Component} from "react";
 import "./style.css";
 import {ProfileButton, AddButton, Channel} from "../../components/Channel"
+import CreateChat from "../../containers/CreateChat";
+
 class Channels extends Component {
   state = {
-    channelObj:[
+    modal: false,
+    channelArr:[
       {
         date: "",
         admin: "",
@@ -57,17 +60,33 @@ class Channels extends Component {
     ]
   }
 
+  showModal = () => {
+      // console.log("Show Modal")
+      (this.state.modal) ? this.setState({modal: false}) : this.setState({modal: true})
+      // return (<CreateChat socket={props.socket}/>)
+  };
+
+
   render() {
     return (
       <div id="sidebar" className="dragscroll">
         <ul className="sidebar-menu">
           <ProfileButton/>
-          <AddButton/>
-          {this.state.channelObj.map( channel => (
-            <Channel date={channel.date} admin={channel.admin} muted={channel.muted} public={channel.public} starred={channel.starred} ref_movie={channel.ref_movie} active_channels={channel.active_channels} poster_path={channel.poster_path}/>
+          <AddButton socket={this.props.socket} show={this.showModal}/>
+          {this.state.channelArr.map( channel => (
+            <Channel 
+              topic={channel.topic}
+              description={channel.description}
+              public={channel.public} 
+              starred={channel.starred} 
+              admin={channel.admin} // from User table
+              muted={channel.muted} 
+              ref_movie={channel.ref_movie} 
+              poster_path={channel.poster_path}/>
           ))}
           
         </ul>
+        <CreateChat socket={this.props.socket} modal={this.state.modal} />
       </div >
     )
   }

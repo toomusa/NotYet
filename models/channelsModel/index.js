@@ -12,6 +12,9 @@ const ChannelsSchema = new Schema({
     type: String,
     required: false,
   },
+  poster_path: {
+    type: String
+  },
   public: {
     type: Boolean,
     default: false

@@ -3,7 +3,7 @@ import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { signup } from "../../../actions/authActions";
-import { InputField } from "../../../components/InputField"
+import { InputField } from "../../../components/InputField";
 import validator from "validator";
 // import { Link } from 'react-router-dom';
 

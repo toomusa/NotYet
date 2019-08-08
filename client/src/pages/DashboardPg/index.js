@@ -66,7 +66,12 @@ import Navbar from "../../components/Navbar";
 import ChatArea from "../../components/ChatArea";
 import Footer from "../../components/Footer";
 
+
+
+
+
 const DashboardPg = (props) => {
+
     return (
         <div>
             
@@ -74,10 +79,10 @@ const DashboardPg = (props) => {
             <Header2 />
                 
                 <Navbar />
-                <Channels />
+                <Channels socket={props.socket} />
 
                 <ChatArea socket={props.socket}/>
-               
+
                 <Footer/>
 
             </Grid>
