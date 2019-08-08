@@ -22,7 +22,11 @@ export class MessageText extends Component {
 
   sendMessage(content) {
     console.log(content)
-    this.props.socket.emit("sendMessage", {content})
+    this.props.socket.emit("sendMessage", content, function(chatData) {
+      this.props.receivedMessage(chatData, () => {
+        console.log("Sent to dbActions from MessageText")
+      })
+    })
   }
 
   handleFormKeyDown(e) {
