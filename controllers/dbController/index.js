@@ -83,9 +83,11 @@ const loadDashboard = async (data, callback) => {
     }
 
     try {
-      userData.channels.map(channel => { channelIds.push(channel.id) })
-      console.log("channelIds")
-      console.log(channelIds)
+      if (userData.channels) {
+        userData.channels.map(channel => { channelIds.push(channel.id) })
+        console.log("channelIds")
+        console.log(channelIds)
+      }
     } catch (e) {
       console.log("Oooops", e)
     }
@@ -101,7 +103,7 @@ const loadDashboard = async (data, callback) => {
     if (userData && channelData) {
       let dashboardData = {Users: userData, Channels: channelData};
       console.log("dashboardData")
-      console.log(dashbaordData)
+      console.log(dashboardData)
       resolve();
       callback(dashboardData)
     }
