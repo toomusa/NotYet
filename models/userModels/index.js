@@ -28,9 +28,8 @@ const UserSchema = new Schema({
         maxlength: 30,
     },
     username: {
-        date: { type: Date, default: new Date(Date.now()) },
         type: String,
-        unique: true,
+        // unique: false,
         required: false,
         trim: true,
         minlength: 1, // change to 3 before production

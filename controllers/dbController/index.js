@@ -1,10 +1,15 @@
 
+const mongoose = require("mongoose");
+const db = require("../../models");
+
 const sendMessage = (data) => {
   console.log("I'm inside the controller", data)
   return {controller: "says hi"}
 }
 
-module.exports = {sendMessage};
+module.exports = { sendMessage };
+
+
 
 // const db     = require("../../models");
 // const config = require("../../config");

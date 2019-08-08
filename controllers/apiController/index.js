@@ -1,6 +1,6 @@
 const config = require("../../config");
 
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const db = require("../../models");
 
 const Moment = require("moment");

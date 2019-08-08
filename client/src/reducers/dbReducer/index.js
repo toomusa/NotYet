@@ -1,10 +1,18 @@
 
-import { ADD_MESSAGE, MESSAGE_RECEIVED, ADD_USER, USERS_LIST } from "../../actions/dbActions/types";
+import { ADD_MESSAGE, MESSAGE_RECEIVED, ADD_USER, USERS_LIST, LOAD_USER, CLEAR_USER } from "../../actions/dbActions/types";
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+    User: {}
+}
 
 export default function(state = INITIAL_STATE, action) {
     switch(action.type) {
+        case LOAD_USER:
+            console.log(action.payload)
+            let userdata = action.payload
+            return {...state, User: {...userdata}};
+        case CLEAR_USER:
+            return {...state, User: {}};
         case ADD_MESSAGE:
             return state.concat([
                 {

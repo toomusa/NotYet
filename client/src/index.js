@@ -10,13 +10,13 @@ import history from './history';
 
 // import components
 import App from './App';
-import Auth from "./Auth";
-import SignOut from "./containers/SignOut";
+// import Auth from "./Auth";
+// import SignOut from "./containers/SignOut";
 import HomePg from "./pages/HomePg";
 import ChatAreaPg from "./pages/ChatAreaPg";
 import DashboardPg from "./pages/DashboardPg";
-import SignInPg from "./pages/SignInPg";
-import SignUpPg from "./pages/SignUpPg";
+// import SignInPg from "./pages/SignInPg";
+// import SignUpPg from "./pages/SignUpPg";
 import ProfilePg from "./pages/ProfilePg";
 import Wrapper from './components/Wrapper';
 import ExplorerPg from './pages/ExplorerPg';
@@ -25,7 +25,7 @@ import ExplorerPg from './pages/ExplorerPg';
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const initial_state = {auth: { authenticated: localStorage.getItem("token")}}
+const initial_state = { auth: { authenticated: localStorage.getItem("token")}};
 
 const store = createStore(
     reducers,
@@ -39,13 +39,11 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Wrapper>
-                <Auth>
-                    <Route exact path="/signup" component={SignUpPg}/>
-                    <Route exact path="/signin" component={SignInPg}/>
-                    <Route exact path="/signout" component={SignOut}/>
-                    <Route exact path="/" component={HomePg}/>
-                </Auth>
                 <App>    
+                    {/* <Route exact path="/signup" component={SignUpPg} />
+                    <Route exact path="/signin" component={SignInPg} />
+                    <Route exact path="/signout" component={SignOut}/> */}
+                    <Route exact path="/" component={HomePg}/>
                     <Route exact path="/dashboard" component={DashboardPg}/>
                     <Route exact path="/chatarea" component={ChatAreaPg}/>
                     <Route exact path="/profile" component={ProfilePg}/>
@@ -57,6 +55,4 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root')
 );
-
-
 //#endregion

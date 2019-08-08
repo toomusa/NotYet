@@ -13,27 +13,48 @@ const tokenForUser = user => {
 
 module.exports = {
     signUp: async (req, res) => {
-        const { email, password } = req.body;
 
+        const { email, password } = req.body;
         if (!email || !password) return res.status(422).json({error: "You must provide an email and password"});
-        
+
         try {
-            // Check if the email already exists in db
             const existingUser = await db.User.findOne({email});
-            // If user exists, throw error
             if (existingUser) return res.status(422).json({error: "Email is in use"});
-            // Create new user object
-            const user = new db.User({ email, password });
-            // save user in db
-            await user.save();
-            // send user back
-            res.json({token: tokenForUser(user)});
+
+            let user = await new db.User({ email, password });
+            user.save();
+            
+            let userData = {};
+            userData.id = user._id;
+            userData.show_channels = user.show_channels;
+            userData.movie_channels = user.movie_channels;
+            userData.inactive_channels = user.inactive_channels;
+            userData.messages = user.messages;
+            userData.friends = user.friends;
+            userData.favorite_shows = user.favorite_shows;
+            userData.favorite_movies = user.favorite_movies;
+            
+            res.json({userData: userData, token: tokenForUser(user)});
+
         } catch(e) {
             res.status(404).json({e});
         }
     },
     signIn: (req, res) => {
         console.log(req.user)
-        res.send({token: tokenForUser(req.user)});
+
+        let userData = {};
+        userData.id = req.user._id;
+        userData.show_channels = req.user.show_channels;
+        userData.movie_channels = req.user.movie_channels;
+        userData.inactive_channels = req.user.inactive_channels;
+        userData.messages = req.user.messages;
+        userData.friends = req.user.friends;
+        userData.favorite_shows = req.user.favorite_shows;
+        userData.favorite_movies = req.user.favorite_movies;
+
+        res.json({userData: userData, token: tokenForUser(req.user)});
     }
 }
+
+

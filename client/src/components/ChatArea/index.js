@@ -45,12 +45,16 @@ class ChatArea extends Component {
 
   render() {
 
-    return (
-      <div id="page">
-        <div id="chat-list">
-          <ul className="chat-list scroll-hijack">
-          </ul>
-        </div>
+
+class ChatArea extends Component {
+    render() {
+        return (
+          <div id="page">
+            <div id="chat-list">
+              <ul className="chat-list scroll-hijack">
+              </ul>
+            </div>
+
 
         {/* CHANNEL NAME GOES INTO THIS SPAN */}
         <div id="chat" className="page">
@@ -74,26 +78,16 @@ class ChatArea extends Component {
             </div>
           )}
   
-            
           </div>
-          <div className="chat-footer relative">
-            <div id="message-form">
-              {/* NOTE FOR BIRNA: styling messed up a little, uncomment line below to see difference -BL*/}
-              {/* <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." /> */}
-              <MessageText className="messageArea post-input" socket={this.props.socket} />
-              <button type="submit" className="post-button messageSubmit"><span className="caret-right"></span></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-};
+        )
+    }
+}
 
 function mapStateToProps(state) {
-  //grab messages from state
+    return {state};
 }
 
 export default compose(
-  connect(mapStateToProps, {}),
+    connect(mapStateToProps, { socket }),
+    // reduxForm({})
 )(ChatArea);
