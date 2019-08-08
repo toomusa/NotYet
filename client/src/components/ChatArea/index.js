@@ -1,9 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
 import "./style.css";
 import MessageText from "../../components/MessageText"
 
-const ChatArea = props => (
-    <div id="page">
+import socket from "../../socket"
+
+class ChatArea extends Component {
+    render() {
+        return (
+            <div id="page">
         <div id="chat-list">
             <ul className="chat-list scroll-hijack">
             </ul>
@@ -40,12 +46,21 @@ const ChatArea = props => (
                 <div id="message-form">
                     {/* NOTE FOR BIRNA: styling messed up a little, uncomment line below to see difference -BL*/}
                     {/* <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." /> */}
-                    <MessageText className="messageArea post-input" socket={props.socket}/>
+                    <MessageText className="messageArea post-input" socket={this.props.socket}/>
                     <button type="submit" className="post-button messageSubmit"><span className="caret-right"></span></button>
                 </div>
             </div>
         </div>
     </div>
-);
+        )
+    }
+}
 
-export default ChatArea; 
+function mapStateToProps(state) {
+    return {state};
+}
+
+export default compose(
+    connect(mapStateToProps, { socket }),
+    // reduxForm({})
+)(ChatArea);

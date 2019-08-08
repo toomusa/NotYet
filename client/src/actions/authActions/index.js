@@ -1,6 +1,9 @@
 
 import { AUTH_USER, AUTH_ERROR } from "./types";
+import { CLEAR_USER } from "../dbActions/types";
+
 import axios from "axios";
+// import socket from "../../socket"
 
 // const authenticateUser = payload => ({
 //     type: AUTH_USER, 
@@ -8,37 +11,45 @@ import axios from "axios";
 // })
 
 export const signup = (formProps, callback) => async dispatch => {
-    console.log("Auth Action is Hit")
-    console.log(formProps)
     try {
         const res = await axios.post("/api/auth/signup", formProps);
-        console.log(res.data.token)
+        let { userData } = res.data;
+
         dispatch({ type: AUTH_USER, payload: res.data.token });
         localStorage.setItem("token", res.data.token);
-        callback();
+
+        callback(userData);
     } catch (e) {
         dispatch({ type: AUTH_ERROR, payload: "Email in use" });
     }
 }
 
 export const signin = (formProps, callback) => async dispatch => {
-    console.log(formProps)
     try {
         const res = await axios.post("api/auth/signin", formProps);
+        let { userData } = res.data;
+
         console.log(res.data.token)
+        console.log(res.data)
+
         dispatch({ type: AUTH_USER, payload: res.data.token });
         localStorage.setItem("token", res.data.token);
-        callback();
+
+        callback(userData);
     } catch (e) {
         dispatch({ type: AUTH_ERROR, payload: "Invalid login credentials" });
     }
 }
 
-export const signout = () => {
+export const signout = () => async dispatch => {
     localStorage.removeItem("token");
-    return {
+    dispatch({
         type: AUTH_USER,
         payload: ""
-    }
+    })
+    dispatch({
+        type: CLEAR_USER,
+        payload: ""
+    })
 }
 

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const MessagesSchema = new Schema({
   date: { type: Date, default: new Date(Date.now()) },
-  text: {
+  content: {
     type: String,
     required: true,
   },

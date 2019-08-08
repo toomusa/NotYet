@@ -58,6 +58,8 @@ io.on('connection', function (socket) {
     io.emit("messageResponse", {response})
   });
 
+  io.emit("UserLoaded", {hi: "frontend"})
+
 });
 
 

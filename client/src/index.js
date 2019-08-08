@@ -25,7 +25,7 @@ import Wrapper from './components/Wrapper';
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const initial_state = {auth: { authenticated: localStorage.getItem("token")}}
+const initial_state = { auth: { authenticated: localStorage.getItem("token")}};
 
 const store = createStore(
     reducers,
@@ -40,8 +40,8 @@ ReactDOM.render(
         <Router>
             <Wrapper>
                 <Auth>
-                    <Route exact path="/signup" component={SignUpPg}/>
-                    <Route exact path="/signin" component={SignInPg}/>
+                    <Route exact path="/signup" component={SignUpPg} />
+                    <Route exact path="/signin" component={SignInPg} />
                     <Route exact path="/signout" component={SignOut}/>
                     <Route exact path="/" component={HomePage}/>
                 </Auth>

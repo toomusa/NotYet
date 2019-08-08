@@ -37,6 +37,9 @@ import Profile from "./pages/ProfilePg";
 import socket from "./socket"
 import Welcome from "./components/Welcome"
 
+// import io from "socket.io-client"
+// export const socket = io();
+
 class App extends Component {
 
   // componentDidMount() {
@@ -47,11 +50,13 @@ class App extends Component {
         // {props.children}
         if (window.location.href === "http://localhost:3000/dashboard") {
             return (
+                // <Dashboard />
                 <Dashboard socket={socket} />
             )
         }
         else if (window.location.href === "http://localhost:3000/profile") {
             return (
+                // <Profile />
                 <Profile socket={socket} />
             )
         } else {
@@ -72,9 +77,9 @@ function mapStateToProps(state) {
 }
 
 export default compose(
+    // connect(mapStateToProps, {}),
     connect(mapStateToProps, { socket }),
     // reduxForm({})
 )(App);
 
-// export default App;
 
