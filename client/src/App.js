@@ -22,19 +22,13 @@
 
 
 import React, { Component } from "react";
-// import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
-// import "./style.css";
-
-// import Brand from "../../components/Brand";
-// import Grid from "../../components/Grid";
-// import Auth from "../../containers/Auth"
-// import MessageText from "../../components/MessageText"
+// import { reduxForm, Field } from "redux-form";
+import socket from "./socket"
 import Dashboard from "./pages/DashboardPg";
 import Profile from "./pages/ProfilePg";
-import Explorer from "./pages/ExplorerPg";
-
+import ExplorerPg from "./pages/ExplorerPg";
 import socket from "./socket"
 import Welcome from "./components/Welcome"
 import HomePg from "./pages/HomePg";
@@ -46,9 +40,9 @@ import CreateChat from "./containers/CreateChat"
 
 class App extends Component {
 
-//   componentDidMount() {
-//     this.props.socket.on("connection", {app: "connected"});
-//   }
+    //   componentDidMount() {
+    //     this.props.socket.on("connection", {app: "connected"});
+    //   }
 
     render() {
         // {props.children}
@@ -63,17 +57,17 @@ class App extends Component {
                 // <Profile />
                 <Profile socket={socket} />
             )
-        } 
+        }
         else if (window.location.href === "http://localhost:3000/") {
             return (
                 // <Profile />
                 <HomePg socket={socket} />
             )
-        } 
+        }
         else if (window.location.href === "http://localhost:3000/explorer") {
             return (
 
-                <Explorer socket={socket} />
+                <ExplorerPg socket={socket} />
 
             )
         }
@@ -85,15 +79,15 @@ class App extends Component {
             )
         } else {
             return (
-                <Welcome/>
+                <Welcome />
             )
         }
-             
+
     }
 }
 
 function mapStateToProps(state) {
-    return {state};
+    return { state };
 }
 
 export default compose(
@@ -101,5 +95,3 @@ export default compose(
     connect(mapStateToProps, { socket }),
     // reduxForm({})
 )(App);
-
-

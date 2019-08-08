@@ -55,42 +55,42 @@ class SignIn extends Component {
 
       <div>
         <h3>Welcome Back!</h3>
-          <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
-            <fieldset>
-              <div className="form-group">
-                <label for="email">EMAIL</label>
-                {/* <input type="email" name="email" id="email" className="email form-control" /> */}
-                <Field
-                  name="email"
-                  type="text"
-                  id="email"
-                  className="email form-control loginEmail"
-                  component={InputField}
-                // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
-                // go check it out, should work the same
-                />
-              </div>
-              <div className="form-group">
-                <label for="password">PASSWORD</label>
-                {/* <input type="password" name="password" id="password" className="form-control" /> */}
-                <Field
-                  name="password"
-                  type="password"
-                  id="password"
-                  className="form-control loginPassword"
-                  component={InputField}
-                // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
-                // go check it out, should work the same
-                />
-              </div>
-            </fieldset>
+        <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
+          <fieldset>
             <div className="form-group">
-              {/* <p className="help-block"><a href="/" className="link-underline">FORGOT YOUR PASSWORD?</a></p>
-                    <p className="help-block2 mb-25">Need an account? Register <a href="/users/register" className="clr-primary link-underline">here</a>.</p> */}
-              <button type="submit" className="btn btn-block btn-radius btn-primary loginSubmit">LOGIN</button>
+              <label for="email">EMAIL</label>
+              {/* <input type="email" name="email" id="email" className="email form-control" /> */}
+              <Field
+                name="email"
+                type="text"
+                id="email"
+                className="email form-control loginEmail"
+                component={InputField}
+              // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
+              // go check it out, should work the same
+              />
             </div>
-          </form>
-         </div>
+            <div className="form-group">
+              <label for="password">PASSWORD</label>
+              {/* <input type="password" name="password" id="password" className="form-control" /> */}
+              <Field
+                name="password"
+                type="password"
+                id="password"
+                className="form-control loginPassword"
+                component={InputField}
+              // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
+              // go check it out, should work the same
+              />
+            </div>
+          </fieldset>
+          <div className="form-group">
+            {/* <p className="help-block"><a href="/" className="link-underline">FORGOT YOUR PASSWORD?</a></p>
+                    <p className="help-block2 mb-25">Need an account? Register <a href="/users/register" className="clr-primary link-underline">here</a>.</p> */}
+            <button type="submit" className="btn btn-block btn-radius btn-primary loginSubmit">LOGIN</button>
+          </div>
+        </form>
+      </div>
 
       // </div>
     )

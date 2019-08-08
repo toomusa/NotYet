@@ -1,5 +1,5 @@
 
-import React, { Component }  from "react";
+import React, { Component } from "react";
 import Signin from "./SignIn";
 import Signup from "./SignUp";
 
@@ -9,7 +9,7 @@ class Auth extends Component {
     super(props);
 
     this.state = {
-        btn : true
+      btn: true
     };
 
     this.renderSignin = this.renderSignin.bind(this);
@@ -20,7 +20,7 @@ class Auth extends Component {
     this.setState({ btn: false })
     console.log(this.state)
   }
-  
+
   renderSignin() {
     this.setState({ btn: true })
     console.log(this.state)
@@ -43,8 +43,8 @@ class Auth extends Component {
           {/* this one is not rly a button ^ it's to fill empty space*/}
           <button id="loginButtonT" className="btn btn-primary" onClick={this.renderSignin}>LOGIN</button>
           <button id="signupButton" className="btn btn-primary" onClick={this.renderSignup}>REGISTER</button>
- 
-          { (this.state.btn) ? <Signin socket={this.props.socket} /> : <Signup socket={this.props.socket} /> }
+
+          {(this.state.btn) ? <Signin socket={this.props.socket} /> : <Signup socket={this.props.socket} />}
 
         </div>
       </div>

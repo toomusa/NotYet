@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./style.css";
 import {ProfileButton, AddButton, Channel} from "../../components/Channel"
 import CreateChat from "../../containers/CreateChat";
@@ -84,7 +84,7 @@ class Channels extends Component {
               ref_movie={channel.ref_movie} 
               poster_path={channel.poster_path}/>
           ))}
-          
+
         </ul>
         <CreateChat socket={this.props.socket} modal={this.state.modal} />
       </div >
