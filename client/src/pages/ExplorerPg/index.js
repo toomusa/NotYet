@@ -9,7 +9,7 @@ import Grid from "../../components/Grid";
 import Channels from "../../containers/Channels";
 import Movies from "../../containers/Movies";
 import Navbar from "../../components/Navbar";
-import Header from "../../components/Header";
+import Header2 from "../../components/Header2";
 import Footer from "../../components/Footer";
 
 class Explorer extends Component {
@@ -19,7 +19,7 @@ class Explorer extends Component {
           <div>
             {/* <Brand title='VIDI' /> */}
             <Grid>
-              <Header />
+            ><Header2 />
                 {/* <Auth/> */}
                 {/* <MediaSearch /> */}
                 <Navbar />
