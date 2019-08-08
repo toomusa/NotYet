@@ -7,7 +7,7 @@ import { InputField } from "../../../components/InputField"
 import validator from "validator";
 import { Link } from 'react-router-dom';
 import "./style.css";
-
+import history from "../../../history";
 
 class SignUp extends Component {
 
@@ -37,7 +37,8 @@ class SignUp extends Component {
     this.props.signup(formProps, () => {
       console.log("BAck in SignUp")
       console.log(this.props)
-      this.props.history.push("/dashboard");
+      history.push("/dashboard");
+      // this.context.history.push('/dashboard');
     })
   }
 
