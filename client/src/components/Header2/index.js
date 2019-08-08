@@ -15,10 +15,10 @@ const Header = props => (
                         style={{
                             backgroundImage: `linear-gradient(90deg, rgba(36, 36, 90, 0.567) 40%, rgba(36, 36, 90, 0.467) 60%), url("https://i.ytimg.com/vi/5znji1uGNIs/maxresdefault.jpg")`
                         }}
-                        className="bgImageHeader"
+                        className="bgImageHeader2"
                     >
-                        <div className="headerTitle headerTitleHome">
-                            <h1>VIDI</h1>
+                        <div className="headerTitleOthers">
+                            {/* <h1>VIDI</h1> */}
                             <h5>The Anti-Spoiler Chat for Film Fanatics</h5>
                         </div>
                         </div>

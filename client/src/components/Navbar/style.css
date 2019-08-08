@@ -1,6 +1,6 @@
 .navbar li a {
   text-decoration: none;
-  color: #687a92;
+  color: #6caaa2;
   font-size: 15px;
 }
 
@@ -10,12 +10,12 @@
 
 #navbar {
   position: fixed;
-  top: 0px;
+  top: 65px;
   right: 0px;
   z-index: 2;
   width: 500px;
-  background-color: rgba(14, 31, 56, 0.836); 
-  border-radius: 15px;
+  /* background-color: rgba(14, 31, 56, 0.836);  */
+  border-radius: 20px;
   text-align: left;
 }
   
@@ -25,28 +25,30 @@
 }
 
 .navbar-menu:first-child {
-  margin-left: 75px;
+  margin-left: 95px;
 }
       
 .navbar-menu li a {
-  color: #687a92;
+  color: #6caaa2;
+  background-color: rgba(0, 28, 43, 0.89);
   width: 60px;
   height: 60px;
   line-height: 60px;
   margin: 0 6px 0;
   font-weight: 700;
-  border-radius: 30%;
   font-size: 16px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
   
 .navbar-menu li a:hover {
   color: white;
-  background: rgba(255, 255, 255, 0.07);
+  /* background: rgba(255, 255, 255, 0.07); */
   border-radius: 5px; 
 }
       
 .navbar-menu li a:active {
-  background: rgba(255, 255, 255, 0.04);
+  /* background: rgba(255, 255, 255, 0.04); */
   color: rgba(255, 255, 255, 0.6); 
 }
       
