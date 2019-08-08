@@ -16,7 +16,26 @@ const sendMessage = async data => {
   return chatData
 }
 
-module.exports = { sendMessage };
+const createChannel = async data => {
+  console.log("I'm inside the controller createChannel", data)
+
+  let newChannel = await new db.Channel({ data }).populate("Message")
+  console.log("newChannel data from Channel db")
+  console.log(newChannel)
+
+  let channel = await db.User.findByIdAndUpdate(userId, {$push: {channels: newChannel.id }}, {new: true})
+  console.log("Channel data from User db")
+  console.log(channel)
+  
+  let channelResponse = {...channel.channels}
+  console.log("Chat data from res messages")
+  console.log(channelResponse)
+
+  // res.json({channelResponse})
+  return channelResponse
+}
+
+module.exports = { createChannel };
 
 
 

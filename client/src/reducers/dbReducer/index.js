@@ -1,8 +1,8 @@
 
-import { ADD_MESSAGE, MESSAGE_RECEIVED, ADD_USER, USERS_LIST, LOAD_USER, CLEAR_USER } from "../../actions/dbActions/types";
+import { RECEIVED_MESSAGE, LOAD_USER, CLEAR_USER } from "../../actions/dbActions/types";
 
 const INITIAL_STATE = {
-    User: {}
+    Users: {}
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -10,34 +10,13 @@ export default function(state = INITIAL_STATE, action) {
         case LOAD_USER:
             console.log(action.payload)
             let userdata = action.payload
-            return {...state, User: {...userdata}};
+            return {...state, Users: {...userdata}};
         case CLEAR_USER:
-            return {...state, User: {}};
-        case ADD_MESSAGE:
-            return state.concat([
-                {
-                message: action.message,
-                author: action.author,
-                id: action.id
-                }
-            ]);
-        case MESSAGE_RECEIVED:
-            return state.concat([
-                {
-                message: action.message,
-                author: action.author,
-                id: action.id
-                }
-            ]);
-        case ADD_USER:
-            return state.concat([
-                {
-                name: action.name,
-                id: action.id
-                }
-            ]);
-        case USERS_LIST:
-            return action.user
+            return {...state, Users: {}};
+        case RECEIVED_MESSAGE:
+            console.log(action.payload)
+            let chatdata = action.payload
+            return {...state, Chats: {...chatdata}};
         default:
             return state;
     }
