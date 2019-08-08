@@ -73,7 +73,7 @@ class App extends Component {
         else if (window.location.href === "http://localhost:3000/explorer") {
             return (
 
-                <ExplorerPg socket={socket} />
+                <Explorer socket={socket} />
 
             )
         }
