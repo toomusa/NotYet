@@ -9,10 +9,11 @@ import "./style.css";
 import Header from "../../components/Header";
 import Grid from "../../components/Grid";
 import Auth from "../../containers/Auth"
-import MessageText from "../../components/MessageText"
+// import MessageText from "../../components/MessageText"
 import Preview from "../../components/Preview";
 import Preview2 from "../../components/Preview2";
 import Footer from "../../components/Footer";
+import Signup from "../../containers/Auth/SignUp";
 
 import io from "socket.io-client"
 let socket = io.connect('http://localhost:4000');
@@ -35,8 +36,8 @@ class HomePg extends Component {
             {/* <Brand title='VIDI'/> */}
             <Header/>
             <Grid>
-              <Auth/>
-              <div><MessageText socket={socket}/></div>
+              <Signup/>
+              {/* <div><MessageText socket={socket}/></div> */}
               <h4 className="whatMsg">VIDI is a chat program for movies and TV shows.
               What makes our app special is that we prevent spoilers by hiding chat channels
               until the user verifies they've viewed.

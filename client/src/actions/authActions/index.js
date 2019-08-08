@@ -1,6 +1,7 @@
 
 import { AUTH_USER, AUTH_ERROR } from "./types";
 import axios from "axios";
+import history from "../../history"
 
 // const authenticateUser = payload => ({
 //     type: AUTH_USER, 
@@ -36,6 +37,7 @@ export const signin = (formProps, callback) => async dispatch => {
 
 export const signout = () => {
     localStorage.removeItem("token");
+    history.push("/");
     return {
         type: AUTH_USER,
         payload: ""

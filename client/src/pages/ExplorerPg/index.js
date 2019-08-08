@@ -11,6 +11,7 @@ import Movies from "../../containers/Movies";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+
 class Explorer extends Component {
 
     render() {
@@ -38,7 +39,9 @@ function mapStateToProps(state) {
     return {state};
 }
 
-export default compose(
-    connect(mapStateToProps, {}),
-    reduxForm({})
-)(Explorer);
+// export default compose(
+//     connect(mapStateToProps, {}),
+//     reduxForm({})
+// )(Explorer);
+
+export default Explorer;

@@ -6,7 +6,7 @@ import { signin } from "../../../actions/authActions";
 import { InputField } from "../../../components/InputField"
 import { Link } from 'react-router-dom';
 import "./style.css";
-
+import history from "../../../history";
 class SignIn extends Component {
 
   renderInput = ({ input }) => {
@@ -16,7 +16,7 @@ class SignIn extends Component {
 
   onSubmit = formValues => {
     this.props.signin(formValues, () => {
-      this.props.history.push("/dashboard");
+      history.push("/dashboard");
     })
   }
 
