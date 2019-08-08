@@ -5,7 +5,7 @@ const Profile = props => (
 
     <div id="page">
         <div id="chat-list">
-            <ul className="chat-list scroll-hijack">
+            <ul class="chat-list scroll-hijack">
             </ul>
         </div>
         <div id="profile" className="pageProfile">

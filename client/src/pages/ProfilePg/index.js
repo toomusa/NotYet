@@ -17,16 +17,16 @@ class ProfilePg extends Component {
 
     render() {
         return (
-          <div>
-            <Grid>
-                {/* <MediaSearch /> */}
-                <Header2 />
-                <Navbar />
-                <Channels />
-                <Profile/>
-                <Footer/>
-            </Grid>
-        </div>
+            <div>
+                <Grid>
+                    {/* <MediaSearch /> */}
+                    <Header2 />
+                    <Navbar />
+                    <Channels />
+                    <Profile />
+                    <Footer />
+                </Grid>
+            </div>
         )
     }
 }

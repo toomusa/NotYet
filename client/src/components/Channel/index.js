@@ -4,7 +4,7 @@ import "./style.css";
 
 export function AddButton (props) {
   return (
-    <li> <span onClick={props.show}
+    <li><span onClick={props.show}
             className="join-server createChannel" 
             data-start="modal-custom" 
             data-target="#create-group" 

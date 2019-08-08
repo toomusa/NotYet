@@ -39,6 +39,8 @@
 // export default Navbar;
 
 import React from "react";
+import { Link } from 'react-router-dom'
+
 // import React, { Component } from "react";
 // import { reduxForm, Field } from "redux-form";
 // import { compose } from "redux";
@@ -54,11 +56,11 @@ const Navbar = props => (
   <div id="navbar">
     <div className="table">
     <ul className="navbar-menu" id="horizontal-list">
-      <li><a href="/dashboard">Dashboard</a></li>
-      <li><a href="/explorer">Explorer</a></li>
-      <li><a href="/" className=" iconImage"><img src="https://img.icons8.com/cotton/2x/search--v1.png" alt=""></img></a></li>
-      <li><a href="/profile" className=" iconImage"><img src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt=""></img></a></li>
-      <li><a href="/logout" className="">Logout</a></li>
+      <li><Link to={"/dashboard"}>Dashboard</Link></li>
+      <li><Link to="/explorer">Explorer</Link></li>
+      <li><Link to="" className=" iconImage"><img src="https://img.icons8.com/cotton/2x/search--v1.png" alt=""></img></Link></li>
+      <li><Link to="/profile" className=" iconImage"><img src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt=""></img></Link></li>
+      <li><Link to="/logout">Logout</Link></li>
     </ul>
     </div>
   </div>
