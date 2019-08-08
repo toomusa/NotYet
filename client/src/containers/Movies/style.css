@@ -1,0 +1,109 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.lists {
+  margin: 50px 0;
+  color: white;
+}
+
+.lists:first-child {
+  margin-top: 50px;
+  border-top: 0;
+}
+
+.lists h2 {
+    font-size: 25px;
+  padding-left: 70px;
+  margin-bottom: 10px;
+  border-top: 1.25px rgba(66, 66, 139, 0.507) dashed;
+  padding-top: 30px;
+}
+
+.menu-item {
+  padding: 0px;
+  margin: 2px 2px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+.menu-item-wrapper:hover {
+  border: 1px rgba(10, 10, 117, 0.582) solid;
+}
+
+
+.movie-card {
+  position: relative;
+  width: 300px;
+  height: 170px;
+  transition: all 0.7s;
+  background: #172c48;;
+}
+
+.movieImg {
+  width: 300px;
+  height: 170px;
+  vertical-align: 0px;
+  transition: all 0.7s;
+  user-select: none;
+} 
+
+.movie-title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  white-space: initial;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.movie-card:hover {
+  width: 330px;
+  height: 190px;
+}
+
+.movie-card:hover .movie-title {
+  visibility: visible;
+  opacity: 1;
+}
+
+.movie-card:hover img {
+  width: 330px;
+  height: 190px;
+  vertical-align: -12px;
+  opacity: 0.3;
+}
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.horizontal-menu {
+  height: 220px;
+}
+
+.arrow-prev,
+.arrow-next {
+  color: #5d6775;
+  font-size: 40px;
+}
+
+.arrow-prev:hover,
+.arrow-next:hover {
+  color: #578b84;
+  font-size: 45px;
+}
+
+.arrow-prev:active,
+.arrow-next:active {
+  color: #43b8a8;
+  font-size: 45px;
+}

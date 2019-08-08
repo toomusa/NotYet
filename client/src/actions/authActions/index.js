@@ -3,12 +3,6 @@ import { AUTH_USER, AUTH_ERROR } from "./types";
 import { CLEAR_USER } from "../dbActions/types";
 
 import axios from "axios";
-// import socket from "../../socket"
-
-// const authenticateUser = payload => ({
-//     type: AUTH_USER, 
-//     payload: res.data.token,
-// })
 
 export const signup = (formProps, callback) => async dispatch => {
     try {

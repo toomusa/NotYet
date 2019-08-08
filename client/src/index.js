@@ -1,25 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route} from 'react-router-dom';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose} from "redux";
 import reduxThunk from "redux-thunk";
 import reducers from "./reducers";
 import './index.css';
+import history from './history';
 
 // import components
 import App from './App';
 import Auth from "./Auth";
-// import SignUp from "./containers/Auth/SignUp";
-// import SignIn from "./containers/Auth/SignIn";
 import SignOut from "./containers/SignOut";
-import HomePage from "./pages/HomePage";
+import HomePg from "./pages/HomePg";
 import ChatAreaPg from "./pages/ChatAreaPg";
 import DashboardPg from "./pages/DashboardPg";
 import SignInPg from "./pages/SignInPg";
 import SignUpPg from "./pages/SignUpPg";
 import ProfilePg from "./pages/ProfilePg";
 import Wrapper from './components/Wrapper';
+import ExplorerPg from './pages/ExplorerPg';
 // import Channels from './containers/Channels';
 
 // configure redux devtools
@@ -37,19 +37,19 @@ const store = createStore(
 //#region
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <Router history={history}>
             <Wrapper>
                 <Auth>
                     <Route exact path="/signup" component={SignUpPg} />
                     <Route exact path="/signin" component={SignInPg} />
                     <Route exact path="/signout" component={SignOut}/>
-                    <Route exact path="/" component={HomePage}/>
+                    <Route exact path="/" component={HomePg}/>
                 </Auth>
                 <App>    
                     <Route exact path="/dashboard" component={DashboardPg}/>
                     <Route exact path="/chatarea" component={ChatAreaPg}/>
                     <Route exact path="/profile" component={ProfilePg}/>
-                    {/* <Route exact path="/explorer" component={ExplorerPg}/> */}
+                    <Route exact path="/explorer" component={ExplorerPg}/>
                     {/* <Route exact path="Channels" component={Channels}/> */}
                 </App>
             </Wrapper>

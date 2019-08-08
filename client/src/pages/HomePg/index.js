@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
@@ -7,12 +8,12 @@ import "./style.css";
 // import Brand from "../../components/Brand";
 import Header from "../../components/Header";
 import Grid from "../../components/Grid";
-import SignIn from "../../containers/Auth/SignIn";
-import MessageText from "../../components/MessageText"
+import Auth from "../../containers/Auth"
+// import MessageText from "../../components/MessageText"
 import Preview from "../../components/Preview";
 import Preview2 from "../../components/Preview2";
 import Footer from "../../components/Footer";
-
+import Signup from "../../containers/Auth/SignUp";
 
 import io from "socket.io-client"
 let socket = io.connect('http://localhost:4000');
@@ -23,7 +24,7 @@ socket.on('server-send', function (data) {
   socket.emit('client-send', { my: 'wompalompa' });
 })
 
-class SignInPg extends Component {
+class HomePg extends Component {
 
   // componentDidMount() {
   //   this.props.socket.connect();
@@ -35,8 +36,8 @@ class SignInPg extends Component {
             {/* <Brand title='VIDI'/> */}
             <Header/>
             <Grid>
-              <SignIn/>
-              <div><MessageText socket={socket}/></div>
+              <Signup/>
+              {/* <div><MessageText socket={socket}/></div> */}
               <h4 className="whatMsg">VIDI is a chat program for movies and TV shows.
               What makes our app special is that we prevent spoilers by hiding chat channels
               until the user verifies they've viewed.
@@ -66,7 +67,7 @@ function mapStateToProps(state) {
 export default compose(
     connect(mapStateToProps, { socket }),
     // reduxForm({})
-)(SignInPg);
+)(HomePg);
 
 // export default HomePage;
 

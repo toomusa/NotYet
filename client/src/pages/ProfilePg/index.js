@@ -5,24 +5,26 @@ import React, { Component } from "react";
 // import { connect } from "react-redux";
 // import requireAuth from "../hoc/requireAuth";
 import "./style.css";
+import Header from "../../components/Header";
 import Profile from "./../../containers/Profile"
-import Brand from "../../components/Brand";
 import Grid from "../../components/Grid";
-import MediaSearch from "../../components/MediaSearch";
+// import MediaSearch from "../../components/MediaSearch";
 import Channels from "../../containers/Channels";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 class ProfilePg extends Component {
 
     render() {
         return (
           <div>
-            <Brand title='VIDI' />
             <Grid>
-                <MediaSearch />
+                {/* <MediaSearch /> */}
+                <Header/>
                 <Navbar />
                 <Channels />
                 <Profile/>
+                <Footer/>
             </Grid>
         </div>
         )

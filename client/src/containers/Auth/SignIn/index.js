@@ -4,8 +4,9 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { signin } from "../../../actions/authActions";
 import { InputField } from "../../../components/InputField"
-import "./style.css";
 import { Link } from 'react-router-dom';
+import "./style.css";
+import history from "../../../history";
 
 import socket from "../../../socket"
 import { loadUser } from "../../../actions/dbActions"
@@ -23,7 +24,7 @@ class SignIn extends Component {
       this.props.loadUser(userData, () => {
         console.log("Send to dbActions from ComponentDidMount")
       })
-      this.props.history.push("/dashboard");
+      history.push("/dashboard");
     })
   }
 

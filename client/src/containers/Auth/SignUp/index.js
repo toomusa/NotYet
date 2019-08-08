@@ -5,12 +5,13 @@ import { connect } from "react-redux";
 import { signup } from "../../../actions/authActions";
 import { InputField } from "../../../components/InputField"
 import validator from "validator";
-import "./style.css";
 import { Link } from 'react-router-dom';
 
 import socket from "../../../socket"
 import { loadUser } from "../../../actions/dbActions"
 
+import "./style.css";
+import history from "../../../history";
 
 class SignUp extends Component {
 
@@ -41,7 +42,7 @@ class SignUp extends Component {
       this.props.loadUser(userData, () => {
         console.log("Send to dbActions from ComponentDidMount")
       })
-      this.props.history.push("/dashboard");
+      history.push("/dashboard");
     })
   }
 
