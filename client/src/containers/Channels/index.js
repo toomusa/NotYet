@@ -3,6 +3,9 @@ import "./style.css";
 import Channel from "../../components/Channel"
 
 class Channels extends Component {
+  store = {
+
+  }
 
   render() {
     return (
@@ -11,9 +14,9 @@ class Channels extends Component {
   }
 };
 
-// function mapStateToProps(state) {
-//   return { state };
-// }
+function mapStateToProps(state) {
+  return { state };
+}
 
 // const formedComponent = compose(
 //   connect(mapStateToProps, {}),
