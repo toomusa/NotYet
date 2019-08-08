@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { signup } from "../../../actions/authActions";
 import { InputField } from "../../../components/InputField"
 import validator from "validator";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-import socket from "../../../socket"
+// import socket from "../../../socket"
 import { loadUser } from "../../../actions/dbActions"
 
 import "./style.css";
@@ -47,7 +47,7 @@ class SignUp extends Component {
   }
 
   componentDidMount() {
-      socket.on("UserLoaded", data => {
+      this.props.socket.on("UserLoaded", data => {
         console.log(data)
       });
   }
@@ -56,20 +56,22 @@ class SignUp extends Component {
     // console.log(this.props)
     const { handleSubmit } = this.props;
     return (
-      <div className="modal-block">
-        <div className="modal-brand">
-          <div className="modal-brand-caption">
-            <div className="logo">
-              <h1>V</h1><span> <h1>I</h1></span><span> <h1>D</h1></span><span><h1>I</h1></span>
-            </div>
-          </div>
-        </div>
-        <div className="modal-block-content">
+      // <div className="modal-block">
+      //   <div className="modal-brand">
+      //     <div className="modal-brand-caption">
+      //       <div className="logo">
+      //         <h1>V</h1><span> <h1>I</h1></span><span> <h1>D</h1></span><span><h1>I</h1></span>
+      //       </div>
+      //     </div>
+      //   </div>
+      //   <div className="modal-block-content">
+      //     <h3>Register Today!</h3>
+      //     <button id="stylingButton" className="btn btn-primary"></button>
+      //     {/* this one is not rly a button ^ it's to fill empty space*/}
+      //     <Link to="/signin"><button id="loginButton" type="submit" className="btn btn-primary">LOGIN</button></Link>
+      //     <Link to="/signup"><button id="signupButtonT" type="submit" className="btn btn-primary">REGISTER</button></Link>
+        <div>
           <h3>Register Today!</h3>
-          <button id="stylingButton" className="btn btn-primary"></button>
-          {/* this one is not rly a button ^ it's to fill empty space*/}
-          <Link to="/signin"><button id="loginButton" type="submit" className="btn btn-primary">LOGIN</button></Link>
-          <Link to="/signup"><button id="signupButtonT" type="submit" className="btn btn-primary">REGISTER</button></Link>
           <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
             <div className="form-group">
               <label for="email">EMAIL</label>
@@ -107,8 +109,10 @@ class SignUp extends Component {
               <button type="submit" className="btn btn-block btn-radius btn-primary registerSubmit">REGISTER</button>
             </div>
           </form>
-        </div>
-      </div>
+       </div>
+
+
+      // </div>
     )
   }
 }
@@ -139,7 +143,7 @@ const validate = formValues => {
 }
 
 export default compose(
-  connect(mapStateToProps, { signup, socket, loadUser }),
+  connect(mapStateToProps, { signup, loadUser }),
   reduxForm({
     form: "signup",
     validate

@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { reduxForm, Field } from "redux-form";
+// import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import "./style.css";
@@ -8,21 +8,22 @@ import "./style.css";
 // import Brand from "../../components/Brand";
 import Header from "../../components/Header";
 import Grid from "../../components/Grid";
-import Auth from "../../containers/Auth"
+// import Auth from "../../containers/Auth"
 // import MessageText from "../../components/MessageText"
 import Preview from "../../components/Preview";
 import Preview2 from "../../components/Preview2";
 import Footer from "../../components/Footer";
-import Signup from "../../containers/Auth/SignUp";
+// import Signin from "../../containers/Auth/SignIn";
+import Auth from "../../containers/Auth"
 
-import io from "socket.io-client"
-let socket = io.connect('http://localhost:4000');
+// import io from "socket.io-client"
+// let socket = io.connect('http://localhost:4000');
 
-// let socket = io();
-socket.on('server-send', function (data) {
-  console.log(data);
-  socket.emit('client-send', { my: 'wompalompa' });
-})
+// // let socket = io();
+// socket.on('server-send', function (data) {
+//   console.log(data);
+//   socket.emit('client-send', { my: 'wompalompa' });
+// })
 
 class HomePg extends Component {
 
@@ -36,7 +37,7 @@ class HomePg extends Component {
             {/* <Brand title='VIDI'/> */}
             <Header/>
             <Grid>
-              <Signup/>
+              <Auth socket={this.props.socket} />
               {/* <div><MessageText socket={socket}/></div> */}
               <h4 className="whatMsg">VIDI is a chat program for movies and TV shows.
               What makes our app special is that we prevent spoilers by hiding chat channels
@@ -65,7 +66,7 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-    connect(mapStateToProps, { socket }),
+    connect(mapStateToProps, { }),
     // reduxForm({})
 )(HomePg);
 

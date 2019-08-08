@@ -36,15 +36,16 @@ import Profile from "./pages/ProfilePg";
 
 import socket from "./socket"
 import Welcome from "./components/Welcome"
+import HomePg from "./pages/HomePg";
 
 // import io from "socket.io-client"
 // export const socket = io();
 
 class App extends Component {
 
-  // componentDidMount() {
-  //   this.props.socket.connect();
-  // }
+//   componentDidMount() {
+//     this.props.socket.on("connection", {app: "connected"});
+//   }
 
     render() {
         // {props.children}
@@ -58,6 +59,12 @@ class App extends Component {
             return (
                 // <Profile />
                 <Profile socket={socket} />
+            )
+        } 
+        else if (window.location.href === "http://localhost:3000/") {
+            return (
+                // <Profile />
+                <HomePg socket={socket} />
             )
         } else {
             return (

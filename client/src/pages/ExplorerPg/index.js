@@ -1,8 +1,8 @@
 
 import React, { Component } from "react";
-import { reduxForm } from "redux-form";
-import { compose } from "redux";
-import { connect } from "react-redux";
+// import { reduxForm } from "redux-form";
+// import { compose } from "redux";
+// import { connect } from "react-redux";
 import "./style.css";
 
 import Grid from "../../components/Grid";
@@ -35,9 +35,9 @@ class Explorer extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {state};
-}
+// function mapStateToProps(state) {
+//     return {state};
+// }
 
 // export default compose(
 //     connect(mapStateToProps, {}),
