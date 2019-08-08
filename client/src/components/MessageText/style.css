@@ -1,73 +1,78 @@
-.page-header {
-    padding: 10px 15px;
-    background-color: #1f324c;
+/*=============== START Chat Styles ===============*/
+.chat-body {
+    height: calc(100% - 175px);
+    padding: 15px;
+    overflow: hidden; 
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+  
+.chat-message {
+    padding: 20px 0;
     margin: 0;
-    border: 0; 
 }
-                                  
-.page-header > ul {
-    float: right;
-    margin-bottom: 0;
-    padding: 0;
-    list-style: none;
+    
+.chat-message + .chat-message {
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+} 
+
+.chat-message > .avatar {
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 20px;
+    background: rgba(255, 255, 255, 0.342);
+    float: left; 
 }
-                                  
-.page-header > span {
-    color: #ffffff;
+
+.chat-message-content {
+    line-height: 1.44;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.4); 
+}
+
+.chat-message-author {
+    color: #fff;
     font-weight: 700;
+    display: inline-block;
+    margin-right: 4px; 
 }
-
-
-#page {
-    padding-left: 60px; 
+    
+.chat-message-date {
+    font-size: 0.875em; 
 }
-                                  
-.page {
-    overflow: visible;
-    top: 60px;
-    left: 52px;
-    width: 100%;
-    height: calc(100% - 60px);
-    -webkit-transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
-    transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
-    transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1);
-    transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease; 
-    border-radius: 10px;
-    border: .5px rgb(0, 0, 110) solid;
-    box-shadow: 6px 6px 6px #999;
-}    
-
-.post-input:focus + .post-button {
-    opacity: 1;
-    -webkit-transform: translateY(-50%) scale(1);
-    transform: translateY(-50%) scale(1); 
+    
+.chat-message-author:hover {
+    color: #578b84;
 }
-
-.post-input:hover, .post-input:active {
-    border-radius: 60px; 
+    
+.chat-message .chat-message-message {
+    margin-top: 2px;
+    color: rgba(255, 255, 255, 0.8); 
 }
-
+      
 .chat-footer {
     padding: 30px;
     background-color: #10243E; 
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
-.chat-footer TextArea {
+.chat-footer input {
     background: rgba(255, 255, 255, 0.05);
     border: 0;
     width: 100%;
     height: 50px;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     padding: 6px 20px; 
 }
-
-.chat-footer TextArea:focus {
+        
+.chat-footer input:focus {
     background: rgba(255, 255, 255, 0.06);
 }
         
-.chat-footer TextArea::-webkit-input-placeholder {
+.chat-footer input::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.4); 
 }
 
@@ -78,7 +83,7 @@
     -webkit-transform: translateY(-50%) scale(0.5);
     transform: translateY(-50%) scale(0.5);
     background: #578b84;
-    border-radius: 60%;
+    border-radius: 60px;
     width: 24px;
     height: 24px;
     display: -webkit-box;
@@ -89,7 +94,7 @@
     justify-content: center;
     border: 0;
     color: #fff;
-    opacity: 0;
+    opacity: .5;
     -webkit-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
   
@@ -97,6 +102,10 @@
     opacity: 1;
     -webkit-transform: translateY(-50%) scale(1);
     transform: translateY(-50%) scale(1); 
+}
+
+.post-input:hover, .post-input:active {
+    border-radius: 60px; 
 }
 
 .caret-right {
@@ -118,3 +127,5 @@
 .post-input {
     color:white;
 }
+/*=============== END Chat Styles ===============*/
+

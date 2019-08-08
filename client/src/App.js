@@ -37,6 +37,7 @@ import Profile from "./pages/ProfilePg";
 import socket from "./socket"
 import Welcome from "./components/Welcome"
 import HomePg from "./pages/HomePg";
+import Explorer from "./pages/ExplorerPg";
 
 // import io from "socket.io-client"
 // export const socket = io();
@@ -65,6 +66,11 @@ class App extends Component {
             return (
                 // <Profile />
                 <HomePg socket={socket} />
+            )
+        } 
+        else if (window.location.href === "http://localhost:3000/explorer") {
+            return (
+                <Explorer />
             )
         } else {
             return (

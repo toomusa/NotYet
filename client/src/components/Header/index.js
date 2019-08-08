@@ -18,8 +18,8 @@ const Header = props => (
                         className="bgImageHeader"
                     >
                         <div className="headerTitle">
-                            <h1>VIDI</h1>
-                            <h5>The Anti-Spoiler Chat for Film Enthusiasts</h5>
+                            {/* <h1>VIDI</h1> */}
+                            <h5>The Anti-Spoiler Chat for Film Fanatics</h5>
                         </div>
                         </div>
          

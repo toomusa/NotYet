@@ -246,8 +246,8 @@ a:hover {
   background-color: #1f324c;
   margin: 0;
   border: 0; 
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  /* border-top-left-radius: 20px;
+  border-top-right-radius: 20px; */
 }
 
 .page-header > ul {
@@ -264,12 +264,19 @@ a:hover {
 
 #page {
   margin-top: 0px;
-  padding-left: 55px; 
+  /* padding-left: 55px;  */
   padding-right: 5px;
 }
+.pageMovies {
+  top: -45px;
+}
 
-.page {
-  top: 0px;
+.pageChat, .pageProfile{
+  top: -13px;
+}
+
+.pageMovies, .pageProfile, .pageChat {
+  position: relative;
   left: 52px;
   width: 100%;
   height: calc(100% - 60px);
@@ -277,10 +284,10 @@ a:hover {
   transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
   transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1);
   transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease; 
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  /* border-top-left-radius: 20px;
+  border-top-right-radius: 20px; */
   border: 0;
   box-shadow: 8px 8px 20px #999;
 }
@@ -289,8 +296,8 @@ a:hover {
   height: calc(100% - 40px);
   padding: 30px 15px;
   background-color: rgba(14, 31, 56, 0.5); 
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .valign {
@@ -361,4 +368,8 @@ h6 {
   color: white;                    
   font-size: 1em;                    
 }    
+
+.positionStyles {
+  position: relative;
+}
 /*=============== END Page Styles ===============*/         
