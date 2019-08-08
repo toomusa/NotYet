@@ -41,7 +41,6 @@ ReactDOM.render(
                     <Route exact path="/explorer" component={Explorer} />
                     <Route exact path="/" component={HomePg}/>
                     <Route exact path="/dashboard" component={DashboardPg}/>
-                    <Route exact path="/chatarea" component={ChatAreaPg}/>
                     <Route exact path="/profile" component={ProfilePg}/>
                     <Route exact path="/explorer" component={Explorer}/>
                     <Route exact path="/createchat" component={CreateChat}/>

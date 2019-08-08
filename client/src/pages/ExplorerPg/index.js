@@ -26,7 +26,7 @@ class ExplorerPg extends Component {
                 <Channels />
                 {/* <Header /> */}
                 <Movies />
-                {/* <ChatArea/> */}
+    
                 <Footer />
 
             </Grid>

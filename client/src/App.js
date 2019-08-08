@@ -29,7 +29,6 @@ import socket from "./socket"
 import Dashboard from "./pages/DashboardPg";
 import Profile from "./pages/ProfilePg";
 import ExplorerPg from "./pages/ExplorerPg";
-import socket from "./socket"
 import Welcome from "./components/Welcome"
 import HomePg from "./pages/HomePg";
 import CreateChat from "./containers/CreateChat"
