@@ -14,9 +14,9 @@ class Channels extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  return { state };
-}
+// function mapStateToProps(state) {
+//   return { state };
+// }
 
 // const formedComponent = compose(
 //   connect(mapStateToProps, {}),
