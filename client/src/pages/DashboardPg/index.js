@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-import React from "react";
 import "./style.css";
 
 import Grid from "../../components/Grid";
@@ -23,6 +22,7 @@ class DashboardPg extends Component {
         this.props.socket.emit("loadDashboard", userId, (data) => {
             console.log("Dashboard is fetching userData")
             this.props.socket.on("dashboardLoaded", function(userData) {
+                console.log(userData)
                 this.props.loadDashboard(userData)
             })
         })
