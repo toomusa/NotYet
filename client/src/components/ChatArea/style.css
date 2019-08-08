@@ -51,30 +51,59 @@
 }
       
 .chat-footer {
-    padding: 30px;
+    padding: 15px;
     background-color: #10243E; 
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-.chat-footer input {
+.post-input {
     background: rgba(255, 255, 255, 0.05);
     border: 0;
-    width: 100%;
+    width: 95%;
     height: 50px;
-    /* border-radius: 6px; */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     padding: 6px 20px; 
 }
         
-.chat-footer input:focus {
+.post-input:focus {
     background: rgba(255, 255, 255, 0.06);
 }
         
-.chat-footer input::-webkit-input-placeholder {
+.post-input::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.4); 
 }
 
 .post-button {
+    position: absolute;
+    right: 35px;
+    top: 30%;
+    background: #578b84;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* border-bottom-left-radius: 20px; */
+    width: 35x;
+    height: 35px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: 0;
+    color: #fff;
+    opacity: .7;
+    -webkit-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.post-button:hover {
+    opacity: 1;
+    -webkit-transform: translateY(-5%) scale(1);
+    transform: translateY(-5%) scale(1); 
+}
+
+/* .post-button {
     position: absolute;
     right: 45px;
     top: 50%;
@@ -82,7 +111,7 @@
     transform: translateY(-50%) scale(0.5);
     background: #578b84;
     border-radius: 60px;
-    width: 24px;
+    width: 24x;
     height: 24px;
     display: -webkit-box;
     display: flex;
@@ -96,14 +125,15 @@
     -webkit-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
   
-.post-input:focus + .post-button {
+.post-input:active + .post-button {
     opacity: 1;
     -webkit-transform: translateY(-50%) scale(1);
     transform: translateY(-50%) scale(1); 
-}
+} */
 
 .post-input:hover, .post-input:active {
-    border-radius: 60px; 
+    transform: scale(1.05); 
+    border-radius: 0px; 
 }
 
 .caret-right {

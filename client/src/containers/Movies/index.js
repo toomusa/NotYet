@@ -61,7 +61,7 @@ const moviesList = {
 
 const Movies = () => {
   return (
-    <div id="page" className="page">
+    <div id="page" className="pageMovies positionStyles">
       {Object.keys(moviesList).map((item, i) => (
         <div key={i}>
           <List heading={moviesList[item].header} apiCall={moviesList[item].apiCall} />

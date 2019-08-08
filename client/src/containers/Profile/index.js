@@ -8,7 +8,7 @@ const Profile = props => (
             <ul className="chat-list scroll-hijack">
             </ul>
         </div>
-        <div id="profile" className="page">
+        <div id="profile" className="pageProfile">
             <div className="page-header clearfix">
                 <span>My Profile</span>
                 <ul>

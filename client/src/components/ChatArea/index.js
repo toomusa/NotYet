@@ -5,6 +5,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import MessageText from "../../components/MessageText"
 class ChatArea extends Component {
+
   state = {
     //sample message object
     currentChatId: "",
@@ -65,6 +66,7 @@ class ChatArea extends Component {
                 <span className="chat-message-date">{message.timestamp}</span>
                 <div className="chat-message-message">
                   {message.message}
+
                 </div>
               </div>
             </div>
