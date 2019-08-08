@@ -1,8 +1,10 @@
 
-import { RECEIVED_MESSAGE, LOAD_USER, CLEAR_USER } from "../../actions/dbActions/types";
+import { RECEIVED_MESSAGE, LOAD_USER, CLEAR_USER, CREATE_CHANNEL } from "../../actions/dbActions/types";
 
 const INITIAL_STATE = {
-    Users: {}
+    Users: {},
+    Chats: {},
+    Channels: {}
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -17,6 +19,10 @@ export default function(state = INITIAL_STATE, action) {
             console.log(action.payload)
             let chatdata = action.payload
             return {...state, Chats: {...chatdata}};
+        case CREATE_CHANNEL:
+            console.log(action.payload)
+            let channelData = action.payload
+            return {...state, Channels: {...channelData}};
         default:
             return state;
     }

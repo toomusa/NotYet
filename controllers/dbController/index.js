@@ -35,7 +35,7 @@ const createChannel = async data => {
   return channelResponse
 }
 
-module.exports = { createChannel };
+module.exports = { createChannel, sendMessage };
 
 
 

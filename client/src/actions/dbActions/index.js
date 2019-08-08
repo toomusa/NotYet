@@ -1,5 +1,5 @@
 
-import { LOAD_USER, RECEIVED_MESSAGE } from "../../actions/dbActions/types";
+import { LOAD_USER, RECEIVED_MESSAGE, CREATE_CHANNEL } from "../../actions/dbActions/types";
 
 
 export const loadUser = (data, callback) => async dispatch => {
@@ -24,6 +24,16 @@ export const receivedMessage = (data, callback) => async dispatch => {
   }
 }
 
+export const createChannel = (data, callback) => async dispatch => {
+  console.log("We're inside createChannel")
+  console.log(data)
+  try {
+      dispatch({ type: CREATE_CHANNEL, payload: data });
+      callback();
+  } catch (e) {
+      dispatch({ type: CREATE_CHANNEL, payload: "Error: saving new channel to store" });
+  }
+}
 
 // socket middleware is saved to state in createStore, which also creates connection
 // component initiates action via event handlers

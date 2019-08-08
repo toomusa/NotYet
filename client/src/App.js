@@ -38,7 +38,7 @@ import Explorer from "./pages/ExplorerPg";
 import socket from "./socket"
 import Welcome from "./components/Welcome"
 import HomePg from "./pages/HomePg";
-import Explorer from "./pages/ExplorerPg";
+import CreateChat from "./containers/CreateChat"
 
 // import io from "socket.io-client"
 // export const socket = io();
@@ -73,6 +73,13 @@ class App extends Component {
             return (
 
                 <Explorer socket={socket} />
+
+            )
+        }
+        else if (window.location.href === "http://localhost:3000/createchat") {
+            return (
+
+                <CreateChat socket={socket} />
 
             )
         } else {

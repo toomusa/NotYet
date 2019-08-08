@@ -64,7 +64,8 @@ io.on('connection', function (socket) {
     let channelData = dbController.createChannel(data)
     console.log("Back to socket on server")
     console.log(channelData)
-    io.emit("channelResponse", {channelData})
+    return channelData
+    // io.emit("channelResponse", {channelData})
   })
 
   io.emit("UserLoaded", {hi: "frontend"})
