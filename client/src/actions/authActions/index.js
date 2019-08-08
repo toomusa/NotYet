@@ -37,7 +37,6 @@ export const signin = (formProps, callback) => async dispatch => {
 
 export const signout = () => {
     localStorage.removeItem("token");
-    history.push("/");
     return {
         type: AUTH_USER,
         payload: ""

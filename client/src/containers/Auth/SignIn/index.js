@@ -7,6 +7,7 @@ import { InputField } from "../../../components/InputField"
 import { Link } from 'react-router-dom';
 import "./style.css";
 import history from "../../../history";
+
 class SignIn extends Component {
 
   renderInput = ({ input }) => {
