@@ -36,7 +36,7 @@
   margin-top: 15px; 
 }
     
-.sidebar-menu li a {
+.sidebar-menu li a, .sidebar-menu li span  {
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
   display: block;
@@ -52,12 +52,12 @@
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
 }
 
-.sidebar-menu li a:hover {
+.sidebar-menu li a:hover, .sidebar-menu li span:hover {
   background: rgba(255, 255, 255, 0.07);
   border-radius: 10px; 
 }
     
-.sidebar-menu li a:active {
+.sidebar-menu li a:active .sidebar-menu li span:active{
   background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.6); 
 }
@@ -72,7 +72,7 @@
   background-color: #578b84; 
 }
 
-.sidebar-menu .join-server {
+.join-server {
   background: transparent;
   border: 1px dashed rgba(255, 255, 255, 0.4);
   color: rgba(255, 255, 255, 0.4); 
@@ -95,10 +95,6 @@
   position:relative;
 }
       
-.sidebar-toggle img, .current-server img{
+.sidebar-toggle img, .current-server img, .join-server img{
   top:-2px;
-}
-
-.join-server img{
-  top:-4px;
 }
