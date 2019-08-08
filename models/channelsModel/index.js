@@ -27,6 +27,21 @@ const ChannelsSchema = new Schema({
       default: false
     }
   }],
+  messages: [{
+    date: { type: Date, default: new Date(Date.now()) },
+    starred: {
+        type: Boolean,
+        default: false
+    },        
+    ref_channel: {
+        type: Schema.Types.ObjectId,
+        ref: "Channel"
+    },
+    sent_messages: {
+        type: Schema.Types.ObjectId,
+        ref: "Message"
+    }
+  }],
   members: [{
     date: { type: Date, default: new Date(Date.now()) },
     admin: {

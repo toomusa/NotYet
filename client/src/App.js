@@ -33,6 +33,7 @@ import { connect } from "react-redux";
 // import MessageText from "../../components/MessageText"
 import Dashboard from "./pages/DashboardPg";
 import Profile from "./pages/ProfilePg";
+import Explorer from "./pages/ExplorerPg";
 
 import socket from "./socket"
 import Welcome from "./components/Welcome"
@@ -66,16 +67,17 @@ class App extends Component {
                 // <Profile />
                 <HomePg socket={socket} />
             )
+        } 
+        else if (window.location.href === "http://localhost:3000/explorer") {
+            return (
+                <Explorer socket={socket} />
+            )
         } else {
             return (
                 <Welcome/>
             )
         }
-        // if (window.location.href === "http://localhost:3000/explorer") {
-        //     return (
-        //         <Explorer />
-        //     )
-        // }        
+             
     }
 }
 
