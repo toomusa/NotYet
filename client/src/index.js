@@ -19,7 +19,7 @@ import DashboardPg from "./pages/DashboardPg";
 // import SignUpPg from "./pages/SignUpPg";
 import ProfilePg from "./pages/ProfilePg";
 import Wrapper from './components/Wrapper';
-import ExplorerPg from './pages/ExplorerPg';
+import Explorer from './pages/ExplorerPg';
 // import Channels from './containers/Channels';
 
 // configure redux devtools
@@ -47,7 +47,7 @@ ReactDOM.render(
                     <Route exact path="/dashboard" component={DashboardPg}/>
                     <Route exact path="/chatarea" component={ChatAreaPg}/>
                     <Route exact path="/profile" component={ProfilePg}/>
-                    <Route exact path="/explorer" component={ExplorerPg}/>
+                    <Route exact path="/explorer" component={Explorer}/>
                     {/* <Route exact path="Channels" component={Channels}/> */}
                 </App>
             </Wrapper>
