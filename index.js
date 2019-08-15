@@ -11,7 +11,9 @@ const dbController = require("./controllers/dbController")
 // const socketFunctions = require("./socket.io/socket.io")
 
 // Database setup
-mongoose.connect("mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true})
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true}, (err, db) => {
+  if (err) console.log(err);
+});
 
 // Middlewares setup
 app.use(morgan("combined"));
