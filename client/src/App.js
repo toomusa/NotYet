@@ -25,7 +25,7 @@ import React, { Component } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 // import { reduxForm, Field } from "redux-form";
-import socket from "./socket"
+// import socket from "./socket"
 import Dashboard from "./pages/DashboardPg";
 import Profile from "./pages/ProfilePg";
 import ExplorerPg from "./pages/ExplorerPg";
@@ -34,8 +34,8 @@ import HomePg from "./pages/HomePg";
 import CreateChat from "./containers/CreateChat"
 
 
-// import io from "socket.io-client"
-// export const socket = io();
+import io from "socket.io-client"
+const socket = io();
 
 class App extends Component {
 
