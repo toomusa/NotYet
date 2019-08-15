@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '../public/index.html');
+  res.sendFile(__dirname + '/client/public/index.html');
 });
 
 app.use(routes, (req, res) => {
