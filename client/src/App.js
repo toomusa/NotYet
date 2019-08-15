@@ -45,32 +45,32 @@ class App extends Component {
 
     render() {
         // {props.children}
-        if (window.location.href === "http://localhost:3000/dashboard") {
+        if (window.location.href === "http://localhost:3000/dashboard" || window.location.href === "https://musa-notyet.herokuapp.com/dashboard") {
             return (
                 // <Dashboard />
                 <Dashboard socket={socket} />
             )
         }
-        else if (window.location.href === "http://localhost:3000/profile") {
+        else if (window.location.href === "http://localhost:3000/profile" || window.location.href === "https://musa-notyet.herokuapp.com/profile") {
             return (
                 // <Profile />
                 <Profile socket={socket} />
             )
         }
-        else if (window.location.href === "http://localhost:3000/") {
+        else if (window.location.href === "http://localhost:3000/" || window.location.href === "https://musa-notyet.herokuapp.com/") {
             return (
                 // <Profile />
                 <HomePg socket={socket} />
             )
         }
-        else if (window.location.href === "http://localhost:3000/explorer") {
+        else if (window.location.href === "http://localhost:3000/explorer" || window.location.href === "https://musa-notyet.herokuapp.com/explorer") {
             return (
 
                 <ExplorerPg socket={socket} />
 
             )
         }
-        else if (window.location.href === "http://localhost:3000/createchat") {
+        else if (window.location.href === "http://localhost:3000/createchat" || window.location.href === "https://musa-notyet.herokuapp.com/createchat") {
             return (
 
                 <CreateChat socket={socket} />
