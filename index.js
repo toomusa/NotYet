@@ -27,10 +27,6 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client-build"));
 }
 
-// app.get('/', function (req, res) {
-//   res.sendFile(__dirname + '/client/public/index.html');
-// });
-
 app.use(routes, (req, res) => {
     // No matching route for URL Found
     res.status(404).json({
