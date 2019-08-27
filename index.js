@@ -68,12 +68,13 @@ io.on('connection', function (socket) {
     })
   })
   
-  socket.on("loadDashboard", async (data) => {
+  socket.on("loadDashboard", async (data, cb) => {
     console.log("loadDashboard got hit on the server", data);
     dbController.loadDashboard(data, response => {
       console.log("Back to socket on server")
       console.log(response)
-      socket.emit("dashboardLoaded", response)
+      cb(response)
+      // socket.emit("dashboardLoaded", response)
     })
   })
 

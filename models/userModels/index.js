@@ -35,10 +35,10 @@ const UserSchema = new Schema({
         minlength: 1, // change to 3 before production
         maxlength: 30,
     },
-    channels: {
+    channels: [{
         type: Schema.Types.ObjectId,
         ref: "Channel"
-    },
+    }],
     show_channels: [{
         date: { type: Date, default: new Date(Date.now()) },
         admin: {
