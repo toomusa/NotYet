@@ -31,6 +31,7 @@ const UserSchema = new Schema({
         type: String,
         // unique: false,
         required: false,
+        default: "username",
         trim: true,
         minlength: 1, // change to 3 before production
         maxlength: 30,

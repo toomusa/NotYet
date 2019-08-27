@@ -10,39 +10,13 @@ class ChatArea extends Component {
     //sample message object
     currentChatId: "",
     currentChannelName: "Stranger Things",
-    messageObj : [
-      {
+    messageObj: {
         username: "user1",
-        message: " Wow season 3 was amazing ._.",
-        timestamp: "Jul 31, 2019 10:25 PM",
-        profile: "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
-      },
-      {
-        username: "user2",
-        message: "I knowww!!! LOL Dustin cracks me up",
-        timestamp: "Aug 2, 2019 10:25 PM",
-        profile: "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
-      },
-      {
-        username: "user",
-        message: "I knowww!!! LOL Dustin cracks me up",
-        timestamp: "Aug 2, 2019 10:25 PM",
-        profile: "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
-      },
-      {
-        username: "user3",
-        message: "I knowww!!! LOL Dustin cracks me up",
-        timestamp: "Aug 2, 2019 10:25 PM",
-        profile: "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
-      },
-      {
-        username: "user4",
-        message: "I knowww!!! LOL Dustin cracks me up",
         timestamp: "Aug 2, 2019 10:25 PM",
         profile: "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
       }
-    ]
   }
+
   render() {
     return (
       <div id="page">
@@ -58,19 +32,20 @@ class ChatArea extends Component {
         
         <div className="chat-body scroll-hijack">
         {/* REPEATING BLOCK ELEMENT */}
-        {this.state.messageObj.map(message => 
+        {this.props.state.db.Channels.length !== 0
+          ? this.props.state.db.Channels[0].temp_messages.map(message => 
             <div className="chat-message">
-              <div className="avatar"><img src={message.profile} alt="" height="20px" /></div>
+              <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="20px" /></div>
               <div className="chat-message-content">
-                <a href="/" className="chat-message-author">{message.username}</a>
-                <span className="chat-message-date">{message.timestamp}</span>
+                <a href="/" className="chat-message-author">{this.state.messageObj.username}</a>
+                <span className="chat-message-date">{this.state.messageObj.timestamp}</span>
                 <div className="chat-message-message">
-                  {message.message}
-
+                  {message}
                 </div>
               </div>
             </div>
-          )}
+          )
+        : console.log("mapping channels didn't work")}
   
             
           </div>

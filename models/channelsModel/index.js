@@ -31,6 +31,14 @@ const ChannelsSchema = new Schema({
     type: Number,
     default: 0
   },
+  admin: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
+  temp_messages: {
+    type: Array,
+    required: false
+  },
   deleted: [{
     date: { type: Date, default: new Date(Date.now()) },
     status: {

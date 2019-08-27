@@ -2,6 +2,29 @@
 const mongoose = require("mongoose");
 const db = require("../../models");
 
+const messages = [
+  "What up",
+  "Whassup",
+  "Whassssuuuuup",
+  "Hey",
+  "Its yo boy!",
+  "Good evening",
+  "Holla playa",
+  "That's enoough y'all"
+]
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  return array;
+}
+
 const sendMessage = async data => {
   console.log("I'm inside the controller sendMessage", data)
 
@@ -29,8 +52,9 @@ const createChannel = async (data, callback) => {
     let channelResponse;
 
     try {
-      newChannel = await new db.Channel(data)
-      await newChannel.save()
+      let createChannel = await new db.Channel(data)
+      await createChannel.save()
+      newChannel = await db.Channel.findOneAndUpdate({_id: createChannel._id}, {$push: {admin: userId, temp_messages: shuffle(messages)}}, {new: true})
       console.log("newChannel data from Channel db")
       console.log(newChannel)
     } catch (e) {
@@ -38,7 +62,7 @@ const createChannel = async (data, callback) => {
     }
 
     try {
-      updatedUser = await db.User.findByIdAndUpdate(userId, {$push: {channels: newChannel.id }}, {new: true}).populate("Channel")
+      updatedUser = await db.User.findByIdAndUpdate(userId, {$push: {channels: newChannel.id}}, {new: true}).populate("Channel")
       console.log("Channel data from User db")
       console.log(updatedUser)
       console.log(newChannel.id)
@@ -55,7 +79,7 @@ const createChannel = async (data, callback) => {
     }
 
     if (channelResponse && updatedUser) {
-      let channelData = {Channels: channelResponse, Users: updatedUser};
+      let channelData = {Channels: [channelResponse], Users: updatedUser};
       resolve();
       callback(channelData)
     }
