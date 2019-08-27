@@ -1,10 +1,10 @@
 
-import { RECEIVED_MESSAGE, LOAD_USER, CLEAR_USER, CREATE_CHANNEL, LOAD_DASHBOARD } from "../../actions/dbActions/types";
+import { RECEIVED_MESSAGE, LOAD_USER, CLEAR_USER, CREATE_CHANNEL, LOAD_DASHBOARD, ACTIVATE_CHANNEL } from "../../actions/dbActions/types";
 
 const INITIAL_STATE = {
     Users: {},
-    Chats: {},
-    Channels: []
+    Channels: [],
+    ActiveChannel: {}
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -17,8 +17,8 @@ export default function(state = INITIAL_STATE, action) {
             return {...state, Users: {}};
         case RECEIVED_MESSAGE:
             console.log(action.payload)
-            let chatData = action.payload
-            return {...state, Chats: chatData};
+            let {chatData} = action.payload
+            return {...state, ActiveChannel: chatData};
         case CREATE_CHANNEL:
             console.log(action.payload)
             let channelData = action.payload
@@ -30,6 +30,11 @@ export default function(state = INITIAL_STATE, action) {
             console.log(action.payload.Channels)
             let { Channels, Users } = action.payload
             return {...state, Channels: Channels, Users: Users};
+        case ACTIVATE_CHANNEL:
+            console.log(action.payload)
+            let selectedChannel = {...action.payload}
+            console.log("*************************")
+            return {...state, ActiveChannel: selectedChannel};
         default:
             return state;
     }

@@ -22,6 +22,13 @@ export const ProfileButton = props => (
 
 export const Channel = props => {
   return (
-      <li><span {...props} href="/" className="current-server" data-toggle="tooltip" data-placement="right" data-title="channel name"><img src={props.media[Math.floor(Math.random()*props.media.length)]} alt=""></img></span></li>
+    <li>
+      {/* <div onClick={() => props.selectchat(props.id)}> */}
+      <div>
+        <span href="/" className="current-server" data-toggle="tooltip" data-placement="right" data-title="channel name">
+          <img src={props.media[Math.floor(Math.random()*props.media.length)]} alt=""></img>
+        </span>
+      </div>
+    </li>
   )
 };

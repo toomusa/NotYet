@@ -25,18 +25,21 @@ function shuffle(array) {
   return array;
 }
 
-const sendMessage = async data => {
+const sendMessage = async (data, callback) => {
   console.log("I'm inside the controller sendMessage", data)
+  let { content, chatId } = data
 
-  let res = await db.Channel.findById(chatId).populate("Message")
-  console.log("Channel data from db")
-  console.log(res)
+  let chatData = await db.Channel.findOneAndUpdate({_id: chatId}, {$push: {temp_messages: content}}, {new: true})
+
+  // let res = await db.Channel.findById(chatId).populate("Message")
+  // console.log("Channel data from db")
+  // console.log(chatData)
   
-  let chatData = {...res.messages}
+  // let chatData = {...res.messages}
   console.log("Chat data from res messages")
   console.log(chatData)
   // res.json({chatData})
-  return chatData
+  callback(chatData)
 }
 
 const createChannel = async (data, callback) => {

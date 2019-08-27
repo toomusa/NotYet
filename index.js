@@ -53,10 +53,11 @@ io.on('connection', function (socket) {
 
   socket.on("sendMessage", function (data) {
     console.log("sendMessage got hit on the server", data);
-    let chatData = dbController.sendMessage(data)
-    console.log("Back to socket on server")
-    console.log(chatData)
-    io.emit("messageResponse", {chatData})
+    dbController.sendMessage(data, chatData => {
+      console.log("Back to socket on server")
+      console.log(chatData)
+      socket.emit("messageResponse", {chatData})
+    })
   });
 
   socket.on("createChannel", async (data) => {

@@ -4,6 +4,7 @@ import "./style.css";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import MessageText from "../../components/MessageText"
+
 class ChatArea extends Component {
 
   state = {
@@ -17,6 +18,14 @@ class ChatArea extends Component {
       }
   }
 
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+  }
+
   render() {
     return (
       <div id="page">
@@ -27,14 +36,16 @@ class ChatArea extends Component {
         {/* CHANNEL NAME GOES INTO THIS SPAN */}
         <div id="chat" className="pageChat">
           <div className="page-header clearfix topicName">
-            <span>{this.state.currentChannelName} </span>
+            <span>{this.isEmpty(this.props.state.db.ActiveChannel) || this.props.state.db.ActiveChannel.topic} </span>
           </div>
         
         <div className="chat-body scroll-hijack">
         {/* REPEATING BLOCK ELEMENT */}
-        {this.props.state.db.Channels.length !== 0
-          ? this.props.state.db.Channels[0].temp_messages.map(message => 
-            <div className="chat-message">
+        {!this.isEmpty(this.props.state.db.ActiveChannel)
+          ? this.props.state.db.ActiveChannel.temp_messages.map((message, index) => 
+          // {/* {this.props.state.db.Channels.length !== 0
+          // ? this.props.state.db.Channels[0].temp_messages.map((message, index) =>  */}
+            <div className="chat-message" key={index}>
               <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="20px" /></div>
               <div className="chat-message-content">
                 <a href="/" className="chat-message-author">{this.state.messageObj.username}</a>
@@ -45,7 +56,17 @@ class ChatArea extends Component {
               </div>
             </div>
           )
-        : console.log("mapping channels didn't work")}
+        : 
+          <div className="chat-message">
+              <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="20px" /></div>
+              <div className="chat-message-content">
+                <a href="/" className="chat-message-author">{this.state.messageObj.username}</a>
+                <span className="chat-message-date">{this.state.messageObj.timestamp}</span>
+                <div className="chat-message-message">
+                </div>
+              </div>
+            </div>
+        }
   
             
           </div>
@@ -53,7 +74,7 @@ class ChatArea extends Component {
             <div id="message-form">
               {/* NOTE FOR BIRNA: styling messed up a little, uncomment line below to see difference -BL*/}
               {/* <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." /> */}
-              <MessageText className="messageArea post-input" socket={this.props.socket} />
+              <MessageText className="messageArea post-input" socket={this.props.socket} chatId={this.isEmpty(this.props.state.db.ActiveChannel) || this.props.state.db.ActiveChannel._id}/>
               <button type="submit" className="post-button messageSubmit"><span className="caret-right"></span></button>
             </div>
           </div>

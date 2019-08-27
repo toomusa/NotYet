@@ -55,24 +55,26 @@ class Channels extends Component {
           <ProfileButton/>
           <AddButton socket={this.props.socket} show={this.showModal}/>
           {this.props.state.db.Channels.map( (channel, index) => (
-            <Channel 
-              date={channel.date}
-              public={channel.public} 
-              starred={channel.starred}
-              id={channel._id}
-              topic={channel.topic}
-              description={channel.description}
-              friends={channel.friends}
-              admin={channel.admin}
-              muted={channel.muted} // from User table?
-              media={this.shuffle(images)}
-              deleted={channel.deleted}
-              temp_messages={messages}
-              messages={channel.messages}
-              members={channel.members}
-              media_ref={channel.media_ref} 
-              key={index}
-            />
+            <div onClick={() => this.props.selectchat(channel._id)} key={index}>
+              <Channel 
+                date={channel.date}
+                public={channel.public} 
+                starred={channel.starred}
+                id={channel._id}
+                topic={channel.topic}
+                description={channel.description}
+                friends={channel.friends}
+                admin={channel.admin}
+                muted={channel.muted} // from User table?
+                media={this.shuffle(images)}
+                deleted={channel.deleted}
+                temp_messages={messages}
+                messages={channel.messages}
+                members={channel.members}
+                media_ref={channel.media_ref} 
+                // selectchat={this.props.selectchat}
+              />
+            </div>
           ))}
 
         </ul>

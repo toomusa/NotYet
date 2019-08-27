@@ -14,9 +14,9 @@ socket.on("connection", function (data) {
 
 socket.emit('client-send', { my: 'wompalompa' });
 
-socket.on("messageResponse", response => {
-  console.log("Inside messageResponse", response)
-})
+// socket.on("messageResponse", response => {
+//   console.log("Inside messageResponse", response)
+// })
 
 socket.on('server-send', data => {
   console.log("inside server-send", data);

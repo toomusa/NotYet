@@ -1,5 +1,5 @@
 
-import { LOAD_USER, RECEIVED_MESSAGE, CREATE_CHANNEL, LOAD_DASHBOARD } from "../../actions/dbActions/types";
+import { LOAD_USER, RECEIVED_MESSAGE, CREATE_CHANNEL, LOAD_DASHBOARD, ACTIVATE_CHANNEL } from "../../actions/dbActions/types";
 
 
 export const loadUser = (data, callback) => async dispatch => {
@@ -43,6 +43,16 @@ export const createChannel = (data) => async dispatch => {
       dispatch({ type: LOAD_USER, payload: Users });
   } catch (e) {
       dispatch({ type: CREATE_CHANNEL, payload: "Error: saving new channel to store" });
+  }
+}
+
+export const activateChannel = (data) => async dispatch => {
+  console.log("We're inside activateChannel")
+  console.log(data)
+  try {
+      dispatch({ type: ACTIVATE_CHANNEL, payload: data });
+  } catch (e) {
+      dispatch({ type: ACTIVATE_CHANNEL, payload: "Error: activating channel to store" });
   }
 }
 
