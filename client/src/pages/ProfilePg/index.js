@@ -19,7 +19,7 @@ class ProfilePg extends Component {
                 <Grid>
                     <Row>
                         <Col md="0" sm="0" xs="0">
-                            <Channels socket={this.props.socket} />
+                            {/* <Channels socket={this.props.socket} /> */}
                         </Col>
                         <Col md="10" sm="11" xs="9">
                             <Profile />

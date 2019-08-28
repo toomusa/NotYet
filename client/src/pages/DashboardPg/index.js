@@ -33,7 +33,7 @@ class DashboardPg extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         // console.log(this.props.store)
         let userId = localStorage.getItem("userId");
         console.log(userId)

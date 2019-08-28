@@ -4,7 +4,7 @@ import Signin from "./SignIn";
 import Signup from "./SignUp";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import Header from "../../components/Header"
+// import Header from "../../components/Header"
 
 class Auth extends Component {
 

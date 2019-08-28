@@ -74,7 +74,7 @@ class ChatArea extends Component {
                 <div className="chat-message-content">
                   <a href="/" className="chat-message-author">Admin</a>
                   <span className="chat-message-date">{this.state.messageObj.timestamp}</span>
-                  <div className="chat-message-message">Hey buddy, select a channel from the left to begin!
+                  <div className="chat-message-message">Hey buddy, select a channel from the left to chat!
                   </div>
                 </div>
               </div>

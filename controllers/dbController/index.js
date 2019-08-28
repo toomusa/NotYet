@@ -100,11 +100,22 @@ const loadDashboard = async (data, callback) => {
     let userData;
     let channelIds = [];
     let channelData;
+    let CleanedUserData = {};
     
     try {
       userData = await db.User.findById(userId).populate("Channel")
       console.log("userData")
       console.log(userData)
+      CleanedUserData.id = userData._id;
+      CleanedUserData.username = userData.username;
+      CleanedUserData.channels = userData.channels;
+      CleanedUserData.show_channels = userData.show_channels;
+      CleanedUserData.movie_channels = userData.movie_channels;
+      CleanedUserData.inactive_channels = userData.inactive_channels;
+      CleanedUserData.messages = userData.messages;
+      CleanedUserData.friends = userData.friends;
+      CleanedUserData.favorite_shows = userData.favorite_shows;
+      CleanedUserData.favorite_movies = userData.favorite_movies;
     } catch (e) {
       console.log("Oooops", e)
     }
@@ -127,8 +138,8 @@ const loadDashboard = async (data, callback) => {
       console.log("Oooops", e)
     }
     
-    if (userData && channelData) {
-      let dashboardData = {Users: userData, Channels: channelData};
+    if (CleanedUserData && channelData) {
+      let dashboardData = {Users: CleanedUserData, Channels: channelData};
       console.log("dashboardData")
       console.log(dashboardData)
       resolve();

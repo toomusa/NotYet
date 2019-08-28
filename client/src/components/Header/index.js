@@ -10,6 +10,8 @@ import "./style.css";
 
 class Header extends Component {
 
+    duration = 3000
+ 
     homeHeader() {
         let userCheck = this.props.state.auth.authenticated
         if (userCheck === "" || userCheck === null) {
@@ -29,12 +31,12 @@ class Header extends Component {
         return (
             <div>
                 <header>
-                    <Animate to="1" from="0" attributeName="opacity" duration="3000">
+                    <Animate to="1" from="0" attributeName="opacity" duration={this.duration}>
                         <Container className="header-area">
                             <Row>
                                 <Col md="6" sm="12" xs="12">
                                     <div id="headerTitle">
-                                        <Link to="/"><h2>NotYet</h2></Link>
+                                        <h2><Link to="/">NotYet</Link></h2>
                                         <span id="headerTag">
                                             Prevents spoilers until you watch it
                                         </span>

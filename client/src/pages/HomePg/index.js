@@ -9,7 +9,7 @@ import Preview from "../../components/Preview";
 import Preview2 from "../../components/Preview2";
 import Footer from "../../components/Footer";
 import Auth from "../../containers/Auth"
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 
 
 class HomePg extends Component {

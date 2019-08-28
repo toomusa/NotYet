@@ -28,7 +28,7 @@
 }
   
 .navbar-menu li a:hover {
-  color: rgb(0, 248, 165);
+  color: rgb(3, 155, 84);
   text-decoration: none;
 }
       
@@ -37,7 +37,7 @@
 }
       
 .navbar-menu .iconImage {
-  background-color: #6caaa2;
+  background-color: aquamarine;
   font-size: 16px; 
   padding: 9px 12px 2px 0px;
   color: black;
@@ -45,7 +45,7 @@
   
 .navbar-menu .iconImage:hover {
   text-decoration: none;
-  background-color: aquamarine;
+  background-color: rgb(3, 155, 84);
   color: black;
 }
   
