@@ -2,6 +2,9 @@
 import React, { Component } from "react";
 import Signin from "./SignIn";
 import Signup from "./SignUp";
+import { compose } from "redux";
+import { connect } from "react-redux";
+// import Header from "../../components/Header"
 
 class Auth extends Component {
 
@@ -9,7 +12,7 @@ class Auth extends Component {
     super(props);
 
     this.state = {
-      btn: true
+      btn: true,
     };
 
     this.renderSignin = this.renderSignin.bind(this);
@@ -25,7 +28,6 @@ class Auth extends Component {
     this.setState({ btn: true })
     console.log(this.state)
   }
-
 
   render() {
     return (
@@ -45,12 +47,16 @@ class Auth extends Component {
           <button id="signupButton" className="btn btn-primary" onClick={this.renderSignup}>REGISTER</button>
 
           {(this.state.btn) ? <Signin socket={this.props.socket} /> : <Signup socket={this.props.socket} />}
-
         </div>
       </div>
     )
   }
 }
 
+function mapStateToProps(state) {
+  return { state }
+}
 
-export default Auth;
+export default compose(
+  connect(mapStateToProps, {}),
+)(Auth);

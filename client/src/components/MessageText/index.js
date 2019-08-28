@@ -21,9 +21,12 @@ export class MessageText extends Component {
     this.handleSendTextMessage = this.handleSendTextMessage.bind(this);
   }
 
-  sendMessage(content) {
+  sendMessage(content, chatId) {
     console.log(content)
-    this.props.socket.emit("sendMessage", content, function(chatData) {
+    console.log(chatId)
+    let message = {content: content, chatId: chatId}
+    console.log(message)
+    this.props.socket.emit("sendMessage", message, function(chatData) {
       console.log(chatData)
     })
   }
@@ -51,7 +54,7 @@ export class MessageText extends Component {
   handleSendTextMessage(e) {
     e.preventDefault();
     if (this.state.formContent !== '') {
-      this.sendMessage(this.state.formContent);
+      this.sendMessage(this.state.formContent, this.props.chatId);
       this.setState({formContent: ''});
     }
   }
@@ -65,13 +68,14 @@ export class MessageText extends Component {
               onSubmit={this.handleSendTextMessage}>
           <Textarea
             type="text"
-            placeholder="Type your msg here..."
+            placeholder="Type here..."
             required
             value={this.state.formContent}
             onChange={this.handleFormContentChange}
             name="message" 
             className="post-input messageArea" 
           />
+        <button type="submit" className="btn btn-outline-primary postBtn messageSubmit"><span className="caret-right"></span></button>
         </form>
       </div>
     );

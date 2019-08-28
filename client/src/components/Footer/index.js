@@ -4,7 +4,7 @@ import "./style.css";
 const Footer = () => {
   return (
     <footer>
-      <p>vini VIDI vici</p>
+      <p>NotYet</p>
     </footer>
   );
 };

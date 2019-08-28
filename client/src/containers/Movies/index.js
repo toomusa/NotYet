@@ -61,13 +61,18 @@ const moviesList = {
 
 const Movies = () => {
   return (
+
     <div id="page" className="pageMovies positionStyles">
+      <div className="page-header clearfix">
+                <span>Explore Movies & TV Shows</span>
+            </div>
       {Object.keys(moviesList).map((item, i) => (
         <div key={i}>
           <List heading={moviesList[item].header} apiCall={moviesList[item].apiCall} />
         </div>
       ))}
     </div>
+
   );
 };
 

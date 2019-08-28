@@ -39,6 +39,7 @@ class SignUp extends Component {
   onSubmit = formProps => {
     console.log(formProps)
     this.props.signup(formProps, (userData) => {
+      console.log(userData)
       this.props.loadUser(userData, () => {
         console.log("Send to dbActions from onSubmit")
       })
@@ -47,9 +48,9 @@ class SignUp extends Component {
   }
 
   componentDidMount() {
-      this.props.socket.on("UserLoaded", data => {
-        console.log(data)
-      });
+      // this.props.socket.on("UserLoaded", data => {
+      //   console.log(data)
+      // });
   }
 
   render() {

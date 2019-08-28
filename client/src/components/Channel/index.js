@@ -4,7 +4,7 @@ import "./style.css";
 
 export function AddButton (props) {
   return (
-    <li><span onClick={props.show}
+    <li><span onClick={props.toggle}
             className="join-server createChannel" 
             data-start="modal-custom" 
             data-target="#create-group" 
@@ -22,6 +22,12 @@ export const ProfileButton = props => (
 
 export const Channel = props => {
   return (
-      <li><a href="/" className="current-server" data-toggle="tooltip" data-placement="right" data-title="channel name"><img src={props.poster_path} alt=""></img></a></li>
+    <li>
+      <div onClick={() => props.selectchat(props.id)}>
+        <span className="current-server" data-toggle="tooltip" data-placement="right" data-title="channel name">
+          <img src={props.media} alt=""></img>
+        </span>
+      </div>
+    </li>
   )
 };

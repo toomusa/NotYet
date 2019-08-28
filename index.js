@@ -5,10 +5,8 @@ const cors = require("cors");
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-
 const routes = require("./routes");
 const dbController = require("./controllers/dbController")
-// const socketFunctions = require("./socket.io/socket.io")
 
 // Database setup
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true}, (err, db) => {
@@ -37,24 +35,24 @@ app.use(routes, (req, res) => {
 // Socket.io listeners and emitters 
 io.on('connection', function (socket) {
 
-  socket.emit('server-send', { hello: 'world' });
+  socket.emit("connected", {socket: "connected"}, function (data) {
+    console.log(data)
+  })
 
-  socket.emit("connection", {now: "you're connected"})
+  socket.on("connection", function (data, cb) {
+    console.log("Server Socket is connected")
+    cb(data)
+    socket.on("disconnect", () => console.log("Client disconnected"))
+  })
 
-  socket.on('client-send', function (data) {
-    console.log("inside client-send", data);
-  });
-
-  socket.on("connect", function (data) {
-    console.log("connect got hit on the server", data);
-  });
 
   socket.on("sendMessage", function (data) {
     console.log("sendMessage got hit on the server", data);
-    let chatData = dbController.sendMessage(data)
-    console.log("Back to socket on server")
-    console.log(chatData)
-    io.emit("messageResponse", {chatData})
+    dbController.sendMessage(data, chatData => {
+      console.log("Back to socket on server")
+      console.log(chatData)
+      socket.emit("messageResponse", {chatData})
+    })
   });
 
   socket.on("createChannel", async (data) => {
@@ -66,19 +64,16 @@ io.on('connection', function (socket) {
     })
   })
   
-  socket.on("loadDashboard", async (data) => {
+  socket.on("loadDashboard", async (data, cb) => {
     console.log("loadDashboard got hit on the server", data);
     dbController.loadDashboard(data, response => {
       console.log("Back to socket on server")
       console.log(response)
-      socket.emit("dashboardLoaded", response)
+      cb(response)
     })
   })
 
-  io.emit("UserLoaded", {hi: "frontend"})
-
 });
-
 
 const PORT = process.env.PORT || 3001;
 

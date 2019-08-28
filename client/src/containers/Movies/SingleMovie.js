@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default class SingleMovie extends Component {
   state = {
@@ -17,7 +17,7 @@ export default class SingleMovie extends Component {
   render() {
     const { movie } = this.props;
     return (
-      <Link to={"/" + movie.id}>
+      // <Link to={"/" + movie.id}>
         <div className="movie-card" onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
           {movie.backdrop_path !== null ? (
             <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} className="movieImg" alt={movie.backdrop_path} />
@@ -27,7 +27,7 @@ export default class SingleMovie extends Component {
 
           {this.state.isHovering && <h3 className="movie-title">{movie.title}</h3>}
         </div>
-      </Link>
+      // </Link>
     );
   }
 }

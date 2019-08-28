@@ -9,18 +9,26 @@ import "./style.css";
 
 class CreateChat extends Component {
 
-  state = {
-    modal: true
-  }
+  // state = {
+  //   modal: true
+  // }
 
   onSubmit = formProps => {
-    let userId = this.props.state.db.Users.id
+    let userId = this.props.state.db.Users._id
+    console.log(userId)
     let formData = {...formProps, userId}
+    console.log(formData)
     this.props.socket.emit("createChannel", formData, function(channelData) {
       console.log(channelData)
     })
     this.setState({modal: false})
   }
+
+  // toggle() {
+  //   this.setState({
+  //     modal: !this.state.modal
+  //   });
+  // }
   
   componentDidMount = () => {
     this.props.socket.on("channelResponse", (data) => {
@@ -36,11 +44,10 @@ class CreateChat extends Component {
   // https://redux-form.com/7.4.0/docs/api/field.md/
 
   render() {
-    console.log(this.props.modal)
     const { handleSubmit } = this.props
     return (
       <div> 
-        <Modal isOpen={this.props.modal} onClick={this.toggle} className="modal-block2">
+        <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-block2">
           <ModalHeader>Create New Channel</ModalHeader>
           <ModalBody>
             <form onSubmit={handleSubmit(this.onSubmit)} className="form-horizontal">
@@ -101,7 +108,7 @@ class CreateChat extends Component {
               </div>
               <div>
                 <br></br>
-                <Button color="primary" type="submit" className="btn btn-block btn-radius btn-primary" onClick={this.toggle}>Create</Button>
+                <Button color="primary" type="submit" className="btn btn-block btn-radius btn-primary" onClick={this.props.toggle}>Create</Button>
               </div>
             </form>
           </ModalBody>
@@ -124,5 +131,3 @@ export default compose(
     form: "newChannel"
   })
 )(CreateChat);
-
-// export default CreateChat;
