@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import "./style.css";
-
+import { Row, Col } from "reactstrap"
 import Grid from "../../components/Grid";
 // import MediaSearch from "../../components/MediaSearch";
 import Channels from "../../containers/Channels";
@@ -67,8 +67,14 @@ class DashboardPg extends Component {
         return (
             <div>
                 <Grid>
-                    <Channels socket={this.props.socket} selectchat={this.chatSelect} />
-                    <ChatArea socket={this.props.socket} />
+                    <Row>
+                        <Col md="0" sm="0" xs="0">
+                            <Channels socket={this.props.socket} selectchat={this.chatSelect} />
+                        </Col>
+                        <Col md="10" sm="11" xs="9">
+                            <ChatArea socket={this.props.socket} />
+                        </Col>
+                    </Row>
                     <Footer/>
                 </Grid>
             </div>

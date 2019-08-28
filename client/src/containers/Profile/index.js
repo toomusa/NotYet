@@ -11,12 +11,10 @@ const Profile = props => (
         <div id="profile" className="pageProfile">
             <div className="page-header clearfix">
                 <span>My Profile</span>
-                <ul>
-                </ul>
             </div>
             <div className="profile-body scroll-hijack">
                 <div className="row">
-                    <div className="col-lg-8 col-lg-offset-2">
+                    <div className="col-lg-12">
                         <div className="row valign">
                             <div className="col-md-6">
                                 <h6 className="text-bold mb-25">Friends List</h6>

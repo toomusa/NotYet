@@ -36,7 +36,7 @@ class Header extends Component {
                                     <div id="headerTitle">
                                         <Link to="/"><h2>NotYet</h2></Link>
                                         <span id="headerTag">
-                                            Spoiler-Guard Chat for Film and TV enthusiasts
+                                            Prevents spoilers until you watch it
                                         </span>
                                     </div>
                                 </Col>

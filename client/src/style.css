@@ -258,8 +258,9 @@ a:hover {
   background-color: #1f324c;
   margin: 0;
   border: 0; 
-  /* border-top-left-radius: 20px;
-  border-top-right-radius: 20px; */
+  min-height: 45px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 3px;
 }
 
 .page-header > ul {
@@ -280,7 +281,7 @@ a:hover {
   padding-right: 5px;
 }
 .pageMovies {
-  top: -69px;
+  top: -33px;
 }
 
 .pageChat, .pageProfile{
@@ -301,7 +302,26 @@ a:hover {
   /* border-top-left-radius: 20px;
   border-top-right-radius: 20px; */
   border: 0;
-  box-shadow: 8px 8px 20px #999;
+  box-shadow: 8px 15px 20px #999;
+}
+
+.pageMoviesHeader {
+  top: 20px;
+  position: relative;
+  left: 52px;
+  width: 100%;
+  height: calc(100% - 60px);
+  -webkit-transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
+  transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
+  transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: filter 0.3s ease, left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease; 
+  /* border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 0;
+  margin-bottom: -20px;
+  /* box-shadow: 8px 8px 20px #999; */
 }
 
 .profile-body {

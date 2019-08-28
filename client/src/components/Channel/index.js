@@ -24,8 +24,8 @@ export const Channel = props => {
   return (
     <li>
       <div onClick={() => props.selectchat(props.id)}>
-        <span href="/" className="current-server" data-toggle="tooltip" data-placement="right" data-title="channel name">
-          <img src={props.media[Math.floor(Math.random()*props.media.length)]} alt=""></img>
+        <span className="current-server" data-toggle="tooltip" data-placement="right" data-title="channel name">
+          <img src={props.media} alt=""></img>
         </span>
       </div>
     </li>

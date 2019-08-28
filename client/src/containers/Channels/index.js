@@ -27,13 +27,20 @@ const messages = [
 class Channels extends Component {
 
   state = {
-    modal: false
+    modal: false,
+    images: []
   }
 
   toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
+  }
+
+  componentDidMount() {
+    this.setState({
+      images: this.shuffle(images)
+    })
   }
 
   shuffle(array) {
@@ -65,7 +72,7 @@ class Channels extends Component {
                 friends={channel.friends}
                 admin={channel.admin}
                 muted={channel.muted} // from User table?
-                media={this.shuffle(images)}
+                media={this.state.images[index]}
                 deleted={channel.deleted}
                 temp_messages={messages}
                 messages={channel.messages}

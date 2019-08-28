@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import { reduxForm } from "redux-form";
 // import { compose } from "redux";
 // import { connect } from "react-redux";
+import { Row, Col } from "reactstrap"
 import "./style.css";
 
 import Grid from "../../components/Grid";
@@ -16,21 +17,21 @@ class ExplorerPg extends Component {
 
     render() {
         return (
-          <div>
-            {/* <Brand title='VIDI' /> */}
-            <Grid>
-            <Header2 />
-                {/* <Auth/> */}
-                {/* <MediaSearch /> */}
-                <Navbar />
-                <Channels />
-                {/* <Header /> */}
-                <Movies />
-    
-                <Footer />
-
-            </Grid>
-        </div>
+            <div>
+                {/* <Brand title='VIDI' /> */}
+                <Grid>
+                    <Row>
+                        <Col md="0" sm="0" xs="0">
+                            <Channels socket={this.props.socket} />
+                        </Col>
+                        <Col md="10" sm="11" xs="9">
+                            <Movies />
+                        </Col>
+                    </Row>
+                    <Footer />
+                    <Footer />
+                </Grid>
+            </div>
         )
 
     }

@@ -3,6 +3,7 @@
   text-align: left;
   margin-bottom: -30px;
   margin-top: -5px;
+  margin-left: -45px;
 }
 
 #navbar ul {
@@ -12,7 +13,7 @@
 }
       
 .navbar-menu li a {
-  color: #6caaa2;
+  color: aquamarine;
   background-color: rgba(0, 28, 43, 0.89);
   width: 60px;
   height: 60px;
@@ -23,10 +24,11 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   text-decoration: none;
+  letter-spacing: 1px;
 }
   
 .navbar-menu li a:hover {
-  color: aquamarine;
+  color: rgb(0, 248, 165);
   text-decoration: none;
 }
       

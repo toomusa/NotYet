@@ -1,5 +1,7 @@
 #sidebar {
   position: fixed;
+  min-width: 80px;
+  margin-top: 40px;
   top: 90px;
   left: 0;
   height: calc(100% - 60px);
@@ -63,13 +65,13 @@
 }
     
 .sidebar-menu .sidebar-toggle, .sidebar-menu .current-server {
-  background-color: #6caaa2;
+  background-color: red;
   font-family: "uni_sansheavy_caps", sans-serif;
   font-size: 24px; 
 }
 
 .sidebar-menu .sidebar-toggle:hover, .sidebar-menu .current-server:hover {
-  background-color: #578b84; 
+  background-color: red;
 }
 
 .sidebar-menu .join-server {

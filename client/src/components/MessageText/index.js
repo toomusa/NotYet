@@ -68,13 +68,14 @@ export class MessageText extends Component {
               onSubmit={this.handleSendTextMessage}>
           <Textarea
             type="text"
-            placeholder="Type your msg here..."
+            placeholder="Type here..."
             required
             value={this.state.formContent}
             onChange={this.handleFormContentChange}
             name="message" 
             className="post-input messageArea" 
           />
+        <button type="submit" className="btn btn-outline-primary postBtn messageSubmit"><span className="caret-right"></span></button>
         </form>
       </div>
     );
