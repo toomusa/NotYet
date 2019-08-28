@@ -1,31 +1,14 @@
-.navbar li a {
-  text-decoration: none;
-  color: #6caaa2;
-  font-size: 15px;
-}
-
-.navbar a:hover {
-  color: white;
-} 
 
 #navbar {
-  position: fixed;
-  top: 65px;
-  right: 0px;
-  z-index: 2;
-  width: 500px;
-  /* background-color: rgba(14, 31, 56, 0.836);  */
-  border-radius: 20px;
   text-align: left;
-}
-  
-.navbar-menu {
-  list-style: none;
-  padding: 0;
+  margin-bottom: -30px;
+  margin-top: -5px;
 }
 
-.navbar-menu:first-child {
-  margin-left: 95px;
+#navbar ul {
+  white-space: nowrap;
+  padding-left: 0px;
+  margin-left: 0px;
 }
       
 .navbar-menu li a {
@@ -34,54 +17,46 @@
   width: 60px;
   height: 60px;
   line-height: 60px;
-  margin: 0 6px 0;
+  margin: 0 8px 0;
   font-weight: 700;
   font-size: 16px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  text-decoration: none;
 }
   
 .navbar-menu li a:hover {
-  color: white;
-  /* background: rgba(255, 255, 255, 0.07); */
-  border-radius: 5px; 
+  color: aquamarine;
+  text-decoration: none;
 }
       
 .navbar-menu li a:active {
-  /* background: rgba(255, 255, 255, 0.04); */
-  color: rgba(255, 255, 255, 0.6); 
+  color: aquamarine;
 }
       
 .navbar-menu .iconImage {
   background-color: #6caaa2;
-  font-size: 24px; 
+  font-size: 16px; 
+  padding: 9px 12px 2px 0px;
+  color: black;
 }
   
 .navbar-menu .iconImage:hover {
-  background-color: #578b84; 
+  text-decoration: none;
+  background-color: aquamarine;
+  color: black;
 }
   
-.iconImage img{
-  width: 6%;
-  height: 6%;
-  position:relative;
-}
-        
-.navbar-toggle img, .current-server img{
-  top:-2px;
-}
-  
-.table {
-	display: table;  
-	margin: 0 auto;
+.iconImage img {
+  width: 40px;
+  height: 40px;
 }
 
-ul#horizontal-list {
-	min-width: 696px;
+#horizontal-list {
 	list-style: none;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
-ul#horizontal-list li {
-	display: inline;
+#horizontal-list li {
+  display: inline-block;
 }

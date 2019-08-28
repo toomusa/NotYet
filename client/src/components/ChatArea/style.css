@@ -1,3 +1,8 @@
+
+#page {
+    margin-top: 50px;
+}
+
 /*=============== START Chat Styles ===============*/
 .chat-body {
     height: calc(100% - 175px);

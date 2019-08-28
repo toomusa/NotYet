@@ -5,7 +5,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import "./style.css";
 
-import Header from "../../components/Header";
+// import Header2 from "../../components/Header2";
 import Grid from "../../components/Grid";
 // import Auth from "../../containers/Auth"
 // import MessageText from "../../components/MessageText"
@@ -14,6 +14,7 @@ import Preview2 from "../../components/Preview2";
 import Footer from "../../components/Footer";
 // import Signin from "../../containers/Auth/SignIn";
 import Auth from "../../containers/Auth"
+import history from '../../history';
 
 // import io from "socket.io-client"
 // let socket = io.connect('http://localhost:4000');
@@ -26,15 +27,18 @@ import Auth from "../../containers/Auth"
 
 class HomePg extends Component {
 
-  // componentDidMount() {
-  //   this.props.socket.connect();
-  // }
+  componentDidMount() {
+    let token = localStorage.getItem("token")
+    let userId = localStorage.getItem("userId")
+    if (token && userId) {
+      history.push("/dashboard")
+    }
+  }
 
   render() {
     return (
       <div>
         {/* <Brand title='VIDI'/> */}
-        <Header />
         <Grid>
           <Auth socket={this.props.socket} />
           {/* <div><MessageText socket={socket}/></div> */}

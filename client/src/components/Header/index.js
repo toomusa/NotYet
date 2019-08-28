@@ -1,32 +1,44 @@
 import React from "react";
 import Animate from "react-smooth";
-// import Navbar from "./Navbar";
+import Navbar from "../Navbar";
+import { Container, Row, Col } from "reactstrap"
 import "./style.css";
 
-const Header = props => (
+const homeHeader = () => {
+    if (window.location.pathname === "/") {
+        return (
+            <Col></Col>
+        )
+    } else {
+        return (
+            <Col md="6" sm="12" xs="12">
+                <Navbar />
+            </Col>
+        )
+    }
+}
 
-    <header>
-        {/* <Navbar /> */}
-        <div>
-           
-                <Animate to="1" from="0.9" attributeName="opacity">
-
-                    <div
-                        style={{
-                            backgroundImage: `linear-gradient(90deg, rgba(36, 36, 90, 0.567) 40%, rgba(36, 36, 90, 0.467) 60%), url("https://i.ytimg.com/vi/5znji1uGNIs/maxresdefault.jpg")`
-                        }}
-                        className="bgImageHeader"
-                    >
-                        <div className="headerTitle headerTitleHome">
-                            <h1>VIDI</h1>
-                            <h5>The Anti-Spoiler Chat for Film Fanatics</h5>
-                        </div>
-                        </div>
-         
-                </Animate>
-           
-        </div>
-    </header>
+const Header = () => ( 
+    <div>
+        <header>
+            <Animate to="1" from="0" attributeName="opacity" duration="3000">
+                <Container className="header-area">
+                    <Row>
+                        <Col md="6" sm="12" xs="12">
+                            <div id="headerTitle">
+                                <h2>NotYet</h2>
+                                <span id="headerTag">
+                                    Spoiler-Guard Chat for Film and TV enthusiasts
+                                </span>
+                            </div>
+                        </Col>
+                        {homeHeader()}
+                    </Row>
+                </Container>
+            </Animate>
+        </header>
+    </div>
 );
-  
+
+
 export default Header;

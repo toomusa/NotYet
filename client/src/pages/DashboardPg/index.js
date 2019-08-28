@@ -3,10 +3,8 @@ import React, { Component } from 'react'
 import "./style.css";
 
 import Grid from "../../components/Grid";
-import Header2 from "../../components/Header2";
 // import MediaSearch from "../../components/MediaSearch";
 import Channels from "../../containers/Channels";
-import Navbar from "../../components/Navbar";
 import ChatArea from "../../components/ChatArea";
 import Footer from "../../components/Footer";
 import { connect } from 'react-redux';
@@ -69,8 +67,6 @@ class DashboardPg extends Component {
         return (
             <div>
                 <Grid>
-                <Header2 />
-                    <Navbar />
                     <Channels socket={this.props.socket} selectchat={this.chatSelect} />
                     <ChatArea socket={this.props.socket} />
                     <Footer/>

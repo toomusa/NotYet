@@ -22,6 +22,10 @@ span {
   color: white;               
 }
 
+#header-container {
+  margin: -20px 0px 20px 110px;
+}
+
 /*=============== START SignIn/SignUp Modals Styles ===============*/
 .modal-block {
   border: 0;

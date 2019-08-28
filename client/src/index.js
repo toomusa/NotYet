@@ -16,6 +16,7 @@ import ProfilePg from "./pages/ProfilePg";
 import Wrapper from './components/Wrapper';
 import Explorer from './pages/ExplorerPg';
 import './style.css';
+import SignOut from './containers/SignOut';
 
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -51,6 +52,7 @@ ReactDOM.render(
                     <Route exact path="/dashboard" render={() => <DashboardPg socket={socket} />} />
                     <Route exact path="/profile" render={() => <ProfilePg socket={socket} />} />
                     <Route exact path="/explorer" render={() => <Explorer socket={socket} />} />
+                    <Route exact path="/logout" render={() => <SignOut />} />
                 </App>
             </Wrapper>
         </Router>
