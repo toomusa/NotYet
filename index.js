@@ -5,10 +5,8 @@ const cors = require("cors");
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-
 const routes = require("./routes");
 const dbController = require("./controllers/dbController")
-// const socketFunctions = require("./socket.io/socket.io")
 
 // Database setup
 mongoose.connect("mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true})
@@ -39,17 +37,16 @@ app.use(routes, (req, res) => {
 // Socket.io listeners and emitters 
 io.on('connection', function (socket) {
 
-  socket.emit('server-send', { hello: 'world' });
+  socket.emit("connected", {socket: "connected"}, function (data) {
+    console.log(data)
+  })
 
-  socket.emit("connection", {now: "you're connected"})
+  socket.on("connection", function (data, cb) {
+    console.log("Server Socket is connected")
+    cb(data)
+    socket.on("disconnect", () => console.log("Client disconnected"))
+  })
 
-  socket.on('client-send', function (data) {
-    console.log("inside client-send", data);
-  });
-
-  socket.on("connect", function (data) {
-    console.log("connect got hit on the server", data);
-  });
 
   socket.on("sendMessage", function (data) {
     console.log("sendMessage got hit on the server", data);
@@ -75,14 +72,10 @@ io.on('connection', function (socket) {
       console.log("Back to socket on server")
       console.log(response)
       cb(response)
-      // socket.emit("dashboardLoaded", response)
     })
   })
 
-  io.emit("UserLoaded", {hi: "frontend"})
-
 });
-
 
 const PORT = process.env.PORT || 3001;
 

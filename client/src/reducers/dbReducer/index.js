@@ -18,11 +18,12 @@ export default function(state = INITIAL_STATE, action) {
         case RECEIVED_MESSAGE:
             console.log(action.payload)
             let {chatData} = action.payload
-            return {...state, ActiveChannel: chatData};
+            // return {...state, ActiveChannel: chatData};
+            return {...state, ActiveChannel: {...state.ActiveChannel, temp_messages: chatData.temp_messages}};
         case CREATE_CHANNEL:
             console.log(action.payload)
             let channelData = action.payload
-            return {...state, Channels: channelData};
+            return {...state, Channels: [...state.Channels, channelData]};
         case LOAD_DASHBOARD:
             console.log(action.payload)
             console.log("*************************")

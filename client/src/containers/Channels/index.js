@@ -30,11 +30,11 @@ class Channels extends Component {
     modal: false
   }
 
-  showModal = () => {
-      // console.log("Show Modal")
-      (this.state.modal) ? this.setState({modal: false}) : this.setState({modal: true})
-      // return (<CreateChat socket={props.socket}/>)
-  };
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
 
   shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -53,9 +53,8 @@ class Channels extends Component {
       <div id="sidebar" className="dragscroll">
         <ul className="sidebar-menu">
           <ProfileButton/>
-          <AddButton socket={this.props.socket} show={this.showModal}/>
+          <AddButton socket={this.props.socket} toggle={this.toggle}/>
           {this.props.state.db.Channels.map( (channel, index) => (
-            <div onClick={() => this.props.selectchat(channel._id)} key={index}>
               <Channel 
                 date={channel.date}
                 public={channel.public} 
@@ -72,13 +71,13 @@ class Channels extends Component {
                 messages={channel.messages}
                 members={channel.members}
                 media_ref={channel.media_ref} 
-                // selectchat={this.props.selectchat}
+                selectchat={this.props.selectchat}
+                key={index}
               />
-            </div>
           ))}
 
         </ul>
-        <CreateChat socket={this.props.socket} modal={this.state.modal} />
+        <CreateChat socket={this.props.socket} modal={this.state.modal} toggle={this.toggle} />
       </div >
     )
   }
