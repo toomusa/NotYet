@@ -1,44 +1,59 @@
-import React from "react";
+import React, { Component } from 'react'
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { Link } from 'react-router-dom'
 import Animate from "react-smooth";
 import Navbar from "../Navbar";
 import { Container, Row, Col } from "reactstrap"
 import "./style.css";
 
-const homeHeader = () => {
-    if (window.location.pathname === "/") {
+
+class Header extends Component {
+
+    homeHeader() {
+        let userCheck = this.props.state.auth.authenticated
+        if (userCheck === "" || userCheck === null) {
+            return (
+                <Col></Col>
+            )
+        } else {
+            return (
+                <Col md="6" sm="12" xs="12">
+                    <Navbar />
+                </Col>
+            )
+        }
+    }
+
+    render() {
         return (
-            <Col></Col>
-        )
-    } else {
-        return (
-            <Col md="6" sm="12" xs="12">
-                <Navbar />
-            </Col>
+            <div>
+                <header>
+                    <Animate to="1" from="0" attributeName="opacity" duration="3000">
+                        <Container className="header-area">
+                            <Row>
+                                <Col md="6" sm="12" xs="12">
+                                    <div id="headerTitle">
+                                        <Link to="/"><h2>NotYet</h2></Link>
+                                        <span id="headerTag">
+                                            Spoiler-Guard Chat for Film and TV enthusiasts
+                                        </span>
+                                    </div>
+                                </Col>
+                                {this.homeHeader()}
+                            </Row>
+                        </Container>
+                    </Animate>
+                </header>
+            </div>
         )
     }
 }
 
-const Header = () => ( 
-    <div>
-        <header>
-            <Animate to="1" from="0" attributeName="opacity" duration="3000">
-                <Container className="header-area">
-                    <Row>
-                        <Col md="6" sm="12" xs="12">
-                            <div id="headerTitle">
-                                <h2>NotYet</h2>
-                                <span id="headerTag">
-                                    Spoiler-Guard Chat for Film and TV enthusiasts
-                                </span>
-                            </div>
-                        </Col>
-                        {homeHeader()}
-                    </Row>
-                </Container>
-            </Animate>
-        </header>
-    </div>
-);
-
-
-export default Header;
+function mapStateToProps(state) {
+    return { state }
+  }
+  
+  export default compose(
+    connect(mapStateToProps, {}),
+  )(Header);
