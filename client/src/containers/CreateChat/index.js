@@ -9,12 +9,12 @@ import "./style.css";
 
 class CreateChat extends Component {
 
-  // state = {
-  //   modal: true
-  // }
+  state = {
+    modal: true
+  }
 
   onSubmit = formProps => {
-    let userId = this.props.state.db.Users.id
+    let userId = this.props.state.db.Users._id
     console.log(userId)
     let formData = {...formProps, userId}
     console.log(formData)
@@ -50,16 +50,15 @@ class CreateChat extends Component {
     const { handleSubmit } = this.props
     return (
       <div> 
-        <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-block2">
+        <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-block2" unmountOnClose={true}>
           <ModalHeader>Create New Channel</ModalHeader>
           <ModalBody>
-            <form onSubmit={handleSubmit(this.onSubmit)} className="form-horizontal">
+            <form onSubmit={handleSubmit(this.onSubmit)} className="form-horizontal" ref="formModal">
               <div>
                 <fieldset>
                   <label>Topic</label>
                   <Field
                     name="topic"
-                    label="topic"
                     component={InputField}
                     className="form-control"
                   />
@@ -70,7 +69,6 @@ class CreateChat extends Component {
                   <label>Description</label>
                   <Field
                     name="description"
-                    label="description"
                     component={InputField}
                     className="form-control"
                   />
@@ -78,21 +76,19 @@ class CreateChat extends Component {
               </div>
               <div>
                 <fieldset>
-                  <label>Friends</label>
+                  <label>Add Friends</label>
                   <Field
                     name="friends"
-                    label="friends"
                     component={InputField}
                     className="form-control"
                   />
                 </fieldset>
               </div>
-              <div>
+              {/* <div>
                 <fieldset>
                   <label>Media</label>
                   <Field
                     name="media"
-                    label="media"
                     component={InputField}
                     className="form-control"
                   />
@@ -103,12 +99,11 @@ class CreateChat extends Component {
                   <label>Public</label>
                   <Field
                     name="public"
-                    label="public"
                     component={InputField}
                     className="form-control"
                   />
                 </fieldset>
-              </div>
+              </div> */}
               <div>
                 <br></br>
                 <Button color="primary" type="submit" className="btn btn-block btn-radius btn-primary" onClick={this.props.toggle}>Create</Button>

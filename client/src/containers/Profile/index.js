@@ -5,7 +5,7 @@ const Profile = props => (
 
     <div id="page">
         <div id="chat-list">
-            <ul class="chat-list scroll-hijack">
+            <ul className="chat-list scroll-hijack">
             </ul>
         </div>
         <div id="profile" className="pageProfile">
@@ -20,35 +20,35 @@ const Profile = props => (
                                 <h6 className="text-bold mb-25">Friends List</h6>
                                 <div className="groups-list scroll-hijack">
                                     <ul className="list">
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Binyan</a></li>
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Coral</a></li>
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Musa</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Binyan</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Coral</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Musa</a></li>
                                     </ul>
                                 </div>
                                 <h6 className="text-bold mt-25">Public Channels</h6>
                                 <p className="mb-25 clr-fade text-small">Click a group to copy the invite link to clipboard</p>
                                 <div className="groups-list scroll-hijack">
                                     <ul className="list">
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things</a></li>
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Spiderman</a></li>
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Parks and Rec</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Spiderman</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Parks and Rec</a></li>
                                     </ul>
                                 </div>
                                 <h6 className="text-bold mt-25">Private Channels</h6>
                                 <p className="mb-25 clr-fade text-small">Click a group to copy the invite link to clipboard</p>
                                 <div className="groups-list scroll-hijack">
                                     <ul className="list">
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things W/ Spoils</a></li>
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>My Hero Academia W/ Spoils</a></li>
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Demon Slayer W/ Spoils</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things W/ Spoils</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>My Hero Academia W/ Spoils</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Demon Slayer W/ Spoils</a></li>
                                     </ul>
                                 </div>
                                 <h6 className="text-bold mt-25">Recent Ratings</h6>
                                 <div className="groups-list scroll-hijack">
                                     <ul className="list">
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Demon Slayer&nbsp;  S.1 E.3 &nbsp;&nbsp;          Rating: 5</a></li>
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things&nbsp;  S.1E.8    &nbsp;&nbsp;       Rating: 5</a></li>
-                                        <li><a href="/" class="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Game of Thrones    &nbsp;&nbsp;    Rating: 1</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Demon Slayer&nbsp;  S.1 E.3 &nbsp;&nbsp;          Rating: 5</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things&nbsp;  S.1E.8    &nbsp;&nbsp;       Rating: 5</a></li>
+                                        <li><a href="/" className="disabled"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Game of Thrones    &nbsp;&nbsp;    Rating: 1</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -11,6 +11,7 @@
   max-width: 100%;
   -ms-overflow-style: none; 
   scrollbar-width: none;  
+  margin-left: 35px;
 }
 
 #sidebar::-webkit-scrollbar { 
@@ -24,9 +25,9 @@
   max-width: 100%;
   overflow-x: hidden;
   cursor: grab; 
-  cursor : -o-grab; 
-  cursor : -moz-grab; 
-  cursor : -webkit-grab;
+  cursor: -o-grab; 
+  cursor: -moz-grab; 
+  cursor: -webkit-grab;
 }
 
 .sidebar-menu {

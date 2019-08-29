@@ -21,7 +21,7 @@ import SignOut from './containers/SignOut';
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const initial_state = { auth: { authenticated: localStorage.getItem("token") } };
+const initial_state = { auth: { authenticated: localStorage.getItem("token") }};
 
 const store = createStore(
     reducers,

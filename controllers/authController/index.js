@@ -20,8 +20,7 @@ module.exports = {
         try {
             const existingUser = await db.User.findOne({email});
             if (existingUser) return res.status(422).json({error: "Email is in use"});
-            
-            let newUserInfo = req.body.username ? { email, password, username } : { email, password }
+            let newUserInfo = req.body.username ? { email, password, username: req.body.username } : { email, password }
             let user = await new db.User(newUserInfo);
             user.save();
             

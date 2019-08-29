@@ -22,8 +22,31 @@ span {
   color: white;               
 }
 
+#logo-image img {
+  width: 80px;
+  color-adjust: aquamarine;
+}
+
+#logo-image {
+  z-index: 2;
+  position: fixed;
+  margin: 8px 100px 20px -80px;
+}
+
 #header-container {
   margin: -20px 0px 20px 110px;
+}
+
+#authModal {
+  height: 100%;
+}
+
+#submitBtn {
+  margin-bottom: -30px;
+}
+
+#labelColor {
+  color: white;
 }
 
 /*=============== START SignIn/SignUp Modals Styles ===============*/
@@ -170,30 +193,30 @@ p {
   background: transparent;
   border-radius: 15px;
   border: 2px solid #324052;
-  font-size: 1.2em;
-  color: #fff;
+  /* color: #fff; */
   height: 46px;
   padding: 10px 0;
   text-align: center;
-  -webkit-transition: background-color .3s ease, color .3s ease;
-  transition: background-color .3s ease, color .3s ease;
   margin-bottom: 5%;
+  /* font-size: 1.2em; */
+  /* -webkit-transition: background-color .3s ease, color .3s ease;
+  transition: background-color .3s ease, color .3s ease; */
 }
   
 .form-control {
-  -webkit-transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275);
-  transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275); 
+  /* -webkit-transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275);
+  transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275);  */
 }
   
 .form-control:hover {
-  border-radius: 60px; 
+  /* border-radius: 60px;  */
 }
   
 .form-control:focus {
-  border: 0;
+  /* border: 0; */
 }
    
-.email {
+.inputBox {
   background: white;
   color: black;
 }
@@ -255,12 +278,12 @@ a:hover {
 /*=============== START Page Styles ===============*/
 .page-header {
   padding: 10px 15px;
-  background-color: #1f324c;
+  background-color: #10243e;
   margin: 0;
   border: 0; 
   min-height: 45px;
   border-top-left-radius: 10px;
-  border-top-right-radius: 3px;
+  border-top-right-radius: 7px;
 }
 
 .page-header > ul {
@@ -278,7 +301,7 @@ a:hover {
 #page {
   margin-top: 0px;
   /* padding-left: 55px;  */
-  padding-right: 5px;
+  /* padding-right: 5px; */
 }
 .pageMovies {
   top: -33px;

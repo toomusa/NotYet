@@ -1,5 +1,5 @@
 
-import { LOAD_USER, RECEIVED_MESSAGE, CREATE_CHANNEL, LOAD_DASHBOARD, ACTIVATE_CHANNEL } from "../../actions/dbActions/types";
+import { LOAD_USER, RECEIVED_MESSAGE, CREATE_CHANNEL, LOAD_DASHBOARD, ACTIVATE_CHANNEL, UPDATE_PAGE } from "../../actions/dbActions/types";
 
 
 export const loadUser = (data, callback) => async dispatch => {
@@ -54,6 +54,16 @@ export const activateChannel = (data) => async dispatch => {
       dispatch({ type: ACTIVATE_CHANNEL, payload: data });
   } catch (e) {
       dispatch({ type: ACTIVATE_CHANNEL, payload: "Error: activating channel to store" });
+  }
+}
+
+export const updateCurrentPage = (data) => async dispatch => {
+  console.log("We're inside updateCurrentPage")
+  console.log(data)
+  try {
+      dispatch({ type: UPDATE_PAGE, payload: data });
+  } catch (e) {
+      dispatch({ type: UPDATE_PAGE, payload: "Error: updating page" });
   }
 }
 
