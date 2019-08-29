@@ -21,10 +21,8 @@ export class MessageText extends Component {
     this.handleSendTextMessage = this.handleSendTextMessage.bind(this);
   }
 
-  sendMessage(content, chatId) {
-    console.log(content)
-    console.log(chatId)
-    let message = {content: content, chatId: chatId}
+  sendMessage(content, chatId, userId, adminId) {
+    let message = {content, chatId, userId, adminId}
     console.log(message)
     this.props.socket.emit("sendMessage", message, function(chatData) {
       console.log(chatData)
@@ -32,10 +30,10 @@ export class MessageText extends Component {
   }
 
   componentDidMount = () => {
-    this.props.socket.on("messageResponse", (chatData) => {
+    this.props.socket.on("messageResponse", (lastMessage) => {
       console.log("messageResponse frontend hit")
-      console.log(chatData)
-      this.props.receivedMessage(chatData)
+      console.log(lastMessage)
+      this.props.receivedMessage(lastMessage)
     })
   }
 
@@ -54,7 +52,7 @@ export class MessageText extends Component {
   handleSendTextMessage(e) {
     e.preventDefault();
     if (this.state.formContent !== '') {
-      this.sendMessage(this.state.formContent, this.props.chatId);
+      this.sendMessage(this.state.formContent, this.props.chatId, this.props.userId, this.props.adminId);
       this.setState({formContent: ''});
     }
   }

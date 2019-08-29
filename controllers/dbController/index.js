@@ -13,6 +13,14 @@ const messages = [
   "That's enoough y'all"
 ]
 
+function isEmpty(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key))
+      return false;
+  }
+  return true;
+}
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -27,9 +35,34 @@ function shuffle(array) {
 
 const sendMessage = async (data, callback) => {
   console.log("I'm inside the controller sendMessage", data)
-  let { content, chatId } = data
+  let { content, chatId, userId, adminId } = data
 
-  let chatData = await db.Channel.findOneAndUpdate({_id: chatId}, {$push: {temp_messages: content}}, {new: true})
+  let newMessage = await db.Message.create({ 
+    sender: userId,
+    content: content,
+    channel: {
+      ref_channel: chatId,
+      admin: (adminId === userId) ? true : false
+    }}
+  )
+
+  console.log(newMessage)
+  console.log("NEW MESSAGE ID **************************")
+  console.log(newMessage._id)
+  console.log(newMessage.id)
+
+  let chatData = await db.Channel.findByIdAndUpdate({_id: chatId},
+    {$push: {messages: {
+      sent_messages: newMessage._id,
+      ref_channel: chatId,
+      sender: userId
+    }}})
+    // .populate("messages.sender")
+    // .populate("messages.ref_channel")
+    .populate("messages.sent_messages")
+
+
+  // let chatData = await db.Channel.findOneAndUpdate({_id: chatId}, {$push: {temp_messages: content}}, {new: true})
 
   // let res = await db.Channel.findById(chatId).populate("Message")
   // console.log("Channel data from db")
@@ -37,9 +70,14 @@ const sendMessage = async (data, callback) => {
   
   // let chatData = {...res.messages}
   console.log("Chat data from res messages")
-  console.log(chatData)
   // res.json({chatData})
-  callback(chatData)
+  // console.log(chatData.messages)
+  // console.log(chatData.messages.pop().sent_messages)
+  if (!isEmpty(chatData.messages.pop().sent_messages)) {
+    let lastMessage = {chatId: chatData._id, message: chatData.messages.pop().sent_messages}
+    console.log(lastMessage)
+    callback(lastMessage)
+  }
 }
 
 const createChannel = async (data, callback) => {
@@ -82,7 +120,7 @@ const createChannel = async (data, callback) => {
     }
 
     if (channelResponse && updatedUser) {
-      let channelData = {Channels: [channelResponse], Users: updatedUser};
+      let channelData = {Channels: channelResponse, Users: updatedUser};
       resolve();
       callback(channelData)
     }
@@ -131,7 +169,10 @@ const loadDashboard = async (data, callback) => {
     // }
 
     try {
-      channelData = await db.Channel.find({_id: userData.channels}).populate("Message")
+      channelData = await db.Channel.find({_id: userData.channels})
+        .populate("messages.sent_messages")
+        .populate("messages.sender")
+        .populate("messages.ref_channel")
       console.log("channelData")
       console.log(channelData)
     } catch (e) {

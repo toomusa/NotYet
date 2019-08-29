@@ -34,13 +34,14 @@ export const receivedMessage = (data) => async dispatch => {
   }
 }
 
-export const createChannel = (data) => async dispatch => {
+export const createChannel = (data, cb) => async dispatch => {
   console.log("We're inside createChannel")
   console.log(data)
   let { Users, Channels } = data
   try {
       dispatch({ type: CREATE_CHANNEL, payload: Channels });
       dispatch({ type: LOAD_USER, payload: Users });
+      cb()
   } catch (e) {
       dispatch({ type: CREATE_CHANNEL, payload: "Error: saving new channel to store" });
   }

@@ -51,7 +51,11 @@ const ChannelsSchema = new Schema({
     starred: {
         type: Boolean,
         default: false
-    },        
+    },  
+    sender: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
     ref_channel: {
         type: Schema.Types.ObjectId,
         ref: "Channel"
