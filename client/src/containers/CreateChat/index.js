@@ -74,6 +74,26 @@ class CreateChat extends Component {
                   />
                 </fieldset>
               </div>
+              {/* <div>
+                <fieldset>
+                  <label>Add Friends</label>
+                  <Field
+                    name="friends"
+                    component={InputField}
+                    className="form-control"
+                  />
+                </fieldset>
+              </div>
+              <div>
+                <fieldset>
+                  <label>Media</label>
+                  <Field
+                    name="media"
+                    component={InputField}
+                    className="form-control"
+                  />
+                </fieldset>
+              </div> */}
               <div>
                 <fieldset>
                   <label>Add Friends</label>
@@ -84,26 +104,6 @@ class CreateChat extends Component {
                   />
                 </fieldset>
               </div>
-              {/* <div>
-                <fieldset>
-                  <label>Media</label>
-                  <Field
-                    name="media"
-                    component={InputField}
-                    className="form-control"
-                  />
-                </fieldset>
-              </div>
-              <div>
-                <fieldset>
-                  <label>Public</label>
-                  <Field
-                    name="public"
-                    component={InputField}
-                    className="form-control"
-                  />
-                </fieldset>
-              </div> */}
               <div>
                 <br></br>
                 <Button color="primary" type="submit" className="btn btn-block btn-radius btn-primary" onClick={this.props.toggle}>Create</Button>

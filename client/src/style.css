@@ -39,6 +39,9 @@ span {
 
 #authModal {
   height: 100%;
+  margin-right: 600px;
+  margin-left: 60px;
+  margin-bottom: 100px;
 }
 
 #submitBtn {
@@ -126,6 +129,10 @@ span {
 #signupButton, #signupButtonT, #loginButton, #loginButtonT, #stylingButton {
   position: absolute;
   top: 0px;
+  border-radius: 0px;
+  outline: none;
+  border: none;
+  padding-bottom: 11px;
 }
 
 #stylingButton{
@@ -154,11 +161,22 @@ span {
 
 
 #signupButton, #signupButtonT, #loginButton, #loginButtonT{
-  border: 1px solid #324052;
+  /* border: 1px solid #324052; */
+  border-radius: 0px;
+  outline: none;
+  border: none;
 }
 
-#signupButton:hover, #signupButton:active, #loginButton:active, #loginButton:hover {
+#signupButton:visited, #loginButton:visited, {
+  background-color: red;
+  outline: none;
+  border: none;
+}
+
+#signupButton:hover, #signupButton:active, #signupButton:focus, #loginButton:active, #loginButton:hover, #loginButton:focus {
   background-color: inherit;
+  outline: none;
+  border: none;
   color: white;
 }
 /*=============== END Button Toggles Styles ===============*/
