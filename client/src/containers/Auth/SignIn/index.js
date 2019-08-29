@@ -58,26 +58,26 @@ class SignIn extends Component {
         <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
             <div className="form-group">
-              <label for="email">EMAIL</label>
+              <label for="email" id="labelColor">EMAIL</label>
               {/* <input type="email" name="email" id="email" className="email form-control" /> */}
               <Field
                 name="email"
                 type="text"
                 id="email"
-                className="email form-control loginEmail"
+                className="inputBox form-control"
                 component={InputField}
               // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
               // go check it out, should work the same
               />
             </div>
             <div className="form-group">
-              <label for="password">PASSWORD</label>
+              <label for="password" id="labelColor">PASSWORD</label>
               {/* <input type="password" name="password" id="password" className="form-control" /> */}
               <Field
                 name="password"
                 type="password"
                 id="password"
-                className="form-control loginPassword"
+                className="inputBox form-control"
                 component={InputField}
               // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
               // go check it out, should work the same
@@ -87,6 +87,7 @@ class SignIn extends Component {
           <div className="form-group">
             {/* <p className="help-block"><a href="/" className="link-underline">FORGOT YOUR PASSWORD?</a></p>
                     <p className="help-block2 mb-25">Need an account? Register <a href="/users/register" className="clr-primary link-underline">here</a>.</p> */}
+                    <br></br>
             <button type="submit" className="btn btn-block btn-radius btn-primary loginSubmit">LOGIN</button>
           </div>
         </form>

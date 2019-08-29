@@ -31,7 +31,7 @@ class Auth extends Component {
 
   render() {
     return (
-      <div className="modal-block">
+      <div className="modal-block" id="authModal">
         <div className="modal-brand">
           <div className="modal-brand-caption">
             <div className="logo">
@@ -39,7 +39,7 @@ class Auth extends Component {
             </div>
           </div>
         </div>
-        <div className="modal-block-content">
+        <div className="modal-block-content" >
           <br></br>
           <button id="stylingButton" className="btn btn-primary"></button>
           {/* this one is not rly a button ^ it's to fill empty space*/}

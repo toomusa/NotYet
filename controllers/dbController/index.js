@@ -1,17 +1,5 @@
 
-const mongoose = require("mongoose");
 const db = require("../../models");
-
-const messages = [
-  "What up",
-  "Whassup",
-  "Whassssuuuuup",
-  "Hey",
-  "Its yo boy!",
-  "Good evening",
-  "Holla playa",
-  "That's enoough y'all"
-]
 
 function isEmpty(obj) {
   for (var key in obj) {
@@ -21,20 +9,10 @@ function isEmpty(obj) {
   return true;
 }
 
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-  return array;
-}
-
 const sendMessage = async (data, callback) => {
-  console.log("I'm inside the controller sendMessage", data)
+  console.log("Inside the controller sendMessage")
+  console.log(data)
+
   let { content, chatId, userId, adminId } = data
 
   let newMessage = await db.Message.create({ 
@@ -46,35 +24,27 @@ const sendMessage = async (data, callback) => {
     }}
   )
 
-  console.log(newMessage)
-  console.log("NEW MESSAGE ID **************************")
-  console.log(newMessage._id)
-  console.log(newMessage.id)
+  let chatData = await db.Channel.findOneAndUpdate({_id: chatId},
+      {$push: {messages: {
+        sent_messages: newMessage._id,
+        ref_channel: chatId,
+        sender: userId
+      }}}, {new: true})
+      .populate("messages.sender", "username")
+      .populate("messages.sent_messages")
 
-  let chatData = await db.Channel.findByIdAndUpdate({_id: chatId},
-    {$push: {messages: {
-      sent_messages: newMessage._id,
-      ref_channel: chatId,
-      sender: userId
-    }}})
-    // .populate("messages.sender")
-    // .populate("messages.ref_channel")
-    .populate("messages.sent_messages")
+  let updatedUser = await db.User.findByIdAndUpdate(userId, 
+          {$push: {messages: {
+            sent_messages: newMessage.id,
+            ref_channel: chatId
+          }}}, {new: true})
 
+  console.log("updatedUser")
+  console.log(updatedUser)
 
-  // let chatData = await db.Channel.findOneAndUpdate({_id: chatId}, {$push: {temp_messages: content}}, {new: true})
-
-  // let res = await db.Channel.findById(chatId).populate("Message")
-  // console.log("Channel data from db")
-  // console.log(chatData)
-  
-  // let chatData = {...res.messages}
-  console.log("Chat data from res messages")
-  // res.json({chatData})
-  // console.log(chatData.messages)
-  // console.log(chatData.messages.pop().sent_messages)
-  if (!isEmpty(chatData.messages.pop().sent_messages)) {
-    let lastMessage = {chatId: chatData._id, message: chatData.messages.pop().sent_messages}
+  if (!isEmpty(chatData)) {
+    let lastMessage = {chatId: chatData._id, messages: chatData.messages.pop()}
+    console.log("lastMessage")
     console.log(lastMessage)
     callback(lastMessage)
   }
@@ -83,11 +53,9 @@ const sendMessage = async (data, callback) => {
 const createChannel = async (data, callback) => {
   console.log("I'm inside the controller createChannel")
   console.log(data)
-  let userId = data.userId
-  console.log(userId)
+  let { userId } = data
 
-    return new Promise( async (resolve, reject) => {
-
+  return new Promise( async (resolve, reject) => {
     let newChannel;
     let updatedUser;
     let channelResponse;
@@ -95,100 +63,70 @@ const createChannel = async (data, callback) => {
     try {
       let createChannel = await new db.Channel(data)
       await createChannel.save()
-      newChannel = await db.Channel.findOneAndUpdate({_id: createChannel._id}, {$push: {admin: userId, temp_messages: shuffle(messages)}}, {new: true})
-      console.log("newChannel data from Channel db")
-      console.log(newChannel)
+      newChannel = await db.Channel.findOneAndUpdate({_id: createChannel._id}, 
+        {$push: {admin: userId}}, {new: true})
     } catch (e) {
       console.log("Oooops", e)
     }
 
     try {
-      updatedUser = await db.User.findByIdAndUpdate(userId, {$push: {channels: newChannel.id}}, {new: true}).populate("Channel")
-      console.log("Channel data from User db")
-      console.log(updatedUser)
-      console.log(newChannel.id)
+      updatedUser = await db.User.findByIdAndUpdate(userId, 
+        {$push: {channels: newChannel.id}}, {new: true}).populate("Channel")
     } catch (e) {
       console.log("Oooops", e)
     }
     
     try {
       channelResponse = await db.Channel.findById(newChannel.id)
-      console.log("Chat data from res messages")
-      console.log(channelResponse)
     } catch (e) {
       console.log("Oooops", e)
     }
-
+    
     if (channelResponse && updatedUser) {
       let channelData = {Channels: channelResponse, Users: updatedUser};
+      console.log("channelData")
+      console.log(channelData)
       resolve();
       callback(channelData)
     }
   })
 }
 
-
 const loadDashboard = async (data, callback) => {
   console.log("I'm inside the controller loadDashboard")
-  console.log(data)
   let userId = data
   console.log(userId)
 
   return new Promise( async (resolve, reject) => {
     let userData;
-    let channelIds = [];
     let channelData;
-    let CleanedUserData = {};
     
     try {
-      userData = await db.User.findById(userId).populate("Channel")
-      console.log("userData")
-      console.log(userData)
-      CleanedUserData.id = userData._id;
-      CleanedUserData.username = userData.username;
-      CleanedUserData.channels = userData.channels;
-      CleanedUserData.show_channels = userData.show_channels;
-      CleanedUserData.movie_channels = userData.movie_channels;
-      CleanedUserData.inactive_channels = userData.inactive_channels;
-      CleanedUserData.messages = userData.messages;
-      CleanedUserData.friends = userData.friends;
-      CleanedUserData.favorite_shows = userData.favorite_shows;
-      CleanedUserData.favorite_movies = userData.favorite_movies;
+      userData = await db.User.findById(userId, 
+        "_id username channels show_channels movie_channels inactive_channels messages friends favorite_shows favorite_movies")
+        .populate("Channel")
     } catch (e) {
       console.log("Oooops", e)
     }
-
-    // try {
-    //   if (userData.channels) {
-    //     userData.channels.map(channel => { channelIds.push(channel.id) })
-    //     console.log("channelIds")
-    //     console.log(channelIds)
-    //   }
-    // } catch (e) {
-    //   console.log("Oooops", e)
-    // }
 
     try {
       channelData = await db.Channel.find({_id: userData.channels})
         .populate("messages.sent_messages")
         .populate("messages.sender")
         .populate("messages.ref_channel")
-      console.log("channelData")
-      console.log(channelData)
     } catch (e) {
       console.log("Oooops", e)
     }
     
-    if (CleanedUserData && channelData) {
-      let dashboardData = {Users: CleanedUserData, Channels: channelData};
+    if (userData && channelData) {
+      let dashboardData = {Users: userData, Channels: channelData};
       console.log("dashboardData")
       console.log(dashboardData)
       resolve();
       callback(dashboardData)
-    }
+    } else {reject()}
   })
 }
-
 
 module.exports = { createChannel, sendMessage, loadDashboard };
 

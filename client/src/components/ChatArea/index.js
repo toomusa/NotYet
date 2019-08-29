@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import "./style.css";
 import { compose } from "redux";
 import { connect } from "react-redux";
+import moment from "moment";
 import MessageText from "../../components/MessageText"
 
 class ChatArea extends Component {
@@ -33,7 +34,7 @@ class ChatArea extends Component {
 
   scrollToBottom = () => {
     console.log("scroll to bottom")
-    let chatTextArea = document.getElementById("chat-text-area")
+    let chatTextArea = document.getElementById("scrollbar")
     const scrollHeight = chatTextArea.scrollHeight;
     const height = chatTextArea.clientHeight;
     const maxScrollTop = scrollHeight - height;
@@ -49,10 +50,10 @@ class ChatArea extends Component {
             <div className="chat-message" key={index}>
               <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
               <div className="chat-message-content">
-                <a href="/" className="chat-message-author">{message.sender.username}</a>
-                <span className="chat-message-date">{message.date}</span>
+                <a href="/" className="chat-message-author">{message ? message.sender.username : "loser"}</a>
+                <span className="chat-message-date">{moment(message.date).format("ddd | MMM D | h:m A")}</span>
                 <div className="chat-message-message">
-                  {message.sent_messages.content}
+                  {message ? message.sent_messages.content : "you message didn't come through"}
                 </div>
               </div>
             </div>
@@ -86,7 +87,7 @@ class ChatArea extends Component {
             <span>{this.isEmpty(this.props.state.db.ActiveChannel) || this.props.state.db.ActiveChannel.topic} </span>
           </div>
 
-          <div className="chat-body scroll-hijack" id="chat-text-area">
+          <div className="chat-body scroll-hijack" id="scrollbar">
             {/* REPEATING BLOCK ELEMENT */}
             {!this.isEmpty(this.props.state.db.ActiveChannel)
               ? this.renderMessages()

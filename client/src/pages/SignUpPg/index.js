@@ -13,14 +13,14 @@ import Preview from "../../components/Preview";
 import Preview2 from "../../components/Preview2";
 import Footer from "../../components/Footer";
 
-import io from "socket.io-client"
-let socket = io.connect('http://localhost:4000');
+// import io from "socket.io-client"
+// let socket = io.connect('http://localhost:4000');
 
-// let socket = io();
-socket.on('server-send', function (data) {
-  console.log(data);
-  socket.emit('client-send', { my: 'wompalompa' });
-})
+// // let socket = io();
+// socket.on('server-send', function (data) {
+//   console.log(data);
+//   socket.emit('client-send', { my: 'wompalompa' });
+// })
 
 class SignUpPg extends Component {
 
@@ -35,7 +35,7 @@ class SignUpPg extends Component {
         <Header />
         <Grid>
           <SignUp />
-          <div><MessageText socket={socket} /></div>
+          <div><MessageText /></div>
           <h4 className="whatMsg">VIDI is a chat program for movies and TV shows.
           What makes our app special is that we prevent spoilers by hiding chat channels
           until the user verifies they've viewed.
@@ -63,7 +63,7 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-  connect(mapStateToProps, { socket }),
+  connect(mapStateToProps, { }),
   // reduxForm({})
 )(SignUpPg);
 

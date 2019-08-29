@@ -12,19 +12,25 @@
   margin-left: 0px;
 }
       
+.navbar-menu a span {
+  color: black;
+}
+
 .navbar-menu li a {
-  color: aquamarine;
-  background-color: rgba(0, 28, 43, 0.89);
+  color: black;
+  background-color: aquamarine;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  margin: 0 8px 0;
+  margin: 0 1px 0;
   font-weight: 700;
   font-size: 16px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   text-decoration: none;
   letter-spacing: 1px;
+  padding: 9px 12px 2px 0px;
+  /* text-align: center; */
 }
   
 .navbar-menu li a:hover {

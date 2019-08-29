@@ -113,3 +113,10 @@ const showCompiler = async () => {
 
 module.exports = {};
 
+// create a socket emit from client
+// socket on server calls Compiler functions
+// sends data back
+// pass it into props or store?
+// search box receives movie and show data
+// all trie functions within search box container
+// copy playerTrie from bball app

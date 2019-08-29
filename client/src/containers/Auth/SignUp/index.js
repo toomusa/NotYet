@@ -75,39 +75,54 @@ class SignUp extends Component {
           <h3>Register Today!</h3>
           <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
             <div className="form-group">
-              <label for="email">EMAIL</label>
+              <label for="email" id="labelColor">EMAIL</label>
               {/* <input type="email" name="email" id="email" className="email form-control" /> */}
-              <fieldset>
+              {/* <fieldset> */}
                 <Field
                   name="email"
                   type="email"
                   id="email"
-                  className="email form-control registerEmail"
+                  className="inputBox form-control"
                   component={InputField}
                 // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
                 // go check it out, should work the same
                 />
-              </fieldset>
+              {/* </fieldset> */}
             </div>
             <div className="form-group">
-              <label for="password">PASSWORD</label>
+              <label for="username" id="labelColor">USERNAME</label>
               {/* <input type="password" name="password" id="password" className="form-control" /> */}
-              <fieldset>
+              {/* <fieldset> */}
+                <Field
+                  name="username"
+                  type="username"
+                  id="username"
+                  className="inputBox form-control"
+                  component={InputField}
+                // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
+                // go check it out, should work the same
+                />
+              {/* </fieldset> */}
+            </div>
+            <div className="form-group">
+              <label for="password" id="labelColor">PASSWORD</label>
+              {/* <input type="password" name="password" id="password" className="form-control" /> */}
+              {/* <fieldset> */}
                 <Field
                   name="password"
                   type="password"
                   id="password"
-                  className="form-control registerPassword"
+                  className="inputBox form-control"
                   component={InputField}
                 // component={renderInput} birna: I had to make a seperate component and grab input that way for the styling to work
                 // go check it out, should work the same
                 />
-              </fieldset>
+              {/* </fieldset> */}
             </div>
             <div className="form-group">
               {/* <p className="help-block"><a href="/" className="link-underline">FORGOT YOUR PASSWORD?</a></p> */}
               {/* <p className="help-block2 mb-25">Already registered? Login <a href="/" className="clr-primary link-underline">here</a>.</p> */}
-              <button type="submit" className="btn btn-block btn-radius btn-primary registerSubmit">REGISTER</button>
+              <button type="submit" className="btn btn-block btn-radius btn-primary registerSubmit" id="submitBtn">REGISTER</button>
             </div>
           </form>
        </div>

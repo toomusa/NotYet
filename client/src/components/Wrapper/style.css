@@ -6,9 +6,10 @@
 .wrapper {
   background: whitesmoke (175, 175, 175);
   background-image: url('https://mocah.org/uploads/webp/5389496-northern-light-sky-night-aurora-boreali-night-sky-space-green-blue-star-background-dark-wallpaper-cloud-abstract-purple-green-light-aurora-beautiful-summer-texture-free-images.jpg.webp');    
+  background-size: 120% 150%;
   background-position: 0px 0px;
   background-repeat: repeat-x;
-  animation: animatedBackground 160s linear infinite alternate ease-in-out;
+  animation: animatedBackground 50s linear infinite alternate;
   height: 100%; 
   display: relative;
   flex-flow: row wrap;
@@ -17,13 +18,3 @@
   overflow: auto;
   padding-bottom: 50px;
 }
-
-
-/* .wrapper:visited {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
-} */

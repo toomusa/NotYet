@@ -2,16 +2,20 @@
 import React, { Component } from "react";
 // import { reduxForm, Field } from "redux-form";
 // import { compose } from "redux";
-// import { connect } from "react-redux";
-// import requireAuth from "../hoc/requireAuth";
+import { connect } from "react-redux";
+import requireAuth from "../../hoc/requireAuth";
 import { Row, Col } from "reactstrap"
 import "./style.css";
 import Profile from "./../../containers/Profile"
 import Grid from "../../components/Grid";
-import Channels from "../../containers/Channels";
 import Footer from "../../components/Footer";
+import { updateCurrentPage } from "../../actions/dbActions"
 
 class ProfilePg extends Component {
+
+    componentDidMount() {
+        this.props.updateCurrentPage(window.location.pathname)
+    }
 
     render() {
         return (
@@ -32,13 +36,8 @@ class ProfilePg extends Component {
     }
 }
 
-// function mapStateToProps(state) {
-//     return {state};
-// }
+function mapStateToProps(state) {
+    return {state};
+}
 
-// const formedComponent = compose(
-//   connect(mapStateToProps, {}),
-//   reduxForm({})
-// )(ProfilePg);
-
-export default ProfilePg;
+export default requireAuth(connect(mapStateToProps, { updateCurrentPage })(ProfilePg));
