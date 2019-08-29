@@ -49,10 +49,10 @@ class ChatArea extends Component {
             <div className="chat-message" key={index}>
               <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
               <div className="chat-message-content">
-                <a href="/" className="chat-message-author">{message.sender.username}</a>
+                <a href="/" className="chat-message-author">{message ? message.sender.username : "loser"}</a>
                 <span className="chat-message-date">{message.date}</span>
                 <div className="chat-message-message">
-                  {message.sent_messages.content}
+                  {message ? message.sent_messages.content : "you message didn't come through"}
                 </div>
               </div>
             </div>

@@ -16,21 +16,13 @@ export default function(state = INITIAL_STATE, action) {
         case CLEAR_USER:
             return {...state, Users: {}};
         case RECEIVED_MESSAGE:
-            console.log(action.payload)
             let { lastMessage } = action.payload
-            console.log(lastMessage)
-            console.log(lastMessage.chatId)
-            // return {...state, ActiveChannel: chatData};
-            // return {...state, ActiveChannel: {...state.ActiveChannel, temp_messages: chatData.temp_messages}};
-            // let givenChat = state.Channels.filter(channel => channel._id === action.payload._id)
-            // console.log(givenChat)
-            // let givenChannel = state.Channels.filter(channel => channel._id === chatData._id)
             return {...state, Channels: state.Channels.filter(channel => 
                 channel._id === lastMessage.chatId
-                    ? [...state.Channels, [...channel.messages, lastMessage.message]] 
+                    ? [...state.Channels, [...channel.messages, lastMessage.messages]] 
                     : state.Channels),
                 ActiveChannel: {...state.ActiveChannel,
-                    messages: [...state.ActiveChannel.messages, lastMessage.message]}
+                    messages: [...state.ActiveChannel.messages, lastMessage.messages]}
                 };
         case CREATE_CHANNEL:
             console.log(action.payload)
