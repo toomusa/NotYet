@@ -33,7 +33,7 @@ class ChatArea extends Component {
   }
 
   scrollToBottom = () => {
-    console.log("scroll to bottom")
+    // console.log("scroll to bottom")
     let chatTextArea = document.getElementById("scrollbar")
     const scrollHeight = chatTextArea.scrollHeight;
     const height = chatTextArea.clientHeight;

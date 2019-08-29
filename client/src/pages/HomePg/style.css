@@ -9,22 +9,31 @@ h4 {
 
 .whatMsg {
     top: -10px;
-    padding: 275px 0 225px;
+    padding: 400px 100px 80px 200px;
+    margin-left: -110px;
 }
 
 .howMsg {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    margin-left: -110px;
+    margin-top: -50px;
+    padding: 0px 100px 0px 200px;
     top: 125px;
 }
 
 .doMsg {
-    top: 420px;
-    margin-bottom: 100px;
-    padding-top: 50px;
-    padding-bottom: 200px;
+    margin-left: -110px;
+    padding: 280px 100px 0px 200px;
+    margin-bottom: -150px;
 }
 
 .doMsg a {
     color: #578b84; 
+}
+
+.replacement {
+    margin-top: 50px;
+    margin-bottom: -320px;
+    padding: 0px 100px 0px 200px;
+    margin-left: -110px;
+    font-size: 35px;
 }

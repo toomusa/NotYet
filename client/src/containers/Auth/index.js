@@ -31,22 +31,24 @@ class Auth extends Component {
 
   render() {
     return (
-      <div className="modal-block" id="authModal">
-        <div className="modal-brand">
-          <div className="modal-brand-caption">
-            <div className="logo">
-              <h1>V</h1><span> <h1>I</h1></span><span><h1>D</h1></span><span><h1>I</h1></span>
+      <div >
+        <div className="modal-block" id="authModal">
+          <div className="modal-brand">
+            <div className="modal-brand-caption">
+              <div className="logo">
+                <h1>N</h1><span> <h1>O</h1></span><span><h1>T</h1></span><span><h1>Y</h1></span><span><h1>E</h1></span><span><h1>T</h1></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="modal-block-content" >
-          <br></br>
-          <button id="stylingButton" className="btn btn-primary"></button>
-          {/* this one is not rly a button ^ it's to fill empty space*/}
-          <button id="loginButtonT" className="btn btn-primary" onClick={this.renderSignin}>LOGIN</button>
-          <button id="signupButton" className="btn btn-primary" onClick={this.renderSignup}>REGISTER</button>
+          <div className="modal-block-content" >
+            <br></br>
+            <button id="stylingButton" className="btn btn-primary"></button>
+            {/* this one is not rly a button ^ it's to fill empty space*/}
+            <button id="loginButtonT" className="btn btn-primary" onClick={this.renderSignin}>LOGIN</button>
+            <button id="signupButton" className="btn btn-primary" onClick={this.renderSignup}>REGISTER</button>
 
-          {(this.state.btn) ? <Signin socket={this.props.socket} /> : <Signup socket={this.props.socket} />}
+            {(this.state.btn) ? <Signin socket={this.props.socket} /> : <Signup socket={this.props.socket} />}
+          </div>
         </div>
       </div>
     )

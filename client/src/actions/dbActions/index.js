@@ -1,5 +1,5 @@
 
-import { LOAD_USER, RECEIVED_MESSAGE, CREATE_CHANNEL, LOAD_DASHBOARD, ACTIVATE_CHANNEL, UPDATE_PAGE } from "../../actions/dbActions/types";
+import { LOAD_USER, RECEIVED_MESSAGE, CREATE_CHANNEL, LOAD_DASHBOARD, ACTIVATE_CHANNEL, UPDATE_PAGE, UPDATE_CHANNELS } from "../../actions/dbActions/types";
 
 
 export const loadUser = (data, callback) => async dispatch => {
@@ -31,6 +31,16 @@ export const receivedMessage = (data) => async dispatch => {
       dispatch({ type: RECEIVED_MESSAGE, payload: data });
   } catch (e) {
       dispatch({ type: RECEIVED_MESSAGE, payload: "Error: saving new message to store" });
+  }
+}
+
+export const updateChannels = (data) => async dispatch => {
+  console.log("We're inside dbActions")
+  console.log(data)
+  try {
+      dispatch({ type: UPDATE_CHANNELS, payload: data });
+  } catch (e) {
+      dispatch({ type: UPDATE_CHANNELS, payload: "Error: saving new message to store" });
   }
 }
 

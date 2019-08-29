@@ -39,6 +39,9 @@ span {
 
 #authModal {
   height: 100%;
+  margin-right: 600px;
+  margin-left: 60px;
+  margin-bottom: 100px;
 }
 
 #submitBtn {
