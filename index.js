@@ -9,7 +9,7 @@ const routes = require("./routes");
 const dbController = require("./controllers/dbController")
 
 // Database setup
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true}, (err, db) => {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false}, (err, db) => {
   if (err) console.log(err);
 });
 
@@ -48,10 +48,10 @@ io.on('connection', function (socket) {
 
   socket.on("sendMessage", function (data) {
     console.log("sendMessage got hit on the server", data);
-    dbController.sendMessage(data, chatData => {
+    dbController.sendMessage(data, lastMessage => {
       console.log("Back to socket on server")
-      console.log(chatData)
-      socket.emit("messageResponse", {chatData})
+      console.log(lastMessage)
+      socket.emit("messageResponse", {lastMessage})
     })
   });
 

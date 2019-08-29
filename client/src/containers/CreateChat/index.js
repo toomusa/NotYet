@@ -14,7 +14,7 @@ class CreateChat extends Component {
   // }
 
   onSubmit = formProps => {
-    let userId = this.props.state.db.Users._id
+    let userId = this.props.state.db.Users.id
     console.log(userId)
     let formData = {...formProps, userId}
     console.log(formData)
@@ -34,8 +34,11 @@ class CreateChat extends Component {
     this.props.socket.on("channelResponse", (data) => {
       console.log("channelresponse frontend hit")
       console.log(data)
-      this.props.createChannel(data)
-      
+      this.props.createChannel(data, () => {
+        console.log("back to create channel")
+        console.log(data.Channels._id)
+        this.props.selectchat(data.Channels._id)
+      })
     })
   }
 

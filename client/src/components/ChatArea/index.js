@@ -40,6 +40,39 @@ class ChatArea extends Component {
     ReactDOM.findDOMNode(chatTextArea).scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
   }
 
+  renderMessages = () => {
+      let messages = this.props.state.db.ActiveChannel.messages;
+      console.log(messages)
+      if (this.props.state.db.ActiveChannel.messages && this.props.state.db.ActiveChannel.messages.length !== 0) {
+        return (
+          messages.map((message, index) =>
+            <div className="chat-message" key={index}>
+              <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
+              <div className="chat-message-content">
+                <a href="/" className="chat-message-author">{message.sender.username}</a>
+                <span className="chat-message-date">{message.date}</span>
+                <div className="chat-message-message">
+                  {message.sent_messages.content}
+                </div>
+              </div>
+            </div>
+          )
+        )
+      } else {
+        return (
+          <div className="chat-message">
+            <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
+            <div className="chat-message-content">
+              <a href="/" className="chat-message-author">Admin</a>
+              <span className="chat-message-date">{this.state.messageObj.timestamp}</span>
+              <div className="chat-message-message">Your new channel is created! 
+              </div>
+            </div>
+          </div>
+        )
+      }
+  }
+
   render() {
     return (
       <div id="page">
@@ -56,18 +89,7 @@ class ChatArea extends Component {
           <div className="chat-body scroll-hijack" id="chat-text-area">
             {/* REPEATING BLOCK ELEMENT */}
             {!this.isEmpty(this.props.state.db.ActiveChannel)
-              ? this.props.state.db.ActiveChannel.temp_messages.map((message, index) =>
-                <div className="chat-message" key={index}>
-                  <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
-                  <div className="chat-message-content">
-                    <a href="/" className="chat-message-author">{this.state.messageObj.username}</a>
-                    <span className="chat-message-date">{this.state.messageObj.timestamp}</span>
-                    <div className="chat-message-message">
-                      {message}
-                    </div>
-                  </div>
-                </div>
-              )
+              ? this.renderMessages()
               :
               <div className="chat-message">
                 <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
@@ -83,7 +105,13 @@ class ChatArea extends Component {
             {!this.isEmpty(this.props.state.db.ActiveChannel) ?
               <div className="chat-footer footer-sticky relative">
                 <div id="message-form">
-                  <MessageText className="messageArea post-input" socket={this.props.socket} chatId={this.isEmpty(this.props.state.db.ActiveChannel) || this.props.state.db.ActiveChannel._id} />
+                  <MessageText 
+                    className="messageArea post-input" 
+                    socket={this.props.socket} 
+                    userId={localStorage.getItem("userId")}
+                    adminId={this.isEmpty(this.props.state.db.ActiveChannel) || this.props.state.db.ActiveChannel.admin}
+                    chatId={this.isEmpty(this.props.state.db.ActiveChannel) || this.props.state.db.ActiveChannel._id} 
+                    />
                 </div>
               </div>
               : <div></div>

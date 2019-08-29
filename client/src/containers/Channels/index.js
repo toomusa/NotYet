@@ -98,7 +98,12 @@ class Channels extends Component {
           ))}
 
         </ul>
-        <CreateChat socket={this.props.socket} modal={this.state.modal} toggle={this.toggle} />
+        <CreateChat 
+          socket={this.props.socket} 
+          modal={this.state.modal} 
+          toggle={this.toggle} 
+          selectchat={this.props.selectchat}
+          />
       </div >
     )
   }
