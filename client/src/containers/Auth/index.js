@@ -21,12 +21,10 @@ class Auth extends Component {
 
   renderSignup() {
     this.setState({ btn: false })
-    console.log(this.state)
   }
 
   renderSignin() {
     this.setState({ btn: true })
-    console.log(this.state)
   }
 
   render() {

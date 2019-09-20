@@ -39,7 +39,7 @@ class HomePg extends Component {
           <Grid>
           <div className="whatMsg">
             <h4>
-              WHAT IS IT
+              <span className="homePageTitle">WHAT IS IT</span>
               <br></br>
               <br></br>
               NotYet is a chat application for movie and TV show enthusiasts.
@@ -50,7 +50,7 @@ class HomePg extends Component {
           <Preview />
           <div className="howMsg">
             <h4>
-              HOW IT WORKS            
+              <span className="homePageTitle">HOW IT WORKS</span>      
               <br></br>
               <br></br>
               When you create a channel, you can choose which movie or TV show will be the primary topic.
@@ -61,7 +61,7 @@ class HomePg extends Component {
           <Preview2 />
           <div className="doMsg">
             <h4>
-              JOIN TODAY           
+              <span className="homePageTitle">JOIN TODAY</span>
               <br></br>
               <br></br>
               You can chat with others who enjoy your the same motion pictures,
@@ -70,7 +70,7 @@ class HomePg extends Component {
               and more.
               <br></br>
               <br></br>
-              This app is a work in progress and we're very excited to bring it to Market.
+              This app is a work in progress and we're very excited to bring it to market.
               Be an early adopter and Sign up today!
             </h4>
           </div>

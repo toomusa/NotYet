@@ -36,12 +36,11 @@ export const updateChannels = (data) => async dispatch => {
   }
 }
 
-export const createChannel = (data, cb) => async dispatch => {
+export const createChannel = data => async dispatch => {
   let { Users, Channels } = data
   try {
       dispatch({ type: CREATE_CHANNEL, payload: Channels });
       dispatch({ type: LOAD_USER, payload: Users });
-      cb()
   } catch (e) {
       dispatch({ type: CREATE_CHANNEL, payload: "Error: saving new channel to store" });
   }
