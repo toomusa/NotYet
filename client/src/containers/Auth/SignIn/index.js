@@ -29,7 +29,7 @@ class SignIn extends Component {
         <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
             <div className="form-group">
-              <label for="email" id="labelColor">EMAIL</label>
+              <label id="labelColor">EMAIL</label>
               <Field
                 name="email"
                 type="text"
@@ -39,7 +39,7 @@ class SignIn extends Component {
               />
             </div>
             <div className="form-group">
-              <label for="password" id="labelColor">PASSWORD</label>
+              <label id="labelColor">PASSWORD</label>
               <Field
                 name="password"
                 type="password"

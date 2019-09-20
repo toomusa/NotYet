@@ -25,6 +25,7 @@ class Channels extends Component {
 
   state = {
     modal: false,
+    unmount: true,
     images: []
   }
 
@@ -34,26 +35,10 @@ class Channels extends Component {
     });
   }
 
-  randomNum() {
-    return Math.floor(Math.random()*this.state.images.length)
-  }
-
   componentDidMount() {
     this.setState({
-      images: this.shuffle(images)
+      images: images
     })
-  }
-
-  shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-      while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-    return array;
   }
 
   render() {
@@ -63,32 +48,31 @@ class Channels extends Component {
           <ProfileButton/>
           <AddButton socket={this.props.socket} toggle={this.toggle}/>
           {this.props.state.db.Channels.map( (channel, index) => (
-              <Channel 
-                date={channel.date}
-                public={channel.public} 
-                starred={channel.starred}
-                id={channel._id}
-                topic={channel.topic}
-                description={channel.description}
-                friends={channel.friends}
-                admin={channel.admin}
-                muted={channel.muted} // from User table?
-                media={this.state.images[index]}
-                deleted={channel.deleted}
-                messages={channel.messages}
-                members={channel.members}
-                media_ref={channel.media_ref} 
-                selectchat={this.props.selectchat}
-                key={index}
-              />
+            <Channel 
+              date={channel.date}
+              public={channel.public} 
+              starred={channel.starred}
+              id={channel._id}
+              topic={channel.topic}
+              description={channel.description}
+              friends={channel.friends}
+              admin={channel.admin}
+              muted={channel.muted} // from User table?
+              media={this.state.images[index]}
+              deleted={channel.deleted}
+              messages={channel.messages}
+              members={channel.members}
+              media_ref={channel.media_ref} 
+              selectchat={this.props.selectchat}
+              key={index}
+            />
           ))}
-
         </ul>
         <CreateChat 
           socket={this.props.socket} 
           modal={this.state.modal} 
           toggle={this.toggle} 
-          selectchat={this.props.selectchat}
+          unmount={this.state.unmount}
           />
       </div >
     )

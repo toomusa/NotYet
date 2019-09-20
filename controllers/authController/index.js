@@ -13,7 +13,6 @@ const tokenForUser = user => {
 
 module.exports = {
     signUp: async (req, res) => {
-        console.log("inside signup authcontroller")
         const { email, password } = req.body;
         if (!email || !password) return res.status(422).json({error: "You must provide an email and password"});
         
@@ -24,7 +23,6 @@ module.exports = {
             let user = await new db.User(newUserInfo);
             user.save();
             
-            console.log(user)
             let userData = {};
             userData.id = user._id;
             userData.username = user.username;
@@ -35,7 +33,6 @@ module.exports = {
             userData.friends = user.friends;
             userData.favorite_shows = user.favorite_shows;
             userData.favorite_movies = user.favorite_movies;
-            console.log(userData)
             
             // res.json({token: tokenForUser(user)});
             res.json({userData: userData, token: tokenForUser(user)});
@@ -45,7 +42,6 @@ module.exports = {
         }
     },
     signIn: (req, res) => {
-        console.log(req.user)
 
         let userData = {};
         userData.id = req.user._id;

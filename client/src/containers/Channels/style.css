@@ -12,6 +12,7 @@
   -ms-overflow-style: none; 
   scrollbar-width: none;  
   margin-left: 35px;
+  padding-bottom: 100px;
 }
 
 #sidebar::-webkit-scrollbar { 
