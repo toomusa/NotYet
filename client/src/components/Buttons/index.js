@@ -12,7 +12,7 @@ export function AddButton (props) {
             data-toggle="tooltip" 
             data-placement="right" 
             data-title="Join a Group">
-          <img src="https://icons.iconarchive.com/icons/gakuseisean/ivista-2/128/Alarm-Plus-icon.png" alt=""></img>
+          <img src="https://www.freeiconspng.com/uploads/blue-plus-icon-6.png" alt=""></img>
     </span></li>
   )
 }
