@@ -1,18 +1,19 @@
 
 import React from "react";
-import Header from "./components/Header";
-import logo from "./assets/images/logo.png"
+// import Header from "./components/Header";
+// import logo from "./assets/images/logo.png";
+// import { Link } from 'react-router-dom';
 import "./style.css"
 
 const App = (props) => {
     return (
         <div>
-            <div id="header-container">
+            {/* <div id="header-container">
                 <div id="logo-image">
-                    <img src={logo} alt=""></img>
+                    <Link to="/"><img src={logo} alt=""></img></Link>
                 </div>
                 <Header />
-            </div>
+            </div> */}
             {props.children}
         </div>
     )

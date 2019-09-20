@@ -36,39 +36,29 @@ app.use(routes, (req, res) => {
 io.on('connection', function (socket) {
 
   socket.emit("connected", {socket: "connected"}, function (data) {
-    console.log(data)
+    // console.log(data)
   })
 
   socket.on("connection", function (data, cb) {
-    console.log("Server Socket is connected")
+    // console.log("Server Socket is connected")
     cb(data)
-    socket.on("disconnect", () => console.log("Client disconnected"))
+    socket.on("disconnect", () => {})
   })
 
-
   socket.on("sendMessage", function (data) {
-    console.log("sendMessage got hit on the server", data);
     dbController.sendMessage(data, lastMessage => {
-      console.log("Back to socket on server")
-      console.log(lastMessage)
       socket.emit("messageResponse", {lastMessage})
     })
   });
 
   socket.on("createChannel", async (data) => {
-    console.log("createChannel got hit on the server", data);
     dbController.createChannel(data, response => {
-      console.log("Back to socket on server")
-      console.log(response)
       socket.emit("channelResponse", response)
     })
   })
   
   socket.on("loadDashboard", async (data, cb) => {
-    console.log("loadDashboard got hit on the server", data);
     dbController.loadDashboard(data, response => {
-      console.log("Back to socket on server")
-      console.log(response)
       cb(response)
     })
   })

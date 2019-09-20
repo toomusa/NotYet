@@ -23,28 +23,17 @@ export class MessageText extends Component {
 
   sendMessage(content, chatId, userId, adminId) {
     let message = {content, chatId, userId, adminId}
-    console.log(message)
-    this.props.socket.emit("sendMessage", message, function(chatData) {
-      console.log(chatData)
-    })
+    this.props.socket.emit("sendMessage", message)
   }
 
   componentDidMount = () => {
     this.props.socket.on("messageResponse", (lastMessage) => {
-      console.log("messageResponse frontend hit")
-      console.log(lastMessage)
-      this.props.receivedMessage(lastMessage, () => {
-        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-      })
-      this.props.updateChannels(lastMessage, () => {
-        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-      })
+      this.props.receivedMessage(lastMessage)
+      this.props.updateChannels(lastMessage)
     })
   }
 
   handleFormKeyDown(e) {
-    // Form can be submitted through the input message textarea too!
-    // That is by using the Enter key (Shift-Enter for new lines).
     if (e.keyCode === 13 && !e.shiftKey) {
       this.handleSendTextMessage(e);
     }
@@ -94,25 +83,3 @@ const mapStateToProps = function mapStateToProps(state) {
 };
 
 export default connect(mapStateToProps, { receivedMessage, updateChannels })(MessageText);
-
-
-
-
-
-// import React from "react";
-// import "./style.css";
-
-// const MessageText = props => (
-//     <div id="page">
-//         <div id="chat" className="page">
-//         <div className="chat-footer relative">
-//                 <form id="message-form" action="">
-//                     <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." />
-//                     <button type="submit" className="post-button messageSubmit"><span className="caret-right"></span></button>
-//                 </form>
-//             </div>
-//         </div>
-//     </div>
-// );
-
-// export default MessageText; 

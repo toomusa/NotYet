@@ -17,6 +17,9 @@ import Wrapper from './components/Wrapper';
 import Explorer from './pages/ExplorerPg';
 import './style.css';
 import SignOut from './containers/SignOut';
+import Header from "./components/Header";
+import logo from "./assets/images/logo.png";
+import { Link } from 'react-router-dom';
 
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -32,13 +35,13 @@ const store = createStore(
 const socket = io();
 
 socket.emit("connection", { socket: "connected" }, function (data) {
-    console.log(data)
+    // console.log(data)
 })
 
 socket.on("connected", function (data, cb) {
-    console.log("Client Socket is connected")
+    // console.log("Client Socket is connected")
     cb(data)
-    socket.on("disconnect", () => console.log("Server disconnected"))
+    socket.on("disconnect", () => {})
 })
 
 
@@ -48,6 +51,12 @@ ReactDOM.render(
         <Router history={history}>
             <Wrapper>
                 <App>
+                <div id="header-container">
+                    <div id="logo-image">
+                        <Link to="/"><img src={logo} alt=""></img></Link>
+                    </div>
+                    <Header />
+                </div>
                     <Route exact path="/" render={() => <HomePg socket={socket} />} />
                     <Route exact path="/dashboard" render={() => <DashboardPg socket={socket} />} />
                     <Route exact path="/profile" render={() => <ProfilePg socket={socket} />} />
