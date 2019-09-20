@@ -369,7 +369,7 @@ let data =
             "name": "Comedy"
         }
     ],
-    "homepage": "http://www.cbs.com/shows/how_i_met_your_mother/",
+    "homepage": "https://www.cbs.com/shows/how_i_met_your_mother/",
     "id": 1100,
     "in_production": false,
     "languages": [
