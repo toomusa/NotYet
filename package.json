@@ -1,5 +1,5 @@
 {
-  "name": "Oauth-React-Boilerplate",
+  "name": "NotYet",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -39,11 +39,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/toomusa/Oauth-React-Boilerplate.git"
+    "url": "git+ssh://git@github.com/toomusa/NotYet.git"
   },
   "bugs": {
-    "url": "https://github.com/toomusa/Oauth-React-Boilerplate/issues"
+    "url": "https://github.com/toomusa/NotYet/issues"
   },
-  "homepage": "https://github.com/toomusa/Oauth-React-Boilerplate#readme",
   "description": ""
 }
