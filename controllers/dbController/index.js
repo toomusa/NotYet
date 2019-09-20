@@ -10,11 +10,7 @@ function isEmpty(obj) {
 }
 
 const sendMessage = async (data, callback) => {
-  console.log("Inside the controller sendMessage")
-  console.log(data)
-
   let { content, chatId, userId, adminId } = data
-
   let newMessage = await db.Message.create({ 
     sender: userId,
     content: content,
@@ -39,20 +35,13 @@ const sendMessage = async (data, callback) => {
             ref_channel: chatId
           }}}, {new: true})
 
-  console.log("updatedUser")
-  console.log(updatedUser)
-
   if (!isEmpty(chatData)) {
     let lastMessage = {chatId: chatData._id, messages: chatData.messages.pop()}
-    console.log("lastMessage")
-    console.log(lastMessage)
     callback(lastMessage)
   }
 }
 
 const createChannel = async (data, callback) => {
-  console.log("I'm inside the controller createChannel")
-  console.log(data)
   let { userId } = data
 
   return new Promise( async (resolve, reject) => {
@@ -84,8 +73,6 @@ const createChannel = async (data, callback) => {
     
     if (channelResponse && updatedUser) {
       let channelData = {Channels: channelResponse, Users: updatedUser};
-      console.log("channelData")
-      console.log(channelData)
       resolve();
       callback(channelData)
     }
@@ -93,9 +80,7 @@ const createChannel = async (data, callback) => {
 }
 
 const loadDashboard = async (data, callback) => {
-  console.log("I'm inside the controller loadDashboard")
   let userId = data
-  console.log(userId)
 
   return new Promise( async (resolve, reject) => {
     let userData;
@@ -120,8 +105,6 @@ const loadDashboard = async (data, callback) => {
     
     if (userData && channelData) {
       let dashboardData = {Users: userData, Channels: channelData};
-      console.log("dashboardData")
-      console.log(dashboardData)
       resolve();
       callback(dashboardData)
     } else {reject()}
@@ -131,41 +114,6 @@ const loadDashboard = async (data, callback) => {
 module.exports = { createChannel, sendMessage, loadDashboard };
 
 
-
-// const db     = require("../../models");
-// const config = require("../../config");
-// const Messages = require("../../models/messagesModel")
-
-// //USER FUNCTIONS
-// const signUp = async (req, res) => {}
-// const signIn = async (req, res) => {}
-// const Logout = async (req, res) => {}
-// const saveShow = async (req, res) => {}
-// const saveMovie = async (req, res) => {}
-
-// // CHANNEL FUNCTIONS
-// const addChannel = async (req, res) => {} //create channel
-// const inviteToChannel = async (req, res) => {}
-// const receiveInvite = async (req, res) => {}
-
-// // MESSAGE FUNCTIONS
-// const sendMessage = async (req, res) => {
-//   //when send message, all other users but you must get message
-//   //message must be stored in message database, grabbing user info
-//   console.log(req.body);
-//   let {user, channel, content} = req.body;
-//   console.log("i'm hit")
-//   let newMessage = {};
-//     newMessage.user = user;
-//     newMessage.channel = channel;
-//     newMessage.content = content;
-//   let resp = await Messages.create(newMessage);
-//     try {
-//       console.log(resp +" added"); 
-//     } catch (error) {
-//       console.log(error)
-//     } 
-//   }
 //   const addShows = async (req, res) => {
 //     console.log(req.body);
 //     let {showId, name, next_episode_to_air, episode_number, overview, season_number} = req.body;
@@ -203,31 +151,3 @@ module.exports = { createChannel, sendMessage, loadDashboard };
 //             console.log(error)
 //         }
 //     }
-// console.log("hi")
-// module.exports = {addMovies, addShows, sendMessage}
-//   // let newNote = await Note.create(note);
-//   //          let articleWithNote = await Article.findByIdAndUpdate(_id, {$push: {note: newNote._id}}, {new: true})
-
-
-  // let newNote = await Note.create(note);
-  //          let articleWithNote = await Article.findByIdAndUpdate(_id, {$push: {note: newNote._id}}, {new: true})
-
-
-// // a user can:
-// // - sign up
-// // - login
-// // - logout
-// // - create channels
-// // - view one chat (channel) at a time ??
-// // - be invited to a channel
-// // - invite others to any channel they are active(?) 
-// // - write messages
-// // - search a list of movies and show  
-// // - can save a show or movie as a favorites
-// // - can create a channel based on search results 
-// // - write a review
-// //   - no reviews no spoilers
-// // - rate an episode when you mark watched 
-// // - mute channel?
-// // - unmute channel?
-// // - leave a chat and see old history in archive

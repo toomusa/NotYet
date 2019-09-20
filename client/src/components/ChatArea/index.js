@@ -33,7 +33,6 @@ class ChatArea extends Component {
   }
 
   scrollToBottom = () => {
-    // console.log("scroll to bottom")
     let chatTextArea = document.getElementById("scrollbar")
     const scrollHeight = chatTextArea.scrollHeight;
     const height = chatTextArea.clientHeight;
@@ -43,14 +42,13 @@ class ChatArea extends Component {
 
   renderMessages = () => {
       let messages = this.props.state.db.ActiveChannel.messages;
-      console.log(messages)
       if (this.props.state.db.ActiveChannel.messages && this.props.state.db.ActiveChannel.messages.length !== 0) {
         return (
           messages.map((message, index) =>
             <div className="chat-message" key={index}>
               <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
               <div className="chat-message-content">
-                <a href="/" className="chat-message-author">{message ? message.sender.username : "loser"}</a>
+                <span className="chat-message-author">{message ? message.sender.username : "loser"}</span>
                 <span className="chat-message-date">{moment(message.date).format("ddd | MMM D | h:m A")}</span>
                 <div className="chat-message-message">
                   {message ? message.sent_messages.content : "you message didn't come through"}
@@ -64,7 +62,7 @@ class ChatArea extends Component {
           <div className="chat-message">
             <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
             <div className="chat-message-content">
-              <a href="/" className="chat-message-author">Admin</a>
+              <span className="chat-message-author">Admin</span>
               <span className="chat-message-date">{this.state.messageObj.timestamp}</span>
               <div className="chat-message-message">Your new channel is created! 
               </div>
@@ -95,7 +93,7 @@ class ChatArea extends Component {
               <div className="chat-message">
                 <div className="avatar"><img src={this.state.messageObj.profile} alt="" height="30px" /></div>
                 <div className="chat-message-content">
-                  <a href="/" className="chat-message-author">Admin</a>
+                  <span className="chat-message-author">Admin</span>
                   <span className="chat-message-date">{this.state.messageObj.timestamp}</span>
                   <div className="chat-message-message">Hey buddy, select a channel from the left to chat!
                   </div>
@@ -125,7 +123,6 @@ class ChatArea extends Component {
 };
 
 function mapStateToProps(state) {
-  //grab messages from state
   return { state }
 }
 

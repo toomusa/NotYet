@@ -4,14 +4,8 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import "./style.css";
-import { updateCurrentPage } from '../../actions/dbActions';
 
 class Navbar extends Component {
-
-  componentDidUpdate() {
-    console.log(this.props.state.db.Admin.currentPath)
-  }
-  
 
   render() {
     return (
@@ -22,9 +16,7 @@ class Navbar extends Component {
             {this.props.state.db.Admin.currentPath === "/dashboard"
               ? <span><img src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" />Dashboard</span>
               : <span>{'\u00A0'}{'\u00A0'}Dashboard</span>
-            }
-          </Link>
-          </li>
+            }</Link></li>
 
           <li><Link to="/explorer" className="iconImage">
             {this.props.state.db.Admin.currentPath === "/explorer"
@@ -38,7 +30,7 @@ class Navbar extends Component {
               : <span>{'\u00A0'}{'\u00A0'}Profile</span>
             }</Link></li>
 
-          <li><Link to="/logout">
+          <li><Link to="/logout" className="iconImage">
             {this.props.state.db.Admin.currentPath === "/logout"
               ? <span><img src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" />Logout</span>
               : <span>{'\u00A0'}{'\u00A0'}Logout</span>
@@ -55,5 +47,5 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-  connect(mapStateToProps, { updateCurrentPage }),
+  connect(mapStateToProps, {}),
 )(Navbar);

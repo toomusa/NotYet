@@ -92,9 +92,9 @@ class Preview extends Component {
     );
 
     return (
-      <header>
+      <div className="previewDiv">
         <div className="popular">{moviesList}</div>
-      </header>
+      </div>
     );
   }
 }
