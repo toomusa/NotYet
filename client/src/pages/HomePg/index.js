@@ -39,6 +39,9 @@ class HomePg extends Component {
           <Grid>
           <div className="whatMsg">
             <h4>
+              <span id="note">( For guest access, use email: guest@guest.com password: guest )</span>
+              <br></br>
+              <br></br>
               <span className="homePageTitle">WHAT IS IT</span>
               <br></br>
               <br></br>
